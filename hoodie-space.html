@@ -6,41 +6,112 @@
     <title>Space Galaxy Hoodie - Velzorix</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0a0a0a; color: #fff; }
-        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
-        .back-btn { color: #8b5cf6; text-decoration: none; font-size: 16px; margin-bottom: 20px; display: inline-block; }
-        .product-img { width: 100%; border-radius: 12px; margin-bottom: 20px; }
-        h1 { font-size: 32px; margin-bottom: 10px; }
-        .price { font-size: 28px; color: #8b5cf6; font-weight: bold; margin-bottom: 20px; }
-        .desc { line-height: 1.6; color: #ccc; margin-bottom: 30px; }
-        .order-btn { background: #25D366; color: #fff; padding: 18px 30px; border-radius: 12px; text-decoration: none; font-size: 18px; font-weight: bold; display: block; text-align: center; }
-        .order-btn:hover { background: #1da851; }
-        .details { margin-top: 30px; padding: 20px; background: #1a1a1a; border-radius: 12px; }
-        .details h3 { margin-bottom: 10px; color: #8b5cf6; }
-        .details ul { list-style: none; color: #ccc; }
-        .details li { margin-bottom: 8px; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #fff; color: #0f1111; }
+        .header { background: #131921; padding: 12px 20px; }
+        .header-logo { color: #fff; font-size: 24px; font-weight: bold; }
+        .header-logo span { color: #00a8e1; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .back-link { color: #007185; text-decoration: none; font-size: 14px; margin-bottom: 20px; display: inline-block; }
+        .back-link:hover { color: #c7511f; text-decoration: underline; }
+        .product-grid { display: grid; grid-template-columns: 1fr; gap: 30px; }
+        @media(min-width: 768px) { .product-grid { grid-template-columns: 1fr 1fr; } }
+        .product-img { width: 100%; border-radius: 8px; }
+        .product-title { font-size: 24px; font-weight: 400; line-height: 32px; margin-bottom: 8px; }
+        .brand { color: #007185; font-size: 14px; margin-bottom: 8px; }
+        .rating { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+        .stars { color: #ffa41c; font-size: 18px; }
+        .rating-count { color: #007185; font-size: 14px; }
+        .price-section { border-top: 1px solid #e7e7e7; padding-top: 14px; margin: 14px 0; }
+        .currency { font-size: 13px; vertical-align: top; }
+        .price { font-size: 28px; font-weight: 400; }
+        .buy-box { border: 1px solid #d5d9d9; border-radius: 8px; padding: 18px; }
+        .price-buy { font-size: 28px; margin-bottom: 12px; }
+        .delivery { color: #007600; font-size: 14px; line-height: 20px; margin-bottom: 12px; }
+        .delivery b { color: #007600; }
+        .stock { color: #007600; font-size: 18px; margin-bottom: 12px; }
+        .qty-label { font-size: 14px; margin-bottom: 8px; }
+        .qty-select { width: 100%; padding: 8px; border: 1px solid #d5d9d9; border-radius: 8px; font-size: 14px; margin-bottom: 12px; }
+        .order-btn { background: #ffd814; border: 1px solid #fcd200; color: #0f1111; padding: 12px; border-radius: 20px; text-decoration: none; font-size: 14px; display: block; text-align: center; margin-bottom: 8px; }
+        .order-btn:hover { background: #f7ca00; }
+        .whatsapp-btn { background: #25D366; border: none; color: #fff; padding: 12px; border-radius: 20px; text-decoration: none; font-size: 14px; font-weight: bold; display: block; text-align: center; }
+        .whatsapp-btn:hover { background: #1da851; }
+        .desc { margin-top: 30px; line-height: 20px; font-size: 14px; }
+        .desc h3 { font-size: 16px; margin-bottom: 12px; }
+        .desc ul { margin-left: 18px; }
+        .desc li { margin-bottom: 6px; }
     </style>
 </head>
 <body>
+    <div class="header">
+        <div class="header-logo">VELZORI<span>X</span></div>
+    </div>
+    
     <div class="container">
-        <a href="index.html" class="back-btn">← Back to Store</a>
-        <img src="hoodie-space.jpg" alt="Space Galaxy Hoodie" class="product-img">
-        <h1>Space Galaxy Hoodie</h1>
-        <div class="price">$89.00</div>
-        <p class="desc">Premium oversized hoodie with stunning galaxy print. Ultra-soft fleece interior, kangaroo pocket, and adjustable drawstring hood. Perfect for streetwear looks.</p>
+        <a href="index.html" class="back-link">← Back to results</a>
         
-        <a href="https://wa.me/+256778003397?text=Hi!%20I%20want%20to%20order%20the%20Space%20Galaxy%20Hoodie%20$89" class="order-btn">Order on WhatsApp</a>
-        
-        <div class="details">
-            <h3>Product Details</h3>
-            <ul>
-                <li>• Material: 80% Cotton, 20% Polyester</li>
-                <li>• Fit: Oversized</li>
-                <li>• Sizes: S, M, L, XL, XXL</li>
-                <li>• Care: Machine wash cold</li>
-                <li>• Ships worldwide in 3-5 days</li>
-            </ul>
+        <div class="product-grid">
+            <div>
+                <img src="hoodie-space.jpg" alt="Space Galaxy Hoodie" class="product-img">
+            </div>
+            
+            <div>
+                <h1 class="product-title">Space Galaxy Hoodie - Premium Streetwear Pullover, Embroidered Logo, Unisex Fit</h1>
+                <div class="brand">Brand: Velzorix Fashion</div>
+                
+                <div class="rating">
+                    <span class="stars">★★★★☆</span>
+                    <span class="rating-count">4.7 out of 5 stars</span>
+                    <span class="rating-count">89 ratings</span>
+                </div>
+                
+                <div class="price-section">
+                    <span class="currency">UGX</span>
+                    <span class="price">350,000</span>
+                </div>
+                
+                <div class="buy-box">
+                    <div class="price-buy"><span class="currency">UGX</span> 350,000</div>
+                    
+                    <div class="delivery">
+                        <b>FREE delivery</b> Tomorrow to Kampala<br>
+                        Or fastest delivery Today
+                    </div>
+                    
+                    <div class="stock">In Stock</div>
+                    
+                    <div class="qty-label">Quantity:</div>
+                    <select class="qty-select" id="qty">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                    
+                    <a href="#" onclick="orderWhatsApp()" class="whatsapp-btn">Order on WhatsApp</a>
+                </div>
+                
+                <div class="desc">
+                    <h3>About this item</h3>
+                    <ul>
+                        <li>Premium 350 GSM cotton blend fleece for maximum comfort</li>
+                        <li>Unique galaxy print design with embroidered Velzorix logo</li>
+                        <li>Oversized unisex fit - available in S, M, L, XL, XXL</li>
+                        <li>Kangaroo pocket + adjustable drawstring hood</li>
+                        <li>Pre-shrunk fabric - machine wash cold</li>
+                        <li>Ships worldwide in 3-5 business days</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
+
+    <script>
+        function orderWhatsApp() {
+            const qty = document.getElementById('qty').value;
+            const msg = `Hi! I want to order the Space Galaxy Hoodie UGX 350,000 x ${qty}`;
+            window.open(`https://wa.me/256XXXXXXXXX?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+    </script>
 </body>
 </html>
