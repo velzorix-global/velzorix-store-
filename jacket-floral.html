@@ -3,44 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Floral Statement Jacket - Velzorix</title>
+    <title>Floral Denim Jacket - Velzorix Online Market</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0a0a0a; color: #fff; }
-        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
-        .back-btn { color: #8b5cf6; text-decoration: none; font-size: 16px; margin-bottom: 20px; display: inline-block; }
-        .product-img { width: 100%; border-radius: 12px; margin-bottom: 20px; }
-        h1 { font-size: 32px; margin-bottom: 10px; }
-        .price { font-size: 28px; color: #8b5cf6; font-weight: bold; margin-bottom: 20px; }
-        .desc { line-height: 1.6; color: #ccc; margin-bottom: 30px; }
-        .order-btn { background: #25D366; color: #fff; padding: 18px 30px; border-radius: 12px; text-decoration: none; font-size: 18px; font-weight: bold; display: block; text-align: center; }
-        .order-btn:hover { background: #1da851; }
-        .details { margin-top: 30px; padding: 20px; background: #1a1a1a; border-radius: 12px; }
-        .details h3 { margin-bottom: 10px; color: #8b5cf6; }
-        .details ul { list-style: none; color: #ccc; }
-        .details li { margin-bottom: 8px; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #fff; color: #0f1111; }
+        .header { background: #131921; padding: 12px 20px; }
+        .header-logo { color: #fff; font-size: 24px; font-weight: bold; }
+        .header-logo span { color: #00a8e1; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .back-link { color: #007185; text-decoration: none; font-size: 14px; margin-bottom: 20px; display: inline-block; }
+        .back-link:hover { color: #c7511f; text-decoration: underline; }
+        .product-grid { display: grid; grid-template-columns: 1fr; gap: 30px; margin-bottom: 40px; }
+        @media(min-width: 768px) { .product-grid { grid-template-columns: 35% 1fr; } }
+        .product-img { width: 100%; max-width: 350px; border-radius: 8px; margin: 0 auto; display: block; }
+        .product-title { font-size: 24px; font-weight: 400; line-height: 32px; margin-bottom: 8px; }
+        .brand { color: #007185; font-size: 14px; margin-bottom: 8px; }
+        .rating { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+        .stars { color: #ffa41c; font-size: 18px; }
+        .rating-count { color: #007185; font-size: 14px; }
+        .price-section { border-top: 1px solid #e7e7e7; padding-top: 14px; margin: 14px 0; }
+        .currency { font-size: 13px; vertical-align: top; }
+        .price { font-size: 28px; font-weight: 400; }
+        .buy-box { border: 1px solid #d5d9d9; border-radius: 8px; padding: 18px; }
+        .price-buy { font-size: 28px; margin-bottom: 12px; }
+        .delivery { color: #007600; font-size: 14px; line-height: 20px; margin-bottom: 12px; }
+        .delivery b { color: #007600; }
+        .stock { color: #007600; font-size: 18px; margin-bottom: 12px; }
+        .qty-label { font-size: 14px; margin-bottom: 8px; }
+        .qty-select { width: 100%; padding: 8px; border: 1px solid #d5d9d9; border-radius: 8px; font-size: 14px; margin-bottom: 12px; }
+        .whatsapp-btn { background: #25D366; border: none; color: #fff; padding: 12px; border-radius: 20px; text-decoration: none; font-size: 14px; font-weight: bold; display: block; text-align: center; }
+        .whatsapp-btn:hover { background: #1da851; }
+        .desc { margin-top: 30px; line-height: 20px; font-size: 14px; border-top: 1px solid #e7e7e7; padding-top: 20px; }
+        .desc h3 { font-size: 16px; margin-bottom: 12px; }
+        .desc ul { margin-left: 18px; }
+        .desc li { margin-bottom: 6px; }
+        .reviews { border-top: 1px solid #e7e7e7; padding-top: 30px; margin-top: 30px; }
+        .reviews h2 { font-size: 21px; margin-bottom: 20px; }
+        .review-summary { background: #f7f7f7; padding: 16px; border-radius: 8px; margin-bottom: 24px; }
+        .review-item { border-bottom: 1px solid #e7e7e7; padding: 20px 0; }
+        .review-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+        .review-avatar { width: 34px; height: 34px; border-radius: 50%; background: #232f3e; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px; }
+        .review-name { font-size: 13px; font-weight: 700; }
+        .review-stars { color: #ffa41c; font-size: 16px; margin: 4px 0; }
+        .review-title { font-weight: 700; font-size: 14px; margin-bottom: 6px; }
+        .review-date { color: #565959; font-size: 14px; margin-bottom: 8px; }
+        .review-text { font-size: 14px; line-height: 20px; color: #0f1111; }
+        .verified { color: #c45500; font-size: 12px; font-weight: 700; margin-top: 6px; }
     </style>
 </head>
 <body>
+    <div class="header"><div class="header-logo">VELZORI<span>X</span></div></div>
     <div class="container">
-        <a href="index.html" class="back-btn">← Back to Store</a>
-        <img src="jacket-floral.jpg" alt="Floral Statement Jacket" class="product-img">
-        <h1>Floral Statement Jacket</h1>
-        <div class="price">$145.00</div>
-        <p class="desc">Bold floral print bomber jacket. Lightweight satin finish with ribbed cuffs and collar. Makes any outfit pop. Unisex design.</p>
-        
-        <a href="https://wa.me/+256778003397?text=Hi!%20I%20want%20to%20order%20the%20Floral%20Statement%20Jacket%20$145" class="order-btn">Order on WhatsApp</a>
-        
-        <div class="details">
-            <h3>Product Details</h3>
-            <ul>
-                <li>• Material: Premium Satin Polyester</li>
-                <li>• Style: Bomber Jacket</li>
-                <li>• Sizes: S, M, L, XL, XXL</li>
-                <li>• Fit: Regular, Unisex</li>
-                <li>• Ships worldwide in 3-5 days</li>
-            </ul>
+        <a href="index.html" class="back-link">← Back to results</a>
+        <div class="product-grid">
+            <div><img src="jacket-floral.jpg" alt="Floral Denim Jacket" class="product-img"></div>
+            <div>
+                <h1 class="product-title">Floral Denim Jacket - Embroidered Design</h1>
+                <div class="brand">Brand: Velzorix Online Market</div>
+                <div class="rating"><span class="stars">★★★★☆</span><span class="rating-count">4.6 out of 5 stars</span><span class="rating-count">67 ratings</span></div>
+                <div class="price-section"><span class="currency">UGX</span><span class="price">80,000</span></div>
+                <div class="buy-box">
+                    <div class="price-buy"><span class="currency">UGX</span> 80,000</div>
+                    <div class="delivery"><b>FREE delivery</b> Tomorrow to Kampala<br>Or fastest delivery Today</div>
+                    <div class="stock">In Stock</div>
+                    <div class="qty-label">Quantity:</div>
+                    <select class="qty-select" id="qty"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+                    <a href="#" onclick="orderWhatsApp()" class="whatsapp-btn">Order on WhatsApp</a>
+                </div>
+            </div>
+        </div>
+        <div class="desc"><h3>About this item</h3><ul><li>Premium denim with vintage wash</li><li>Beautiful floral embroidery on back</li><li>Classic button-up front</li><li>Multiple pockets</li><li>Unisex fit - S, M, L, XL</li><li>Ships from Kampala in 1-2 business days</li></ul></div>
+        <div class="reviews">
+            <h2>Customer reviews</h2>
+            <div class="review-summary"><div class="rating"><span class="stars">★★★★☆</span><span style="font-size: 18px;">4.6 out of 5</span></div><div style="font-size: 14px; color: #565959;">67 global ratings</div></div>
+            <div class="review-item"><div class="review-header"><div class="review-avatar">A</div><div class="review-name">Aisha N.</div></div><div class="review-stars">★★★★★</div><div class="review-title">Gorgeous jacket!</div><div class="review-date">Reviewed in Uganda on 22 May 2026</div><div class="review-text">The embroidery is even better in person. Perfect for layering. Fits true to size.</div><div class="verified">Verified Purchase</div></div>
+            <div class="review-item"><div class="review-header"><div class="review-avatar">M</div><div class="review-name">Moses K.</div></div><div class="review-stars">★★★★☆</div><div class="review-title">Great quality denim</div><div class="review-date">Reviewed in Entebbe on 16 May 2026</div><div class="review-text">Solid denim, not too heavy. The floral design gets lots of compliments. Would buy again.</div><div class="verified">Verified Purchase</div></div>
         </div>
     </div>
+    <script>
+        function orderWhatsApp() {
+            const qty = document.getElementById('qty').value;
+            const msg = `Hi! I want to order the Floral Denim Jacket UGX 80,000 x ${qty}`;
+            window.open(`https://wa.me/256778003397?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+    </script>
 </body>
 </html>
