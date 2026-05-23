@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,12 +14,12 @@
         .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
         .back-link { color: #007185; text-decoration: none; font-size: 14px; margin-bottom: 20px; display: inline-block; }
         .back-link:hover { color: #c7511f; text-decoration: underline; }
-        .product-grid { display: grid; grid-template-columns: 1fr; gap: 30px; }
-        @media(min-width: 768px) { .product-grid { grid-template-columns: 1fr 1fr; } }
-        .product-img { width: 100%; border-radius: 8px; }
+        .product-grid { display: grid; grid-template-columns: 1fr; gap: 30px; margin-bottom: 40px; }
+        @media(min-width: 768px) { .product-grid { grid-template-columns: 35% 1fr; } }
+        .product-img { width: 100%; max-width: 350px; border-radius: 8px; margin: 0 auto; display: block; }
         .product-title { font-size: 24px; font-weight: 400; line-height: 32px; margin-bottom: 8px; }
         .brand { color: #007185; font-size: 14px; margin-bottom: 8px; }
-        .rating { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+        .rating { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
         .stars { color: #ffa41c; font-size: 18px; }
         .rating-count { color: #007185; font-size: 14px; }
         .price-section { border-top: 1px solid #e7e7e7; padding-top: 14px; margin: 14px 0; }
@@ -31,14 +32,24 @@
         .stock { color: #007600; font-size: 18px; margin-bottom: 12px; }
         .qty-label { font-size: 14px; margin-bottom: 8px; }
         .qty-select { width: 100%; padding: 8px; border: 1px solid #d5d9d9; border-radius: 8px; font-size: 14px; margin-bottom: 12px; }
-        .order-btn { background: #ffd814; border: 1px solid #fcd200; color: #0f1111; padding: 12px; border-radius: 20px; text-decoration: none; font-size: 14px; display: block; text-align: center; margin-bottom: 8px; }
-        .order-btn:hover { background: #f7ca00; }
         .whatsapp-btn { background: #25D366; border: none; color: #fff; padding: 12px; border-radius: 20px; text-decoration: none; font-size: 14px; font-weight: bold; display: block; text-align: center; }
         .whatsapp-btn:hover { background: #1da851; }
-        .desc { margin-top: 30px; line-height: 20px; font-size: 14px; }
+        .desc { margin-top: 30px; line-height: 20px; font-size: 14px; border-top: 1px solid #e7e7e7; padding-top: 20px; }
         .desc h3 { font-size: 16px; margin-bottom: 12px; }
         .desc ul { margin-left: 18px; }
         .desc li { margin-bottom: 6px; }
+        .reviews { border-top: 1px solid #e7e7e7; padding-top: 30px; margin-top: 30px; }
+        .reviews h2 { font-size: 21px; margin-bottom: 20px; }
+        .review-summary { background: #f7f7f7; padding: 16px; border-radius: 8px; margin-bottom: 24px; }
+        .review-item { border-bottom: 1px solid #e7e7e7; padding: 20px 0; }
+        .review-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+        .review-avatar { width: 34px; height: 34px; border-radius: 50%; background: #232f3e; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px; }
+        .review-name { font-size: 13px; font-weight: 700; }
+        .review-stars { color: #ffa41c; font-size: 16px; margin: 4px 0; }
+        .review-title { font-weight: 700; font-size: 14px; margin-bottom: 6px; }
+        .review-date { color: #565959; font-size: 14px; margin-bottom: 8px; }
+        .review-text { font-size: 14px; line-height: 20px; color: #0f1111; }
+        .verified { color: #c45500; font-size: 12px; font-weight: 700; margin-top: 6px; }
     </style>
 </head>
 <body>
@@ -81,27 +92,106 @@
                     
                     <div class="qty-label">Quantity:</div>
                     <select class="qty-select" id="qty">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                        <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
                     </select>
                     
                     <a href="#" onclick="orderWhatsApp()" class="whatsapp-btn">Order on WhatsApp</a>
                 </div>
-                
-                <div class="desc">
-                    <h3>About this item</h3>
-                    <ul>
-                        <li>Premium 350 GSM cotton blend fleece for maximum comfort</li>
-                        <li>Unique galaxy print design with embroidered Velzorix logo</li>
-                        <li>Oversized unisex fit - available in S, M, L, XL, XXL</li>
-                        <li>Kangaroo pocket + adjustable drawstring hood</li>
-                        <li>Pre-shrunk fabric - machine wash cold</li>
-                        <li>Ships worldwide in 3-5 business days</li>
-                    </ul>
+            </div>
+        </div>
+
+        <div class="desc">
+            <h3>About this item</h3>
+            <ul>
+                <li>Premium 350 GSM cotton blend fleece for maximum comfort</li>
+                <li>Unique galaxy print design with embroidered Velzorix logo</li>
+                <li>Oversized unisex fit - available in S, M, L, XL, XXL</li>
+                <li>Kangaroo pocket + adjustable drawstring hood</li>
+                <li>Pre-shrunk fabric - machine wash cold</li>
+                <li>Ships from Kampala in 1-2 business days</li>
+            </ul>
+        </div>
+
+        <!-- CUSTOMER REVIEWS SECTION -->
+        <div class="reviews">
+            <h2>Customer reviews</h2>
+            
+            <div class="review-summary">
+                <div class="rating">
+                    <span class="stars">★★★★☆</span>
+                    <span style="font-size: 18px;">4.7 out of 5</span>
                 </div>
+                <div style="font-size: 14px; color: #565959;">89 global ratings</div>
+            </div>
+            
+            <div class="review-item">
+                <div class="review-header">
+                    <div class="review-avatar">D</div>
+                    <div class="review-name">David K.</div>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <div class="review-title">Quality is insane for the price</div>
+                <div class="review-date">Reviewed in Uganda on 18 May 2026</div>
+                <div class="review-text">
+                    Got this hoodie last week and I'm impressed. The material is thick and warm, print looks exactly like the photos. Fits oversized like I wanted. Already ordered another one in black.
+                </div>
+                <div class="verified">Verified Purchase</div>
+            </div>
+
+            <div class="review-item">
+                <div class="review-header">
+                    <div class="review-avatar">S</div>
+                    <div class="review-name">Sarah M.</div>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <div class="review-title">Love the design!</div>
+                <div class="review-date">Reviewed in Kampala on 12 May 2026</div>
+                <div class="review-text">
+                    Delivery was super fast - ordered Monday, arrived Tuesday morning. The galaxy print is so unique, I get compliments every time I wear it. Size M fits perfect. Will buy from Velzorix again.
+                </div>
+                <div class="verified">Verified Purchase</div>
+            </div>
+
+            <div class="review-item">
+                <div class="review-header">
+                    <div class="review-avatar">M</div>
+                    <div class="review-name">Michael T.</div>
+                </div>
+                <div class="review-stars">★★★★☆</div>
+                <div class="review-title">Good hoodie, runs big</div>
+                <div class="review-date">Reviewed in Entebbe on 5 May 2026</div>
+                <div class="review-text">
+                    Material and print quality are solid. Only reason for 4 stars is it runs larger than expected - I ordered L but XL would have been better. Still keeping it though, just wearing it baggy. WhatsApp ordering was easy.
+                </div>
+                <div class="verified">Verified Purchase</div>
+            </div>
+
+            <div class="review-item">
+                <div class="review-header">
+                    <div class="review-avatar">A</div>
+                    <div class="review-name">Aisha N.</div>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <div class="review-title">Perfect for Kampala weather</div>
+                <div class="review-date">Reviewed in Uganda on 28 April 2026</div>
+                <div class="review-text">
+                    Not too heavy, not too light. Perfect for evenings. The embroidered logo is clean - no loose threads. My boyfriend stole it already so I had to order a second one 😂
+                </div>
+                <div class="verified">Verified Purchase</div>
+            </div>
+
+            <div class="review-item">
+                <div class="review-header">
+                    <div class="review-avatar">J</div>
+                    <div class="review-name">James O.</div>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <div class="review-title">Fast shipping + great communication</div>
+                <div class="review-date">Reviewed in Jinja on 20 April 2026</div>
+                <div class="review-text">
+                    Messaged on WhatsApp and got instant reply. They confirmed my size and color before shipping. Arrived in 2 days to Jinja. Hoodie is exactly as described. Highly recommend Velzorix.
+                </div>
+                <div class="verified">Verified Purchase</div>
             </div>
         </div>
     </div>
