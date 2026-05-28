@@ -119,7 +119,7 @@
                 </div>
                 
                 <div class="buy-box">
-                    <div class="price-buy"><span class="currency">UGX</span> 85,000</div>
+                    <div class="price-buy"><span class="currency">UGX</span> <span id="totalPrice">85,000</span></div>
                     
                     <div class="delivery">
                         <b>FREE delivery</b> Tomorrow to Kampala<br>
@@ -129,7 +129,7 @@
                     <div class="stock">In Stock</div>
                     
                     <div class="qty-label">Quantity:</div>
-                    <select class="qty-select" id="qty">
+                    <select class="qty-select" id="qty" onchange="updatePrice()">
                         <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
                     </select>
                     
@@ -247,6 +247,18 @@
     </div>
 
     <script>
+        const basePrice = 85000;
+        
+        function formatPrice(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+        
+        function updatePrice() {
+            const qty = document.getElementById('qty').value;
+            const total = basePrice * qty;
+            document.getElementById('totalPrice').textContent = formatPrice(total);
+        }
+        
         function orderWhatsApp() {
             const qty = document.getElementById('qty').value;
             const size = document.getElementById('sizeSelect').value;
@@ -257,13 +269,14 @@
             }
             
             const product = 'Space Galaxy Hoodie';
-            const price = 'UGX 85,000';
+            const total = basePrice * qty;
+            const priceText = `UGX ${formatPrice(total)}`;
             const msg = `Hi Velzorix! I want to order:
             
 Product: ${product}
 Size: ${size}
 Quantity: ${qty}
-Price: ${price}
+Total Price: ${priceText}
             
 Please confirm availability.`;
             
