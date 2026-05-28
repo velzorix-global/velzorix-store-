@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hockey Jersey White - Velzorix Online Market</title>
+    <title>Hockey Jersey Orange - Velzorix Online Market</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #fff; color: #0f1111; }
@@ -31,6 +31,10 @@
         .stock { color: #007600; font-size: 18px; margin-bottom: 12px; }
         .qty-label { font-size: 14px; margin-bottom: 8px; }
         .qty-select { width: 100%; padding: 8px; border: 1px solid #d5d9d9; border-radius: 8px; font-size: 14px; margin-bottom: 12px; }
+        .size-section { margin: 16px 0 8px 0; }
+        .size-label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; color: #0F1111; }
+        .size-select { width: 100%; max-width: 200px; padding: 10px 12px; border: 1px solid #D5D9D9; border-radius: 8px; background: #F0F2F2; font-size: 14px; cursor: pointer; }
+        .size-select:focus { outline: none; border-color: #007185; box-shadow: 0 0 0 3px #C8F3FA; }
         .whatsapp-btn { background: #25D366; border: none; color: #fff; padding: 12px; border-radius: 20px; text-decoration: none; font-size: 14px; font-weight: bold; display: block; text-align: center; }
         .whatsapp-btn:hover { background: #1da851; }
         .desc { margin-top: 30px; line-height: 20px; font-size: 14px; border-top: 1px solid #e7e7e7; padding-top: 20px; }
@@ -56,35 +60,78 @@
     <div class="container">
         <a href="index.html" class="back-link">← Back to results</a>
         <div class="product-grid">
-            <div><img src="jersey-hockey-w.jpg" alt="Hockey Jersey White" class="product-img"></div>
+            <div><img src="jersey-hockey-o.jpg" loading="lazy" decoding="async" width="400" height="400" alt="jersey-hockey-o.jpg"></div>
             <div>
-                <h1 class="product-title">Hockey Jersey White - Limited Edition</h1>
+                <h1 class="product-title">Hockey Jersey Orange - Breathable Fabric</h1>
                 <div class="brand">Brand: Velzorix Online Market</div>
-                <div class="rating"><span class="stars">★★★★★</span><span class="rating-count">4.9 out of 5 stars</span><span class="rating-count">203 ratings</span></div>
+                <div class="rating"><span class="stars">★★★★☆</span><span class="rating-count">4.8 out of 5 stars</span><span class="rating-count">156 ratings</span></div>
                 <div class="price-section"><span class="currency">UGX</span><span class="price">50,000</span></div>
                 <div class="buy-box">
-                    <div class="price-buy"><span class="currency">UGX</span>50,000</div>
+                    <div class="price-buy"><span class="currency">UGX</span> <span id="totalPrice">50,000</span></div>
                     <div class="delivery"><b>FREE delivery</b> Tomorrow to Kampala<br>Or fastest delivery Today</div>
                     <div class="stock">In Stock</div>
                     <div class="qty-label">Quantity:</div>
-                    <select class="qty-select" id="qty"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+                    <select class="qty-select" id="qty" onchange="updatePrice()"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+                    
+                    <div class="size-section">
+                        <label class="size-label">Size:</label>
+                        <select class="size-select" id="sizeSelect">
+                            <option value="">Select Size</option>
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                            <option value="XXL">XXL</option>
+                        </select>
+                    </div>
+                    
                     <a href="#" onclick="orderWhatsApp()" class="whatsapp-btn">Order on WhatsApp</a>
                 </div>
             </div>
-        </div>
-        <div class="desc"><h3>About this item</h3><ul><li>Premium mesh fabric, breathable</li><li>Official hockey jersey style</li><li>Stitched logo and numbers</li><li>Loose fit - S, M, L, XL, XXL</li><li>Machine washable</li><li>Ships from Kampala in 1-2 business days</li></ul></div>
+        <div class="desc"><h3>About this item</h3><ul><li>Bold orange colorway</li><li>Lightweight mesh fabric</li><li>Stitched team graphics</li><li>Oversized streetwear fit</li><li>S, M, L, XL, XXL</li><li>Ships from Kampala in 1-2 business days</li></ul></div>
         <div class="reviews">
             <h2>Customer reviews</h2>
-            <div class="review-summary"><div class="rating"><span class="stars">★★★★★</span><span style="font-size: 18px;">4.9 out of 5</span></div><div style="font-size: 14px; color: #565959;">203 global ratings</div></div>
-            <div class="review-item"><div class="review-header"><div class="review-avatar">R</div><div class="review-name">Robert T.</div></div><div class="review-stars">★★★★★</div><div class="review-title">Best jersey in UG!</div><div class="review-date">Reviewed in Kampala on 21 May 2026</div><div class="review-text">Exactly like the photos. Material is high quality, stitching is perfect. Worth every shilling.</div><div class="verified">Verified Purchase</div></div>
-            <div class="review-item"><div class="review-header"><div class="review-avatar">L</div><div class="review-name">Lydia A.</div></div><div class="review-stars">★★★★★</div><div class="review-title">My boyfriend loved it</div><div class="review-date">Reviewed in Uganda on 19 May 2026</div><div class="review-text">Bought as a gift and he wears it everywhere. Fast delivery, great communication on WhatsApp.</div><div class="verified">Verified Purchase</div></div>
+            <div class="review-summary"><div class="rating"><span class="stars">★★★★☆</span><span style="font-size: 18px;">4.8 out of 5</span></div><div style="font-size: 14px; color: #565959;">156 global ratings</div></div>
+            <div class="review-item"><div class="review-header"><div class="review-avatar">K</div><div class="review-name">Kevin S.</div></div><div class="review-stars">★★★★★</div><div class="review-title">Stands out!</div><div class="review-date">Reviewed in Uganda on 20 May 2026</div><div class="review-text">The orange is bright and the quality is top. Wore it to a match and everyone asked where I got it.</div><div class="verified">Verified Purchase</div></div>
+            <div class="review-item"><div class="review-header"><div class="review-avatar">G</div><div class="review-name">Grace M.</div></div><div class="review-stars">★★★★☆</div><div class="review-title">Great for casual wear</div><div class="review-date">Reviewed in Kampala on 17 May 2026</div><div class="review-text">Super comfortable and breathable. Size L fits perfect. Only wish it came in more colors.</div><div class="verified">Verified Purchase</div></div>
         </div>
     </div>
     <script>
+        const basePrice = 50000;
+        
+        function formatPrice(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+        
+        function updatePrice() {
+            const qty = document.getElementById('qty').value;
+            const total = basePrice * qty;
+            document.getElementById('totalPrice').textContent = formatPrice(total);
+        }
+        
         function orderWhatsApp() {
             const qty = document.getElementById('qty').value;
-            const msg = `Hi! I want to order the Hockey Jersey White UGX 50,000 x ${qty}`;
-            window.open(`https://wa.me/256778003397?text=${encodeURIComponent(msg)}`, '_blank');
+            const size = document.getElementById('sizeSelect').value;
+            
+            if (!size) {
+                alert('Please select a size first!');
+                return;
+            }
+            
+            const product = 'Hockey Jersey Orange';
+            const total = basePrice * qty;
+            const priceText = `UGX ${formatPrice(total)}`;
+            const msg = `Hi Velzorix! I want to order:
+            
+Product: ${product}
+Size: ${size}
+Quantity: ${qty}
+Total Price: ${priceText}
+            
+Please confirm availability.`;
+            
+            const url = `https://wa.me/256778003397?text=${encodeURIComponent(msg)}`;
+            window.open(url, '_blank');
         }
     </script>
 </body>
