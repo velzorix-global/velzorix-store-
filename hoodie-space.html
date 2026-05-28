@@ -90,26 +90,36 @@
         .verified { color: #c45500; font-size: 12px; font-weight: 700; margin-top: 6px; }
     </style>
 </head>
-    <script>
-document.getElementById('whatsappBtn').onclick = function(e) {
-    e.preventDefault();
-    const size = document.getElementById('sizeSelect').value;
-    if (!size) {
-        alert('Please select a size first!');
-        return;
-    }
-    const product = 'Space Galaxy Hoodie';
-    const price = '$59.99';
-    const msg = `Hi Velzorix! I want to order the ${product} - Size: ${size} - ${price}`;
-    const url = `https://wa.me/256778003397?text=${encodeURIComponent(msg)}`;
-    window.open(url, '_blank');
-};
-</script>
+    
 <body>
     <div class="header">
        <div class="header-logo">VELZORI<span>X</span></div>
     </div>
-     
+     <script>
+function orderWhatsApp() {
+    const qty = document.getElementById('qty').value;
+    const size = document.getElementById('sizeSelect').value;
+    
+    if (!size) {
+        alert('Please select a size first!');
+        return;
+    }
+    
+    const product = 'Space Galaxy Hoodie';
+    const price = '$59.99';
+    const msg = `Hi Velzorix! I want to order:
+    
+Product: ${product}
+Size: ${size}
+Quantity: ${qty}
+Price: ${price}
+    
+Please confirm availability.`;
+    
+    const url = `https://wa.me/256778003397?text=${encodeURIComponent(msg)}`;
+    window.open(url, '_blank');
+}
+</script>
     <div class="container">
         <a href="index.html" class="back-link">← Back to results</a>
         
