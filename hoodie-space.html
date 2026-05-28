@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Space Galaxy Hoodie - Velzorix</title>
+    <title>Space Hoodie - Velzorix Online Market</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #fff; color: #0f1111; }
@@ -15,15 +15,7 @@
         .back-link:hover { color: #c7511f; text-decoration: underline; }
         .product-grid { display: grid; grid-template-columns: 1fr; gap: 30px; margin-bottom: 40px; }
         @media(min-width: 768px) { .product-grid { grid-template-columns: 35% 1fr; } }
-        .product-img { 
-            width: 100%; 
-            max-width: 450px; 
-            height: auto; 
-            display: block; 
-            margin: 0 auto; 
-            border-radius: 8px; 
-            object-fit: contain; 
-        }
+        .product-img { width: 100%; max-width: 350px; border-radius: 8px; margin: 0 auto; display: block; }
         .product-title { font-size: 24px; font-weight: 400; line-height: 32px; margin-bottom: 8px; }
         .brand { color: #007185; font-size: 14px; margin-bottom: 8px; }
         .rating { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
@@ -39,42 +31,76 @@
         .stock { color: #007600; font-size: 18px; margin-bottom: 12px; }
         .qty-label { font-size: 14px; margin-bottom: 8px; }
         .qty-select { width: 100%; padding: 8px; border: 1px solid #d5d9d9; border-radius: 8px; font-size: 14px; margin-bottom: 12px; }
-        .size-section {
-            margin: 16px 0 8px 0;
-        }
-        .size-label {
-            display: block;
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: #0F1111;
-        }
-        .size-select {
-            width: 100%;
-            max-width: 200px;
-            padding: 10px 12px;
-            border: 1px solid #D5D9D9;
-            border-radius: 8px;
-            background: #F0F2F2;
-            font-size: 14px;
-            cursor: pointer;
-        }
-        .size-select:focus {
-            outline: none;
-            border-color: #007185;
-            box-shadow: 0 0 0 3px #C8F3FA;
-        }
-        .stock-status {
-            color: #007600;
-            font-size: 14px;
-            margin-top: 8px;
-        }
+        .size-section { margin: 16px 0 8px 0; }
+        .size-label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; color: #0F1111; }
+        .size-select { width: 100%; max-width: 200px; padding: 10px 12px; border: 1px solid #D5D9D9; border-radius: 8px; background: #F0F2F2; font-size: 14px; cursor: pointer; }
+        .size-select:focus { outline: none; border-color: #007185; box-shadow: 0 0 0 3px #C8F3FA; }
         .whatsapp-btn { background: #25D366; border: none; color: #fff; padding: 12px; border-radius: 20px; text-decoration: none; font-size: 14px; font-weight: bold; display: block; text-align: center; }
         .whatsapp-btn:hover { background: #1da851; }
+        .trust-badges { 
+            display: flex; 
+            justify-content: space-between; 
+            gap: 10px; 
+            margin: 16px 0 0 0; 
+            padding-top: 16px; 
+            border-top: 1px solid #e7e7e7; 
+        }
+        .badge { 
+            text-align: center; 
+            flex: 1; 
+            font-size: 12px; 
+            color: #565959; 
+        }
+        .badge-icon { 
+            font-size: 20px; 
+            margin-bottom: 4px; 
+        }
         .desc { margin-top: 30px; line-height: 20px; font-size: 14px; border-top: 1px solid #e7e7e7; padding-top: 20px; }
         .desc h3 { font-size: 16px; margin-bottom: 12px; }
         .desc ul { margin-left: 18px; }
         .desc li { margin-bottom: 6px; }
+        .faq-section { 
+            margin-top: 30px; 
+            border-top: 1px solid #e7e7e7; 
+            padding-top: 20px; 
+        }
+        .faq-section h3 { 
+            font-size: 16px; 
+            margin-bottom: 12px; 
+        }
+        .faq-item { 
+            border: 1px solid #d5d9d9; 
+            border-radius: 8px; 
+            margin-bottom: 8px; 
+        }
+        .faq-question { 
+            width: 100%; 
+            text-align: left; 
+            padding: 14px; 
+            background: #f0f2f2; 
+            border: none; 
+            font-size: 14px; 
+            font-weight: 600; 
+            cursor: pointer; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+        .faq-question:hover { background: #e3e6e6; }
+        .faq-answer { 
+            padding: 0 14px; 
+            max-height: 0; 
+            overflow: hidden; 
+            font-size: 14px; 
+            line-height: 20px; 
+            transition: max-height 0.3s ease, padding 0.3s ease; 
+        }
+        .faq-item.active .faq-answer { 
+            padding: 14px; 
+            max-height: 200px; 
+        }
+        .faq-icon { transition: transform 0.3s ease; }
+        .faq-item.active .faq-icon { transform: rotate(180deg); }
         .reviews { border-top: 1px solid #e7e7e7; padding-top: 30px; margin-top: 30px; }
         .reviews h2 { font-size: 21px; margin-bottom: 20px; }
         .review-summary { background: #f7f7f7; padding: 16px; border-radius: 8px; margin-bottom: 24px; }
@@ -89,49 +115,23 @@
         .verified { color: #c45500; font-size: 12px; font-weight: 700; margin-top: 6px; }
     </style>
 </head>
-    
 <body>
-    <div class="header">
-       <div class="header-logo">VELZORI<span>X</span></div>
-    </div>
-    
+    <div class="header"><div class="header-logo">VELZORI<span>X</span></div></div>
     <div class="container">
         <a href="index.html" class="back-link">← Back to results</a>
-        
         <div class="product-grid">
+            <div><img src="hoodie-space.jpg" alt="Space Hoodie" class="product-img"></div>
             <div>
-           <img src="hoodie-space.jpg" loading="lazy" decoding="async" width="400" height="400" alt="Space Hoodie">
-            </div>
-            
-            <div>
-                <h1 class="product-title">Space Galaxy Hoodie - Premium Streetwear Pullover, Embroidered Logo, Unisex Fit</h1>
-                <div class="brand">Brand: Velzorix Fashion</div>
-                
-                <div class="rating">
-                    <span class="stars">★★★★☆</span>
-                    <span class="rating-count">4.7 out of 5 stars</span>
-                    <span class="rating-count">89 ratings</span>
-                </div>
-                
-                <div class="price-section">
-                    <span class="currency">UGX</span>
-                    <span class="price">85000</span>
-                </div>
-                
+                <h1 class="product-title">Space Hoodie - Galaxy Print Fleece</h1>
+                <div class="brand">Brand: Velzorix Online Market</div>
+                <div class="rating"><span class="stars">★★★★★</span><span class="rating-count">4.7 out of 5 stars</span><span class="rating-count">74 ratings</span></div>
+                <div class="price-section"><span class="currency">UGX</span><span class="price">55,000</span></div>
                 <div class="buy-box">
-                    <div class="price-buy"><span class="currency">UGX</span> <span id="totalPrice">85,000</span></div>
-                    
-                    <div class="delivery">
-                        <b>FREE delivery</b> Tomorrow to Kampala<br>
-                        Or fastest delivery Today
-                    </div>
-                    
+                    <div class="price-buy"><span class="currency">UGX</span> <span id="totalPrice">55,000</span></div>
+                    <div class="delivery"><b>FREE delivery</b> Tomorrow to Kampala<br>Or fastest delivery Today</div>
                     <div class="stock">In Stock</div>
-                    
                     <div class="qty-label">Quantity:</div>
-                    <select class="qty-select" id="qty" onchange="updatePrice()">
-                        <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
-                    </select>
+                    <select class="qty-select" id="qty" onchange="updatePrice()"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
                     
                     <div class="size-section">
                         <label class="size-label">Size:</label>
@@ -146,108 +146,110 @@
                     </div>
                     
                     <a href="#" onclick="orderWhatsApp()" class="whatsapp-btn">Order on WhatsApp</a>
+                    
+                    <div class="trust-badges">
+                        <div class="badge">
+                            <div class="badge-icon">💵</div>
+                            <div>Pay on Delivery</div>
+                        </div>
+                        <div class="badge">
+                            <div class="badge-icon">🚚</div>
+                            <div>Fast Delivery</div>
+                        </div>
+                        <div class="badge">
+                            <div class="badge-icon">✓</div>
+                            <div>Quality Guaranteed</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-
         <div class="desc">
             <h3>About this item</h3>
             <ul>
-                <li>Premium 350 GSM cotton blend fleece for maximum comfort</li>
-                <li>Unique galaxy print design with embroidered Velzorix logo</li>
-                <li>Oversized unisex fit - available in S, M, L, XL, XXL</li>
+                <li>Premium cotton fleece with galaxy/space print</li>
+                <li>Soft brushed interior for warmth</li>
                 <li>Kangaroo pocket + adjustable drawstring hood</li>
-                <li>Pre-shrunk fabric - machine wash cold</li>
+                <li>Oversized streetwear fit - S, M, L, XL, XXL</li>
+                <li>Vibrant print that doesn't fade after washing</li>
+                <li>Machine washable cold</li>
                 <li>Ships from Kampala in 1-2 business days</li>
             </ul>
         </div>
-
-        <!-- CUSTOMER REVIEWS SECTION -->
+        <div class="faq-section">
+            <h3>Frequently Asked Questions</h3>
+            <div class="faq-item">
+                <button class="faq-question">
+                    What sizes are available? <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-answer">
+                    We stock S, M, L, XL, and XXL. Check our <a href="size-guide.html" style="color: #007185;">Size Guide</a> for exact measurements. If you're between sizes, we recommend sizing up for a relaxed fit.
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    Will the print fade after washing? <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-answer">
+                    Nope. We use high-quality sublimation printing. Just wash cold, inside out, and avoid bleach. Tumble dry low or hang dry to keep it looking fresh.
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    What if it doesn't fit? <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-answer">
+                    We offer exchanges within 3 days of delivery if the item is unworn with tags. Just <a href="https://wa.me/256778003397?text=Hi!%20I%20need%20to%20exchange%20my%20order" style="color: #007185;">WhatsApp us</a> and we'll sort it out. Check our <a href="returns.html" style="color: #007185;">Returns</a> page for details.
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    When will I receive my order? <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-answer">
+                    Kampala orders arrive same day or next day. Upcountry takes 2-4 business days. You'll get WhatsApp updates once it ships. More details on our <a href="shipping-info.html" style="color: #007185;">Shipping Info</a> page.
+                </div>
+            </div>
+        </div>
         <div class="reviews">
             <h2>Customer reviews</h2>
-            
             <div class="review-summary">
-                <div class="rating">
-                    <span class="stars">★★★★☆</span>
-                    <span style="font-size: 18px;">4.7 out of 5</span>
-                </div>
-                <div style="font-size: 14px; color: #565959;">89 global ratings</div>
+                <div class="rating"><span class="stars">★★★★★</span><span style="font-size: 18px;">4.7 out of 5</span></div>
+                <div style="font-size: 14px; color: #565959;">74 global ratings</div>
             </div>
-            
             <div class="review-item">
-                <div class="review-header">
-                    <div class="review-avatar">D</div>
-                    <div class="review-name">David K.</div>
-                </div>
+                <div class="review-header"><div class="review-avatar">J</div><div class="review-name">Joshua T.</div></div>
                 <div class="review-stars">★★★★★</div>
-                <div class="review-title">Quality is insane for the price</div>
-                <div class="review-date">Reviewed in Uganda on 18 May 2026</div>
-                <div class="review-text">
-                    Got this hoodie last week and I'm impressed. The material is thick and warm, print looks exactly like the photos. Fits oversized like I wanted. Already ordered another one in black.
-                </div>
+                <div class="review-title">Print is crazy clean</div>
+                <div class="review-date">Reviewed in Uganda on 25 May 2026</div>
+                <div class="review-text">The galaxy print is so detailed. Colors pop even after washing. Hoodie is thick too, perfect for Kampala evenings.</div>
                 <div class="verified">Verified Purchase</div>
             </div>
-
             <div class="review-item">
-                <div class="review-header">
-                    <div class="review-avatar">S</div>
-                    <div class="review-name">Sarah M.</div>
-                </div>
-                <div class="review-stars">★★★★★</div>
-                <div class="review-title">Love the design!</div>
-                <div class="review-date">Reviewed in Kampala on 12 May 2026</div>
-                <div class="review-text">
-                    Delivery was super fast - ordered Monday, arrived Tuesday morning. The galaxy print is so unique, I get compliments every time I wear it. Size M fits perfect. Will buy from Velzorix again.
-                </div>
-                <div class="verified">Verified Purchase</div>
-            </div>
-
-            <div class="review-item">
-                <div class="review-header">
-                    <div class="review-avatar">M</div>
-                    <div class="review-name">Michael T.</div>
-                </div>
+                <div class="review-header"><div class="review-avatar">P</div><div class="review-name">Patricia K.</div></div>
                 <div class="review-stars">★★★★☆</div>
-                <div class="review-title">Good hoodie, runs big</div>
-                <div class="review-date">Reviewed in Entebbe on 5 May 2026</div>
-                <div class="review-text">
-                    Material and print quality are solid. Only reason for 4 stars is it runs larger than expected - I ordered L but XL would have been better. Still keeping it though, just wearing it baggy. WhatsApp ordering was easy.
-                </div>
-                <div class="verified">Verified Purchase</div>
-            </div>
-
-            <div class="review-item">
-                <div class="review-header">
-                    <div class="review-avatar">A</div>
-                    <div class="review-name">Aisha N.</div>
-                </div>
-                <div class="review-stars">★★★★★</div>
-                <div class="review-title">Perfect for Kampala weather</div>
-                <div class="review-date">Reviewed in Uganda on 28 April 2026</div>
-                <div class="review-text">
-                    Not too heavy, not too light. Perfect for evenings. The embroidered logo is clean - no loose threads. My boyfriend stole it already so I had to order a second one 😂
-                </div>
-                <div class="verified">Verified Purchase</div>
-            </div>
-
-            <div class="review-item">
-                <div class="review-header">
-                    <div class="review-avatar">J</div>
-                    <div class="review-name">James O.</div>
-                </div>
-                <div class="review-stars">★★★★★</div>
-                <div class="review-title">Fast shipping + great communication</div>
-                <div class="review-date">Reviewed in Jinja on 20 April 2026</div>
-                <div class="review-text">
-                    Messaged on WhatsApp and got instant reply. They confirmed my size and color before shipping. Arrived in 2 days to Jinja. Hoodie is exactly as described. Highly recommend Velzorix.
-                </div>
+                <div class="review-title">Super warm and comfy</div>
+                <div class="review-date">Reviewed in Entebbe on 20 May 2026</div>
+                <div class="review-text">Love the design. Only wish it came in more colors. But quality is 10/10. My boyfriend stole mine already 😂</div>
                 <div class="verified">Verified Purchase</div>
             </div>
         </div>
     </div>
-
+    
+    <footer style="background: #131921; color: #fff; padding: 40px 20px; margin-top: 50px; text-align: center;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-bottom: 20px;">
+                <a href="https://wa.me/256778003397?text=Hi%20Velzorix!%20I%20have%20a%20question" style="color: #fff; text-decoration: none; font-size: 16px;">Contact on WhatsApp</a>
+                <a href="shipping-info.html" style="color: #fff; text-decoration: none; font-size: 16px;">Shipping Info</a>
+                <a href="size-guide.html" style="color: #fff; text-decoration: none; font-size: 16px;">Size Guide</a>
+                <a href="returns.html" style="color: #fff; text-decoration: none; font-size: 16px;">Returns</a>
+            </div>
+            <div style="font-size: 14px; color: #ddd;">© 2026 Velzorix Online Market. All rights reserved.</div>
+        </div>
+    </footer>
+    
     <script>
-        const basePrice = 85000;
+        const basePrice = 55000;
         
         function formatPrice(num) {
             return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -268,7 +270,7 @@
                 return;
             }
             
-            const product = 'Space Galaxy Hoodie';
+            const product = 'Space Hoodie';
             const total = basePrice * qty;
             const priceText = `UGX ${formatPrice(total)}`;
             const msg = `Hi Velzorix! I want to order:
@@ -283,6 +285,19 @@ Please confirm availability.`;
             const url = `https://wa.me/256778003397?text=${encodeURIComponent(msg)}`;
             window.open(url, '_blank');
         }
+        
+        // FAQ accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                faqItem.classList.toggle('active');
+                
+                // Close other open FAQs
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== faqItem) item.classList.remove('active');
+                });
+            });
+        });
     </script>
 </body>
 </html>
