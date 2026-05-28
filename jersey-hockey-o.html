@@ -31,6 +31,10 @@
         .stock { color: #007600; font-size: 18px; margin-bottom: 12px; }
         .qty-label { font-size: 14px; margin-bottom: 8px; }
         .qty-select { width: 100%; padding: 8px; border: 1px solid #d5d9d9; border-radius: 8px; font-size: 14px; margin-bottom: 12px; }
+        .size-section { margin: 16px 0 8px 0; }
+        .size-label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; color: #0F1111; }
+        .size-select { width: 100%; max-width: 200px; padding: 10px 12px; border: 1px solid #D5D9D9; border-radius: 8px; background: #F0F2F2; font-size: 14px; cursor: pointer; }
+        .size-select:focus { outline: none; border-color: #007185; box-shadow: 0 0 0 3px #C8F3FA; }
         .whatsapp-btn { background: #25D366; border: none; color: #fff; padding: 12px; border-radius: 20px; text-decoration: none; font-size: 14px; font-weight: bold; display: block; text-align: center; }
         .whatsapp-btn:hover { background: #1da851; }
         .desc { margin-top: 30px; line-height: 20px; font-size: 14px; border-top: 1px solid #e7e7e7; padding-top: 20px; }
@@ -56,22 +60,34 @@
     <div class="container">
         <a href="index.html" class="back-link">← Back to results</a>
         <div class="product-grid">
-            <div><img src="jersey-hockey-o.jpg" loading="lazy" decoding="async" width="400" height="400" alt="jersey-hockey-o.jpg">
+            <div><img src="jersey-hockey-o.jpg" loading="lazy" decoding="async" width="400" height="400" alt="jersey-hockey-o.jpg"></div>
             <div>
                 <h1 class="product-title">Hockey Jersey Orange - Breathable Fabric</h1>
                 <div class="brand">Brand: Velzorix Online Market</div>
                 <div class="rating"><span class="stars">★★★★☆</span><span class="rating-count">4.8 out of 5 stars</span><span class="rating-count">156 ratings</span></div>
                 <div class="price-section"><span class="currency">UGX</span><span class="price">50,000</span></div>
                 <div class="buy-box">
-                    <div class="price-buy"><span class="currency">UGX</span> 50,000</div>
+                    <div class="price-buy"><span class="currency">UGX</span> <span id="totalPrice">50,000</span></div>
                     <div class="delivery"><b>FREE delivery</b> Tomorrow to Kampala<br>Or fastest delivery Today</div>
                     <div class="stock">In Stock</div>
                     <div class="qty-label">Quantity:</div>
-                    <select class="qty-select" id="qty"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+                    <select class="qty-select" id="qty" onchange="updatePrice()"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+                    
+                    <div class="size-section">
+                        <label class="size-label">Size:</label>
+                        <select class="size-select" id="sizeSelect">
+                            <option value="">Select Size</option>
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                            <option value="XXL">XXL</option>
+                        </select>
+                    </div>
+                    
                     <a href="#" onclick="orderWhatsApp()" class="whatsapp-btn">Order on WhatsApp</a>
                 </div>
             </div>
-        </div>
         <div class="desc"><h3>About this item</h3><ul><li>Bold orange colorway</li><li>Lightweight mesh fabric</li><li>Stitched team graphics</li><li>Oversized streetwear fit</li><li>S, M, L, XL, XXL</li><li>Ships from Kampala in 1-2 business days</li></ul></div>
         <div class="reviews">
             <h2>Customer reviews</h2>
@@ -81,10 +97,41 @@
         </div>
     </div>
     <script>
+        const basePrice = 50000;
+        
+        function formatPrice(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+        
+        function updatePrice() {
+            const qty = document.getElementById('qty').value;
+            const total = basePrice * qty;
+            document.getElementById('totalPrice').textContent = formatPrice(total);
+        }
+        
         function orderWhatsApp() {
             const qty = document.getElementById('qty').value;
-            const msg = `Hi! I want to order the Hockey Jersey Orange UGX 50,000 x ${qty}`;
-            window.open(`https://wa.me/256778003397?text=${encodeURIComponent(msg)}`, '_blank');
+            const size = document.getElementById('sizeSelect').value;
+            
+            if (!size) {
+                alert('Please select a size first!');
+                return;
+            }
+            
+            const product = 'Hockey Jersey Orange';
+            const total = basePrice * qty;
+            const priceText = `UGX ${formatPrice(total)}`;
+            const msg = `Hi Velzorix! I want to order:
+            
+Product: ${product}
+Size: ${size}
+Quantity: ${qty}
+Total Price: ${priceText}
+            
+Please confirm availability.`;
+            
+            const url = `https://wa.me/256778003397?text=${encodeURIComponent(msg)}`;
+            window.open(url, '_blank');
         }
     </script>
 </body>
