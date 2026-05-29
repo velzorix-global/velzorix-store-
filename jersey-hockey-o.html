@@ -136,6 +136,7 @@
                 <button class="faq-question">When will I receive my order? <span class="faq-icon">▼</span></button>
                 <div class="faq-answer">Kampala orders arrive same day or next day. Upcountry takes 2-4 business days. You'll get WhatsApp updates once it ships. More details on our <a href="shipping-info.html" style="color: #007185;">Shipping Info</a> page.</div>
             </div>
+        </div>
         <div class="reviews">
             <h2>Customer reviews</h2>
             <div class="review-summary">
@@ -182,4 +183,28 @@
         }
         function updateWhatsAppLink() {
             const qty = document.getElementById('qty').value;
-            const size =
+            const size = document.getElementById('sizeSelect').value;
+            const product = document.querySelector('.product-title').textContent;
+            const total = basePrice * qty;
+            const priceText = `UGX ${formatPrice(total)}`;
+            let msg = `Hi Velzorix! I want to order:\n\nProduct: ${product}\nQuantity: ${qty}\nTotal Price: ${priceText}`;
+            if (size) { msg += `\nSize: ${size}`; }
+            msg += `\n\nPlease confirm availability.`;
+            const url = `https://wa.me/256778003397?text=${encodeURIComponent(msg)}`;
+            document.getElementById('whatsappLink').href = url;
+        }
+        document.getElementById('sizeSelect').addEventListener('change', updateWhatsAppLink);
+        document.getElementById('qty').addEventListener('change', updatePrice);
+        updateWhatsAppLink();
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                faqItem.classList.toggle('active');
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== faqItem) item.classList.remove('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
