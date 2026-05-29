@@ -37,68 +37,20 @@
         .size-select:focus { outline: none; border-color: #007185; box-shadow: 0 0 0 3px #C8F3FA; }
         .whatsapp-btn { background: #25D366; border: none; color: #fff; padding: 12px; border-radius: 20px; text-decoration: none; font-size: 14px; font-weight: bold; display: block; text-align: center; }
         .whatsapp-btn:hover { background: #1da851; }
-        .trust-badges { 
-            display: flex; 
-            justify-content: space-between; 
-            gap: 10px; 
-            margin: 16px 0 0 0; 
-            padding-top: 16px; 
-            border-top: 1px solid #e7e7e7; 
-        }
-        .badge { 
-            text-align: center; 
-            flex: 1; 
-            font-size: 12px; 
-            color: #565959; 
-        }
-        .badge-icon { 
-            font-size: 20px; 
-            margin-bottom: 4px; 
-        }
+        .trust-badges { display: flex; justify-content: space-between; gap: 10px; margin: 16px 0 0 0; padding-top: 16px; border-top: 1px solid #e7e7e7; }
+        .badge { text-align: center; flex: 1; font-size: 12px; color: #565959; }
+        .badge-icon { font-size: 20px; margin-bottom: 4px; }
         .desc { margin-top: 30px; line-height: 20px; font-size: 14px; border-top: 1px solid #e7e7e7; padding-top: 20px; }
         .desc h3 { font-size: 16px; margin-bottom: 12px; }
         .desc ul { margin-left: 18px; }
         .desc li { margin-bottom: 6px; }
-        .faq-section { 
-            margin-top: 30px; 
-            border-top: 1px solid #e7e7e7; 
-            padding-top: 20px; 
-        }
-        .faq-section h3 { 
-            font-size: 16px; 
-            margin-bottom: 12px; 
-        }
-        .faq-item { 
-            border: 1px solid #d5d9d9; 
-            border-radius: 8px; 
-            margin-bottom: 8px; 
-        }
-        .faq-question { 
-            width: 100%; 
-            text-align: left; 
-            padding: 14px; 
-            background: #f0f2f2; 
-            border: none; 
-            font-size: 14px; 
-            font-weight: 600; 
-            cursor: pointer; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-        }
+        .faq-section { margin-top: 30px; border-top: 1px solid #e7e7e7; padding-top: 20px; }
+        .faq-section h3 { font-size: 16px; margin-bottom: 12px; }
+        .faq-item { border: 1px solid #d5d9d9; border-radius: 8px; margin-bottom: 8px; }
+        .faq-question { width: 100%; text-align: left; padding: 14px; background: #f0f2f2; border: none; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
         .faq-question:hover { background: #e3e6e6; }
-        .faq-answer { 
-            padding: 0 14px; 
-            max-height: 0; 
-            overflow: hidden; 
-            font-size: 14px; 
-            line-height: 20px; 
-            transition: max-height 0.3s ease, padding 0.3s ease; 
-        }
-        .faq-item.active .faq-answer { 
-            padding: 14px; 
-            max-height: 200px; 
-        }
+        .faq-answer { padding: 0 14px; max-height: 0; overflow: hidden; font-size: 14px; line-height: 20px; transition: max-height 0.3s ease, padding 0.3s ease; }
+        .faq-item.active .faq-answer { padding: 14px; max-height: 200px; }
         .faq-icon { transition: transform 0.3s ease; }
         .faq-item.active .faq-icon { transform: rotate(180deg); }
         .reviews { border-top: 1px solid #e7e7e7; padding-top: 30px; margin-top: 30px; }
@@ -124,7 +76,7 @@
             <div>
                 <h1 class="product-title">Pattern Shirt - Short Sleeve Button Up</h1>
                 <div class="brand">Brand: Velzorix Online Market</div>
-                <div class="rating"><span class="stars">★★★★☆</span><span class="rating-count">4.6 out of 5 stars</span><span class="rating-count">68 ratings</span></div>
+                <div class="rating"><span class="stars">★★★★☆</span><span class="rating-count">4.6 out of 5 stars</span><span class="rating-count">62 ratings</span></div>
                 <div class="price-section"><span class="currency">UGX</span><span class="price">25,000</span></div>
                 <div class="buy-box">
                     <div class="price-buy"><span class="currency">UGX</span> <span id="totalPrice">25,000</span></div>
@@ -132,7 +84,6 @@
                     <div class="stock">In Stock</div>
                     <div class="qty-label">Quantity:</div>
                     <select class="qty-select" id="qty" onchange="updatePrice()"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
-                    
                     <div class="size-section">
                         <label class="size-label">Size:</label>
                         <select class="size-select" id="sizeSelect">
@@ -144,34 +95,23 @@
                             <option value="XXL">XXL</option>
                         </select>
                     </div>
-                    
-                    <a href="#" onclick="orderWhatsApp()" class="whatsapp-btn">Order on WhatsApp</a>
-                    
+                    <a href="#" id="whatsappLink" class="whatsapp-btn">Order on WhatsApp</a>
                     <div class="trust-badges">
-                        <div class="badge">
-                            <div class="badge-icon">💵</div>
-                            <div>Pay on Delivery</div>
-                        </div>
-                        <div class="badge">
-                            <div class="badge-icon">🚚</div>
-                            <div>Fast Delivery</div>
-                        </div>
-                        <div class="badge">
-                            <div class="badge-icon">✓</div>
-                            <div>Quality Guaranteed</div>
-                        </div>
+                        <div class="badge"><div class="badge-icon">💵</div><div>Pay on Delivery</div></div>
+                        <div class="badge"><div class="badge-icon">🚚</div><div>Fast Delivery</div></div>
+                        <div class="badge"><div class="badge-icon">✓</div><div>Quality Guaranteed</div></div>
                     </div>
                 </div>
             </div>
+        </div>
         <div class="desc">
             <h3>About this item</h3>
             <ul>
-                <li>100% breathable cotton fabric</li>
-                <li>Unique all-over pattern print</li>
-                <li>Button-down collar with short sleeves</li>
-                <li>Regular fit - S, M, L, XL, XXL</li>
-                <li>Perfect for casual outings or summer events</li>
-                <li>Lightweight and comfortable all day</li>
+                <li>100% rayon fabric - lightweight & breathable</li>
+                <li>All-over abstract pattern print</li>
+                <li>Short sleeve button-up with camp collar</li>
+                <li>Regular fit unisex - S, M, L, XL, XXL</li>
+                <li>Perfect for casual wear, beach, or summer outings</li>
                 <li>Machine washable cold</li>
                 <li>Ships from Kampala in 1-2 business days</li>
             </ul>
@@ -179,63 +119,46 @@
         <div class="faq-section">
             <h3>Frequently Asked Questions</h3>
             <div class="faq-item">
-                <button class="faq-question">
-                    What sizes are available? <span class="faq-icon">▼</span>
-                </button>
-                <div class="faq-answer">
-                    We stock S, M, L, XL, and XXL. Check our <a href="size-guide.html" style="color: #007185;">Size Guide</a> for chest measurements. Regular fit — true to size. Size up if you prefer a looser fit.
-                </div>
+                <button class="faq-question">Is this shirt see-through? <span class="faq-icon">▼</span></button>
+                <div class="faq-answer">No, the rayon is medium weight and not see-through. The pattern is also busy enough that it hides everything. You’re good.</div>
             </div>
             <div class="faq-item">
-                <button class="faq-question">
-                    Does the print wash out? <span class="faq-icon">▼</span>
-                </button>
-                <div class="faq-answer">
-                    No, the pattern is dyed into the fabric. Wash cold with similar colors and hang dry to keep it vibrant. Avoid bleach.
-                </div>
+                <button class="faq-question">What sizes are available? <span class="faq-icon">▼</span></button>
+                <div class="faq-answer">We stock S, M, L, XL, and XXL. Regular fit. Check our <a href="size-guide.html" style="color: #007185;">Size Guide</a> for chest measurements. Order your normal size.</div>
             </div>
             <div class="faq-item">
-                <button class="faq-question">
-                    What if it doesn't fit? <span class="faq-icon">▼</span>
-                </button>
-                <div class="faq-answer">
-                    We offer exchanges within 3 days of delivery if unworn with tags. Just <a href="https://wa.me/256778003397?text=Hi!%20I%20need%20to%20exchange%20my%20order" style="color: #007185;">WhatsApp us</a> and we'll swap sizes. Check our <a href="returns.html" style="color: #007185;">Returns</a> page for details.
-                </div>
+                <button class="faq-question">What if it doesn't fit? <span class="faq-icon">▼</span></button>
+                <div class="faq-answer">We offer exchanges within 3 days of delivery if unworn with tags. Just <a href="https://wa.me/256778003397?text=Hi!%20I%20need%20to%20exchange%20my%20order" style="color: #007185;">WhatsApp us</a> and we'll swap sizes. Check our <a href="returns.html" style="color: #007185;">Returns</a> page for details.</div>
             </div>
             <div class="faq-item">
-                <button class="faq-question">
-                    When will I receive my order? <span class="faq-icon">▼</span>
-                </button>
-                <div class="faq-answer">
-                    Kampala orders arrive same day or next day. Upcountry takes 2-4 business days. You'll get WhatsApp updates once it ships. More details on our <a href="shipping-info.html" style="color: #007185;">Shipping Info</a> page.
-                </div>
+                <button class="faq-question">When will I receive my order? <span class="faq-icon">▼</span></button>
+                <div class="faq-answer">Kampala orders arrive same day or next day. Upcountry takes 2-4 business days. You'll get WhatsApp updates once it ships. More details on our <a href="shipping-info.html" style="color: #007185;">Shipping Info</a> page.</div>
             </div>
         </div>
         <div class="reviews">
             <h2>Customer reviews</h2>
             <div class="review-summary">
                 <div class="rating"><span class="stars">★★★★☆</span><span style="font-size: 18px;">4.6 out of 5</span></div>
-                <div style="font-size: 14px; color: #565959;">68 global ratings</div>
+                <div style="font-size: 14px; color: #565959;">62 global ratings</div>
             </div>
             <div class="review-item">
                 <div class="review-header"><div class="review-avatar">K</div><div class="review-name">Kevin O.</div></div>
                 <div class="review-stars">★★★★★</div>
-                <div class="review-title">Pattern is unique</div>
-                <div class="review-date">Reviewed in Uganda on 27 May 2026</div>
-                <div class="review-text">Got so many compliments on this shirt. Fabric is light and cool for hot days. Print stayed sharp after 3 washes.</div>
+                <div class="review-title">Perfect summer shirt</div>
+                <div class="review-date">Reviewed in Uganda on 28 May 2026</div>
+                <div class="review-text">Material is so light and comfy. Pattern is even better in person. Fits true to size. Worth every shilling.</div>
                 <div class="verified">Verified Purchase</div>
             </div>
             <div class="review-item">
-                <div class="review-header"><div class="review-avatar">R</div><div class="review-name">Ronald M.</div></div>
+                <div class="review-header"><div class="review-avatar">L</div><div class="review-name">Lydia M.</div></div>
                 <div class="review-stars">★★★★☆</div>
-                <div class="review-title">Good quality</div>
+                <div class="review-title">Nice quality</div>
                 <div class="review-date">Reviewed in Kampala on 24 May 2026</div>
-                <div class="review-text">Fits well and looks exactly like the photo. Buttons are secure. Only reason 4 stars is I wish it had a pocket.</div>
+                <div class="review-text">Bought for vacation and it was perfect. Dries fast and doesn’t wrinkle much. Only reason 4 stars is I wish the sleeves were a bit longer.</div>
                 <div class="verified">Verified Purchase</div>
             </div>
         </div>
     </div>
-    
     <footer style="background: #131921; color: #fff; padding: 40px 20px; margin-top: 50px; text-align: center;">
         <div style="max-width: 1200px; margin: 0 auto;">
             <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-bottom: 20px;">
@@ -247,52 +170,34 @@
             <div style="font-size: 14px; color: #ddd;">© 2026 Velzorix Online Market. All rights reserved.</div>
         </div>
     </footer>
-    
     <script>
-        const basePrice = 25,000;
-        
-        function formatPrice(num) {
-            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        }
-        
+        const basePrice = 25000;
+        function formatPrice(num) { return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); }
         function updatePrice() {
             const qty = document.getElementById('qty').value;
             const total = basePrice * qty;
             document.getElementById('totalPrice').textContent = formatPrice(total);
+            updateWhatsAppLink();
         }
-        
-        function orderWhatsApp() {
+        function updateWhatsAppLink() {
             const qty = document.getElementById('qty').value;
             const size = document.getElementById('sizeSelect').value;
-            
-            if (!size) {
-                alert('Please select a size first!');
-                return;
-            }
-            
-            const product = 'Pattern Shirt';
+            const product = document.querySelector('.product-title').textContent;
             const total = basePrice * qty;
             const priceText = `UGX ${formatPrice(total)}`;
-            const msg = `Hi Velzorix! I want to order:
-            
-Product: ${product}
-Size: ${size}
-Quantity: ${qty}
-Total Price: ${priceText}
-            
-Please confirm availability.`;
-            
+            let msg = `Hi Velzorix! I want to order:\n\nProduct: ${product}\nQuantity: ${qty}\nTotal Price: ${priceText}`;
+            if (size) { msg += `\nSize: ${size}`; }
+            msg += `\n\nPlease confirm availability.`;
             const url = `https://wa.me/256778003397?text=${encodeURIComponent(msg)}`;
-            window.open(url, '_blank');
+            document.getElementById('whatsappLink').href = url;
         }
-        
-        // FAQ accordion
+        document.getElementById('sizeSelect').addEventListener('change', updateWhatsAppLink);
+        document.getElementById('qty').addEventListener('change', updatePrice);
+        updateWhatsAppLink();
         document.querySelectorAll('.faq-question').forEach(button => {
             button.addEventListener('click', () => {
                 const faqItem = button.parentElement;
                 faqItem.classList.toggle('active');
-                
-                // Close other open FAQs
                 document.querySelectorAll('.faq-item').forEach(item => {
                     if (item !== faqItem) item.classList.remove('active');
                 });
