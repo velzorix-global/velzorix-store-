@@ -37,68 +37,20 @@
         .size-select:focus { outline: none; border-color: #007185; box-shadow: 0 0 0 3px #C8F3FA; }
         .whatsapp-btn { background: #25D366; border: none; color: #fff; padding: 12px; border-radius: 20px; text-decoration: none; font-size: 14px; font-weight: bold; display: block; text-align: center; }
         .whatsapp-btn:hover { background: #1da851; }
-        .trust-badges { 
-            display: flex; 
-            justify-content: space-between; 
-            gap: 10px; 
-            margin: 16px 0 0 0; 
-            padding-top: 16px; 
-            border-top: 1px solid #e7e7e7; 
-        }
-        .badge { 
-            text-align: center; 
-            flex: 1; 
-            font-size: 12px; 
-            color: #565959; 
-        }
-        .badge-icon { 
-            font-size: 20px; 
-            margin-bottom: 4px; 
-        }
+        .trust-badges { display: flex; justify-content: space-between; gap: 10px; margin: 16px 0 0 0; padding-top: 16px; border-top: 1px solid #e7e7e7; }
+        .badge { text-align: center; flex: 1; font-size: 12px; color: #565959; }
+        .badge-icon { font-size: 20px; margin-bottom: 4px; }
         .desc { margin-top: 30px; line-height: 20px; font-size: 14px; border-top: 1px solid #e7e7e7; padding-top: 20px; }
         .desc h3 { font-size: 16px; margin-bottom: 12px; }
         .desc ul { margin-left: 18px; }
         .desc li { margin-bottom: 6px; }
-        .faq-section { 
-            margin-top: 30px; 
-            border-top: 1px solid #e7e7e7; 
-            padding-top: 20px; 
-        }
-        .faq-section h3 { 
-            font-size: 16px; 
-            margin-bottom: 12px; 
-        }
-        .faq-item { 
-            border: 1px solid #d5d9d9; 
-            border-radius: 8px; 
-            margin-bottom: 8px; 
-        }
-        .faq-question { 
-            width: 100%; 
-            text-align: left; 
-            padding: 14px; 
-            background: #f0f2f2; 
-            border: none; 
-            font-size: 14px; 
-            font-weight: 600; 
-            cursor: pointer; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-        }
+        .faq-section { margin-top: 30px; border-top: 1px solid #e7e7e7; padding-top: 20px; }
+        .faq-section h3 { font-size: 16px; margin-bottom: 12px; }
+        .faq-item { border: 1px solid #d5d9d9; border-radius: 8px; margin-bottom: 8px; }
+        .faq-question { width: 100%; text-align: left; padding: 14px; background: #f0f2f2; border: none; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
         .faq-question:hover { background: #e3e6e6; }
-        .faq-answer { 
-            padding: 0 14px; 
-            max-height: 0; 
-            overflow: hidden; 
-            font-size: 14px; 
-            line-height: 20px; 
-            transition: max-height 0.3s ease, padding 0.3s ease; 
-        }
-        .faq-item.active .faq-answer { 
-            padding: 14px; 
-            max-height: 200px; 
-        }
+        .faq-answer { padding: 0 14px; max-height: 0; overflow: hidden; font-size: 14px; line-height: 20px; transition: max-height 0.3s ease, padding 0.3s ease; }
+        .faq-item.active .faq-answer { padding: 14px; max-height: 200px; }
         .faq-icon { transition: transform 0.3s ease; }
         .faq-item.active .faq-icon { transform: rotate(180deg); }
         .reviews { border-top: 1px solid #e7e7e7; padding-top: 30px; margin-top: 30px; }
@@ -132,7 +84,6 @@
                     <div class="stock">In Stock</div>
                     <div class="qty-label">Quantity:</div>
                     <select class="qty-select" id="qty" onchange="updatePrice()"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
-                    
                     <div class="size-section">
                         <label class="size-label">Size:</label>
                         <select class="size-select" id="sizeSelect">
@@ -144,22 +95,11 @@
                             <option value="XXL">XXL</option>
                         </select>
                     </div>
-                    
-                    <a href="#" onclick="orderWhatsApp()" class="whatsapp-btn">Order on WhatsApp</a>
-                    
+                    <a href="#" id="whatsappLink" class="whatsapp-btn">Order on WhatsApp</a>
                     <div class="trust-badges">
-                        <div class="badge">
-                            <div class="badge-icon">💵</div>
-                            <div>Pay on Delivery</div>
-                        </div>
-                        <div class="badge">
-                            <div class="badge-icon">🚚</div>
-                            <div>Fast Delivery</div>
-                        </div>
-                        <div class="badge">
-                            <div class="badge-icon">✓</div>
-                            <div>Quality Guaranteed</div>
-                        </div>
+                        <div class="badge"><div class="badge-icon">💵</div><div>Pay on Delivery</div></div>
+                        <div class="badge"><div class="badge-icon">🚚</div><div>Fast Delivery</div></div>
+                        <div class="badge"><div class="badge-icon">✓</div><div>Quality Guaranteed</div></div>
                     </div>
                 </div>
             </div>
@@ -179,36 +119,20 @@
         <div class="faq-section">
             <h3>Frequently Asked Questions</h3>
             <div class="faq-item">
-                <button class="faq-question">
-                    What sizes are available? <span class="faq-icon">▼</span>
-                </button>
-                <div class="faq-answer">
-                    We stock S, M, L, XL, and XXL. Check our <a href="size-guide.html" style="color: #007185;">Size Guide</a> for exact measurements. If you're between sizes, we recommend sizing up for a relaxed fit.
-                </div>
+                <button class="faq-question">What sizes are available? <span class="faq-icon">▼</span></button>
+                <div class="faq-answer">We stock S, M, L, XL, and XXL. Check our <a href="size-guide.html" style="color: #007185;">Size Guide</a> for exact measurements. If you're between sizes, we recommend sizing up for a relaxed fit.</div>
             </div>
             <div class="faq-item">
-                <button class="faq-question">
-                    Will the print fade after washing? <span class="faq-icon">▼</span>
-                </button>
-                <div class="faq-answer">
-                    Nope. We use high-quality sublimation printing. Just wash cold, inside out, and avoid bleach. Tumble dry low or hang dry to keep it looking fresh.
-                </div>
+                <button class="faq-question">Will the print fade after washing? <span class="faq-icon">▼</span></button>
+                <div class="faq-answer">Nope. We use high-quality sublimation printing. Just wash cold, inside out, and avoid bleach. Tumble dry low or hang dry to keep it looking fresh.</div>
             </div>
             <div class="faq-item">
-                <button class="faq-question">
-                    What if it doesn't fit? <span class="faq-icon">▼</span>
-                </button>
-                <div class="faq-answer">
-                    We offer exchanges within 3 days of delivery if the item is unworn with tags. Just <a href="https://wa.me/256778003397?text=Hi!%20I%20need%20to%20exchange%20my%20order" style="color: #007185;">WhatsApp us</a> and we'll sort it out. Check our <a href="returns.html" style="color: #007185;">Returns</a> page for details.
-                </div>
+                <button class="faq-question">What if it doesn't fit? <span class="faq-icon">▼</span></button>
+                <div class="faq-answer">We offer exchanges within 3 days of delivery if the item is unworn with tags. Just <a href="https://wa.me/256778003397?text=Hi!%20I%20need%20to%20exchange%20my%20order" style="color: #007185;">WhatsApp us</a> and we'll sort it out. Check our <a href="returns.html" style="color: #007185;">Returns</a> page for details.</div>
             </div>
             <div class="faq-item">
-                <button class="faq-question">
-                    When will I receive my order? <span class="faq-icon">▼</span>
-                </button>
-                <div class="faq-answer">
-                    Kampala orders arrive same day or next day. Upcountry takes 2-4 business days. You'll get WhatsApp updates once it ships. More details on our <a href="shipping-info.html" style="color: #007185;">Shipping Info</a> page.
-                </div>
+                <button class="faq-question">When will I receive my order? <span class="faq-icon">▼</span></button>
+                <div class="faq-answer">Kampala orders arrive same day or next day. Upcountry takes 2-4 business days. You'll get WhatsApp updates once it ships. More details on our <a href="shipping-info.html" style="color: #007185;">Shipping Info</a> page.</div>
             </div>
         </div>
         <div class="reviews">
@@ -235,7 +159,6 @@
             </div>
         </div>
     </div>
-    
     <footer style="background: #131921; color: #fff; padding: 40px 20px; margin-top: 50px; text-align: center;">
         <div style="max-width: 1200px; margin: 0 auto;">
             <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-bottom: 20px;">
@@ -247,52 +170,34 @@
             <div style="font-size: 14px; color: #ddd;">© 2026 Velzorix Online Market. All rights reserved.</div>
         </div>
     </footer>
-    
     <script>
-        const basePrice = 60,000;
-        
-        function formatPrice(num) {
-            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        }
-        
+        const basePrice = 60000;
+        function formatPrice(num) { return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); }
         function updatePrice() {
             const qty = document.getElementById('qty').value;
             const total = basePrice * qty;
             document.getElementById('totalPrice').textContent = formatPrice(total);
+            updateWhatsAppLink();
         }
-        
-        function orderWhatsApp() {
+        function updateWhatsAppLink() {
             const qty = document.getElementById('qty').value;
             const size = document.getElementById('sizeSelect').value;
-            
-            if (!size) {
-                alert('Please select a size first!');
-                return;
-            }
-            
-            const product = 'Space Hoodie';
+            const product = document.querySelector('.product-title').textContent;
             const total = basePrice * qty;
             const priceText = `UGX ${formatPrice(total)}`;
-            const msg = `Hi Velzorix! I want to order:
-            
-Product: ${product}
-Size: ${size}
-Quantity: ${qty}
-Total Price: ${priceText}
-            
-Please confirm availability.`;
-            
+            let msg = `Hi Velzorix! I want to order:\n\nProduct: ${product}\nQuantity: ${qty}\nTotal Price: ${priceText}`;
+            if (size) { msg += `\nSize: ${size}`; }
+            msg += `\n\nPlease confirm availability.`;
             const url = `https://wa.me/256778003397?text=${encodeURIComponent(msg)}`;
-            window.open(url, '_blank');
+            document.getElementById('whatsappLink').href = url;
         }
-        
-        // FAQ accordion
+        document.getElementById('sizeSelect').addEventListener('change', updateWhatsAppLink);
+        document.getElementById('qty').addEventListener('change', updatePrice);
+        updateWhatsAppLink();
         document.querySelectorAll('.faq-question').forEach(button => {
             button.addEventListener('click', () => {
                 const faqItem = button.parentElement;
                 faqItem.classList.toggle('active');
-                
-                // Close other open FAQs
                 document.querySelectorAll('.faq-item').forEach(item => {
                     if (item !== faqItem) item.classList.remove('active');
                 });
