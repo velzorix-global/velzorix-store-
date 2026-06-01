@@ -3,219 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tokyo Rose Street Shirt | Velzorix Online Market</title>
-    <link rel="manifest" href="/manifest.json">
-    <link rel="icon" href="/favicon.JPG" sizes="32x32">
-    <meta name="theme-color" content="#00a8e1">
+    <title>Tokyo Rose Street Shirt - Velzorix</title>
     <style>
-        :root { --blue: #00a8e1; --bg: #e3e6e6; --card: #fff; --text: #0f1111; --muted: #565959; --header: #131921; --nav: #232f3e; }
-        [data-theme="dark"] { --bg: #0f1111; --card: #1a1a1a; --text: #fff; --muted: #aaa; --header: #000; --nav: #161616; }
+        :root { --blue: #00a8e1; --bg: #e3e6e6; --card: #fff; --text: #0f1111; --muted: #565959; --header: #131921; }
+        [data-theme="dark"] { --bg: #0f1111; --card: #1a1a1a; --text: #fff; --muted: #aaa; --header: #000; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); transition: background 0.3s, color 0.3s; }
-     .header { background: var(--header); padding: 10px 20px; position: sticky; top: 0; z-index: 100; }
-     .header-top { display: flex; align-items: center; gap: 20px; max-width: 1400px; margin: 0 auto; }
-     .header-logo { color: #fff; font-size: 24px; font-weight: bold; text-decoration: none; }
-     .header-logo span { color: var(--blue); }
-     .search-bar { flex: 1; max-width: 600px; display: flex; }
-     .search-input { flex: 1; padding: 10px; border: none; border-radius: 4px 0 0 4px; font-size: 15px; background: #fff; color: #000; }
-     .search-btn { background: #febd69; border: none; padding: 10px 15px; border-radius: 0 4px 4px 0; cursor: pointer; }
-     .header-right { display: flex; gap: 15px; align-items: center; color: #fff; font-size: 13px; }
-     .header-link { color: #fff; text-decoration: none; }
-     .theme-toggle { background: none; border: 1px solid #fff; color: #fff; padding: 8px 12px; border-radius: 4px; cursor: pointer; font-size: 14px; }
-     .nav-bar { background: var(--nav); padding: 8px 0; }
-     .nav-items { max-width: 1400px; margin: 0 auto; display: flex; gap: 5px; font-size: 14px; overflow-x: auto; padding: 0 20px; }
-     .nav-items a { color: #fff; text-decoration: none; padding: 5px 12px; border-radius: 3px; white-space: nowrap; }
-     .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-     .back-link { color: #007185; text-decoration: none; font-size: 14px; margin-bottom: 20px; display: inline-block; }
-     .product-grid { display: grid; grid-template-columns: 1fr; gap: 30px; margin-bottom: 40px; }
-     @media(min-width: 768px) { .product-grid { grid-template-columns: 35% 1fr; } }
-     .product-img { width: 100%; border-radius: 8px; }
-     .product-title { font-size: 24px; font-weight: 400; line-height: 32px; margin-bottom: 8px; }
-     .brand { color: #007185; font-size: 14px; margin-bottom: 8px; }
-     .rating { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
-     .stars { color: #ffa41c; font-size: 18px; }
-     .rating-count { color: #007185; font-size: 14px; }
-     .price-section { border-top: 1px solid #e7e7e7; padding-top: 14px; margin: 14px 0; }
-     .currency { font-size: 13px; vertical-align: top; }
-     .price { font-size: 28px; font-weight: 400; }
-     .buy-box { border: 1px solid #d5d9d9; border-radius: 8px; padding: 18px; }
-     .price-buy { font-size: 28px; margin-bottom: 12px; }
-     .delivery { color: #007600; font-size: 14px; line-height: 20px; margin-bottom: 12px; }
-     .delivery b { color: #007600; }
-     [data-theme="dark"] .delivery b { color: #00b300; }
-     .stock { color: #007600; font-size: 18px; margin-bottom: 12px; }
-     .qty-label { font-size: 14px; margin-bottom: 8px; }
-     .qty-select { width: 100%; padding: 8px; border: 1px solid #d5d9d9; border-radius: 8px; font-size: 14px; margin-bottom: 12px; }
-     .size-section { margin: 16px 0 8px 0; }
-     .size-label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
-     .size-select { width: 100%; max-width: 200px; padding: 10px 12px; border: 1px solid #D5D9D9; border-radius: 8px; background: #F0F2F2; font-size: 14px; cursor: pointer; }
-     .color-section { margin: 16px 0 8px 0; }
-     .color-label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
-     .color-select { width: 100%; max-width: 200px; padding: 10px 12px; border: 1px solid #D5D9D9; border-radius: 8px; background: #F0F2F2; font-size: 14px; cursor: pointer; }
-     .whatsapp-btn { background: #25D366; border: none; color: #fff; padding: 12px; border-radius: 20px; text-decoration: none; font-size: 14px; font-weight: bold; display: block; text-align: center; }
-     .whatsapp-btn:hover { background: #1da851; }
-     .trust-badges { display: flex; justify-content: space-between; gap: 10px; margin: 16px 0 0 0; padding-top: 16px; border-top: 1px solid #e7e7e7; }
-     .badge { text-align: center; flex: 1; font-size: 12px; color: #565959; }
-     .badge-icon { font-size: 20px; margin-bottom: 4px; }
-     .desc { margin-top: 30px; line-height: 20px; font-size: 14px; border-top: 1px solid #e7e7e7; padding-top: 20px; }
-     .desc h3 { font-size: 16px; margin-bottom: 12px; }
-     .desc ul { margin-left: 18px; }
-     .desc li { margin-bottom: 6px; }
-     .faq-section { margin-top: 30px; border-top: 1px solid #e7e7e7; padding-top: 20px; }
-     .faq-section h3 { font-size: 16px; margin-bottom: 12px; }
-     .faq-item { border: 1px solid #d5d9d9; border-radius: 8px; margin-bottom: 8px; }
-     .faq-question { width: 100%; text-align: left; padding: 14px; background: #f0f2f2; border: none; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
-     .faq-answer { padding: 0 14px; max-height: 0; overflow: hidden; font-size: 14px; line-height: 20px; transition: max-height 0.3s ease, padding 0.3s ease; }
-     .faq-item.active .faq-answer { padding: 14px; max-height: 200px; }
-     .faq-icon { transition: transform 0.3s ease; }
-     .faq-item.active .faq-icon { transform: rotate(180deg); }
-     .reviews { border-top: 1px solid #e7e7e7; padding-top: 30px; margin-top: 30px; }
-     .reviews h2 { font-size: 21px; margin-bottom: 20px; }
-     .review-summary { background: #f7f7f7; padding: 16px; border-radius: 8px; margin-bottom: 24px; }
-     .review-item { border-bottom: 1px solid #e7e7e7; padding: 20px 0; }
-     .review-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
-     .review-avatar { width: 34px; height: 34px; border-radius: 50%; background: #232f3e; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px; }
-     .review-name { font-size: 13px; font-weight: 700; }
-     .review-stars { color: #ffa41c; font-size: 16px; margin: 4px 0; }
-     .review-title { font-weight: 700; font-size: 14px; margin-bottom: 6px; }
-     .review-date { color: #565959; font-size: 14px; margin-bottom: 8px; }
-     .review-text { font-size: 14px; line-height: 20px; }
-     .verified { color: #c45500; font-size: 12px; font-weight: 700; margin-top: 6px; }
-     .footer { background: var(--nav); color: #fff; padding: 40px 20px; margin-top: 50px; text-align: center; }
-     .footer-links { display: flex; justify-content: center; gap: 30px; margin-bottom: 20px; flex-wrap: wrap; }
-     .footer-links a { color: #ddd; text-decoration: none; font-size: 14px; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); }
+        .header { background: var(--header); padding: 10px 20px; position: sticky; top: 0; z-index: 100; }
+        .header-top { display: flex; align-items: center; gap: 20px; max-width: 1400px; margin: 0 auto; }
+        .header-logo { color: #fff; font-size: 24px; font-weight: bold; text-decoration: none; }
+        .header-logo span { color: var(--blue); }
+        .header-right { display: flex; gap: 15px; align-items: center; color: #fff; font-size: 13px; margin-left: auto; }
+        .theme-toggle { background: none; border: 1px solid #fff; color: #fff; padding: 8px 12px; border-radius: 4px; cursor: pointer; font-size: 14px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .back-btn { color: #007185; text-decoration: none; font-size: 14px; margin-bottom: 20px; display: inline-block; }
+        .back-btn:hover { text-decoration: underline; color: #C7511F; }
+        .product-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; background: var(--card); padding: 30px; border-radius: 8px; }
+        .product-img { width: 100%; border-radius: 8px; }
+        .product-title { font-size: 24px; font-weight: 400; margin-bottom: 10px; }
+        .rating { display: flex; align-items: center; gap: 6px; margin-bottom: 15px; }
+        .stars { color: #ffa41c; font-size: 16px; }
+        .rating-count { color: #007185; font-size: 14px; }
+        .price { font-size: 28px; color: #B12704; margin: 15px 0; }
+        .delivery { color: #007600; font-size: 14px; margin: 15px 0; }
+        .desc { font-size: 15px; line-height: 1.6; margin: 20px 0; color: var(--text); }
+        .option-group { margin: 20px 0; }
+        .option-label { font-weight: bold; margin-bottom: 8px; display: block; font-size: 14px; }
+        .option-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+        .option-btn { padding: 8px 16px; border: 1px solid #d5d9d9; background: var(--card); color: var(--text); border-radius: 8px; cursor: pointer; font-size: 14px; }
+        .option-btn:hover, .option-btn.selected { border-color: var(--blue); background: #f0f8ff; }
+        [data-theme="dark"] .option-btn.selected { background: #1a3a4a; }
+        .qty-select { padding: 8px; border: 1px solid #d5d9d9; border-radius: 8px; font-size: 14px; background: var(--card); color: var(--text); }
+        .whatsapp-btn { background: #25D366; color: #fff; border: none; padding: 12px 24px; border-radius: 8px; font-size: 16px; cursor: pointer; width: 100%; margin-top: 20px; font-weight: bold; }
+        .whatsapp-btn:hover { background: #1da851; }
+        @media(max-width: 768px) { .product-layout { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
     <div class="header">
         <div class="header-top">
             <a href="index.html" class="header-logo">VELZORI<span>X</span></a>
-            <div class="search-bar">
-                <input type="text" class="search-input" placeholder="Search Velzorix Online Market">
-                <button class="search-btn">🔍</button>
-            </div>
             <div class="header-right">
                 <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
-                <a href="https://wa.me/256778003397" class="header-link"><div>Order on</div><div><b>WhatsApp</b></div></a>
+                <a href="https://wa.me/256778003397" style="color:#fff;text-decoration:none;">
+                    <div>Order on</div>
+                    <div><b>WhatsApp</b></div>
+                </a>
             </div>
         </div>
     </div>
-    <div class="nav-bar"><div class="nav-items"><a href="index.html">All Products</a><a>Ladies</a><a>Fashion</a><a>Phones</a><a>Electronics</a><a>Home & Living</a></div></div>
+
     <div class="container">
-        <a href="index.html" class="back-link">← Back to results</a>
-        <div class="product-grid">
-            <div><img src="shirt-rose.jpg" alt="Tokyo Rose Street Shirt" class="product-img"></div>
+        <a href="index.html" class="back-btn">← Back to products</a>
+        
+        <div class="product-layout">
+            <div>
+                <img src="shirt-rose.jpg" alt="Tokyo Rose Street Shirt" class="product-img">
+            </div>
+            
             <div>
                 <h1 class="product-title">Tokyo Rose Street Shirt</h1>
-                <div class="brand">Brand: Velzorix Online Market</div>
-                <div class="rating"><span class="stars">★★★★☆</span><span class="rating-count">4.4 out of 5 stars</span><span class="rating-count">67 ratings</span></div>
-                <div class="price-section"><span class="currency">UGX</span><span class="price">59,000</span></div>
-                <div class="buy-box">
-                    <div class="price-buy"><span class="currency">UGX</span> <span id="totalPrice">59,000</span></div>
-                    <div class="delivery"><b>FREE delivery</b> Tomorrow to Kampala<br>Or fastest delivery Today</div>
-                    <div class="stock">In Stock</div>
-                    <div class="qty-label">Quantity:</div>
-                    <select class="qty-select" id="qty" onchange="updatePrice()"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
-                    <div class="color-section">
-                        <label class="color-label">Color:</label>
-                        <select class="color-select" id="colorSelect">
-                            <option value="">Select Color</option>
-                            <option value="Black">Black</option>
-                            <option value="White">White</option>
-                        </select>
-                    </div>
-                    <div class="size-section">
-                        <label class="size-label">Size:</label>
-                        <select class="size-select" id="sizeSelect">
-                            <option value="">Select Size</option>
-                            <option value="S">S</option>
-                            <option value="M">M</option>
-                            <option value="L">L</option>
-                            <option value="XL">XL</option>
-                        </select>
-                    </div>
-                    <a href="#" id="whatsappLink" class="whatsapp-btn">Order on WhatsApp</a>
-                    <div class="trust-badges">
-                        <div class="badge"><div class="badge-icon">💵</div><div>Pay on Delivery</div></div>
-                        <div class="badge"><div class="badge-icon">🚚</div><div>Fast Delivery</div></div>
-                        <div class="badge"><div class="badge-icon">✓</div><div>Quality Guaranteed</div></div>
+                
+                <div class="rating">
+                    <span class="stars">★★★★☆</span>
+                    <span class="rating-count">4.4 out of 5 (67 reviews)</span>
+                </div>
+                
+                <div class="price">UGX 59,000</div>
+                
+                <div class="delivery"><b>FREE delivery</b> Tomorrow to Kampala</div>
+                
+                <div class="desc">
+                    Tokyo-inspired street shirt with rose graphic. Oversized fit, soft cotton blend. Perfect for casual streetwear looks.
+                </div>
+                
+                <div class="option-group">
+                    <label class="option-label">Size:</label>
+                    <div class="option-buttons" id="sizeOptions">
+                        <button class="option-btn selected" onclick="selectOption(this, 'size')">M</button>
+                        <button class="option-btn" onclick="selectOption(this, 'size')">L</button>
+                        <button class="option-btn" onclick="selectOption(this, 'size')">XL</button>
+                        <button class="option-btn" onclick="selectOption(this, 'size')">XXL</button>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="desc">
-            <h3>About this item</h3>
-            <ul>
-                <li>Japanese streetwear inspired - Tokyo Rose embroidery</li>
-                <li>100% cotton button-down shirt</li>
-                <li>Relaxed fit with drop shoulders</li>
-                <li>Embroidered rose graphic on chest</li>
-                <li>Perfect for layering over tees</li>
-                <li>Machine washable</li>
-                <li>Sizes: S, M, L, XL | Colors: Black, White</li>
-            </ul>
-        </div>
-        <div class="faq-section">
-            <h3>Frequently Asked Questions</h3>
-            <div class="faq-item">
-                <button class="faq-question">Is the embroidery real? <span class="faq-icon">▼</span></button>
-                <div class="faq-answer">Yes, stitched embroidery not print. Won't crack or fade after washing.</div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-question">Can I wear it open? <span class="faq-icon">▼</span></button>
-                <div class="faq-answer">100%. Looks fire over a plain white tee. Streetwear essential.</div>
-            </div>
-        </div>
-        <div class="reviews">
-            <h2>Customer reviews</h2>
-            <div class="review-summary">
-                <div class="rating"><span class="stars">★★★★☆</span><span style="font-size: 18px;">4.4 out of 5</span></div>
-                <div style="font-size: 14px; color: #565959;">67 global ratings</div>
-            </div>
-            <div class="review-item">
-                <div class="review-header"><div class="review-avatar">J</div><div class="review-name">Josh P.</div></div>
-                <div class="review-stars">★★★★★</div>
-                <div class="review-title">Embroidery is clean</div>
-                <div class="review-date">Reviewed in Uganda on 29 May 2026</div>
-                <div class="review-text">Rose detail is sick. Fabric is thick. Got so many compliments first wear.</div>
-                <div class="verified">Verified Purchase</div>
+                
+                <div class="option-group">
+                    <label class="option-label">Quantity:</label>
+                    <select class="qty-select" id="quantity">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </div>
+                
+                <button class="whatsapp-btn" onclick="orderWhatsApp()">Order on WhatsApp</button>
             </div>
         </div>
     </div>
-    <div class="footer">
-        <div class="footer-content">
-            <div class="footer-links">
-                <a href="https://wa.me/256778003397?text=Hi%20Velzorix!%20I%20have%20a%20question">Contact on WhatsApp</a>
-                <a href="shipping-info.html">Shipping Info</a>
-                <a href="size-guide.html">Size Guide</a>
-                <a href="returns.html">Returns</a>
-            </div>
-            <p style="font-size: 13px; color: #999;">© 2026 Velzorix Online Market. All rights reserved.</p>
-        </div>
-    </div>
+
     <script>
-        const basePrice = 59000;
-        function formatPrice(num) { return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); }
-        function updatePrice() {
-            const qty = document.getElementById('qty').value;
-            const total = basePrice * qty;
-            document.getElementById('totalPrice').textContent = formatPrice(total);
-            updateWhatsAppLink();
-        }
-        function updateWhatsAppLink() {
-            const qty = document.getElementById('qty').value;
-            const size = document.getElementById('sizeSelect').value;
-            const color = document.getElementById('colorSelect').value;
-            const product = document.querySelector('.product-title').textContent;
-            const total = basePrice * qty;
-            const priceText = `UGX ${formatPrice(total)}`;
-            let msg = `Hi Velzorix! I want to order:\n\nProduct: ${product}\nQuantity: ${qty}\nTotal Price: ${priceText}`;
-            if (color) { msg += `\nColor: ${color}`; }
-            if (size) { msg += `\nSize: ${size}`; }
-            msg += `\n\nPlease confirm availability.`;
-            const url = `https://wa.me/256778003397?text=${encodeURIComponent(msg)}`;
-            document.getElementById('whatsappLink').href = url;
-        }
+        let selectedSize = 'M';
+        
+        const savedTheme = localStorage.getItem('velzorixTheme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        document.querySelector('.theme-toggle').textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+        
         function toggleTheme() {
             const html = document.documentElement;
             const current = html.getAttribute('data-theme');
@@ -224,22 +116,19 @@
             localStorage.setItem('velzorixTheme', newTheme);
             document.querySelector('.theme-toggle').textContent = newTheme === 'dark' ? '☀️' : '🌙';
         }
-        const savedTheme = localStorage.getItem('velzorixTheme') || 'light';
-        document.documentElement.setAttribute('data-theme', savedTheme);
-        document.querySelector('.theme-toggle').textContent = savedTheme === 'dark' ? '☀️' : '🌙';
-        document.getElementById('sizeSelect').addEventListener('change', updateWhatsAppLink);
-        document.getElementById('colorSelect').addEventListener('change', updateWhatsAppLink);
-        document.getElementById('qty').addEventListener('change', updatePrice);
-        updateWhatsAppLink();
-        document.querySelectorAll('.faq-question').forEach(button => {
-            button.addEventListener('click', () => {
-                const faqItem = button.parentElement;
-                faqItem.classList.toggle('active');
-                document.querySelectorAll('.faq-item').forEach(item => {
-                    if (item !== faqItem) item.classList.remove('active');
-                });
-            });
-        });
+        
+        function selectOption(btn, type) {
+            const group = btn.parentElement;
+            group.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+            if (type === 'size') selectedSize = btn.textContent;
+        }
+        
+        function orderWhatsApp() {
+            const qty = document.getElementById('quantity').value;
+            const msg = `Hi! I want to order:%0A%0A*Tokyo Rose Street Shirt*%0ASize: ${selectedSize}%0AQuantity: ${qty}%0APrice: UGX 59,000%0A%0APlease confirm availability.`;
+            window.open(`https://wa.me/256778003397?text=${msg}`, '_blank');
+        }
     </script>
 </body>
 </html>
