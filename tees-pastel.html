@@ -4,74 +4,103 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pastel Essential Tees - 6 Colors | Velzorix Online Market</title>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/favicon.JPG" sizes="32x32">
+    <meta name="theme-color" content="#00a8e1">
     <style>
+        :root { --blue: #00a8e1; --bg: #e3e6e6; --card: #fff; --text: #0f1111; --muted: #565959; --header: #131921; --nav: #232f3e; }
+        [data-theme="dark"] { --bg: #0f1111; --card: #1a1a1a; --text: #fff; --muted: #aaa; --header: #000; --nav: #161616; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #fff; color: #0f1111; }
-        .header { background: #131921; padding: 12px 20px; }
-        .header-logo { color: #fff; font-size: 24px; font-weight: bold; }
-        .header-logo span { color: #00a8e1; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-        .back-link { color: #007185; text-decoration: none; font-size: 14px; margin-bottom: 20px; display: inline-block; }
-        .back-link:hover { color: #c7511f; text-decoration: underline; }
-        .product-grid { display: grid; grid-template-columns: 1fr; gap: 30px; margin-bottom: 40px; }
-        @media(min-width: 768px) { .product-grid { grid-template-columns: 35% 1fr; } }
-        .product-img { width: 100%; max-width: 350px; border-radius: 8px; margin: 0 auto; display: block; }
-        .product-title { font-size: 24px; font-weight: 400; line-height: 32px; margin-bottom: 8px; }
-        .brand { color: #007185; font-size: 14px; margin-bottom: 8px; }
-        .rating { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
-        .stars { color: #ffa41c; font-size: 18px; }
-        .rating-count { color: #007185; font-size: 14px; }
-        .price-section { border-top: 1px solid #e7e7e7; padding-top: 14px; margin: 14px 0; }
-        .currency { font-size: 13px; vertical-align: top; }
-        .price { font-size: 28px; font-weight: 400; }
-        .buy-box { border: 1px solid #d5d9d9; border-radius: 8px; padding: 18px; }
-        .price-buy { font-size: 28px; margin-bottom: 12px; }
-        .delivery { color: #007600; font-size: 14px; line-height: 20px; margin-bottom: 12px; }
-        .delivery b { color: #007600; }
-        .stock { color: #007600; font-size: 18px; margin-bottom: 12px; }
-        .qty-label { font-size: 14px; margin-bottom: 8px; }
-        .qty-select { width: 100%; padding: 8px; border: 1px solid #d5d9d9; border-radius: 8px; font-size: 14px; margin-bottom: 12px; }
-        .size-section { margin: 16px 0 8px 0; }
-        .size-label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; color: #0F1111; }
-        .size-select { width: 100%; max-width: 200px; padding: 10px 12px; border: 1px solid #D5D9D9; border-radius: 8px; background: #F0F2F2; font-size: 14px; cursor: pointer; }
-        .size-select:focus { outline: none; border-color: #007185; box-shadow: 0 0 0 3px #C8F3FA; }
-        .color-section { margin: 16px 0 8px 0; }
-        .color-label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; color: #0F1111; }
-        .color-select { width: 100%; max-width: 200px; padding: 10px 12px; border: 1px solid #D5D9D9; border-radius: 8px; background: #F0F2F2; font-size: 14px; cursor: pointer; }
-        .whatsapp-btn { background: #25D366; border: none; color: #fff; padding: 12px; border-radius: 20px; text-decoration: none; font-size: 14px; font-weight: bold; display: block; text-align: center; }
-        .whatsapp-btn:hover { background: #1da851; }
-        .trust-badges { display: flex; justify-content: space-between; gap: 10px; margin: 16px 0 0 0; padding-top: 16px; border-top: 1px solid #e7e7e7; }
-        .badge { text-align: center; flex: 1; font-size: 12px; color: #565959; }
-        .badge-icon { font-size: 20px; margin-bottom: 4px; }
-        .desc { margin-top: 30px; line-height: 20px; font-size: 14px; border-top: 1px solid #e7e7e7; padding-top: 20px; }
-        .desc h3 { font-size: 16px; margin-bottom: 12px; }
-        .desc ul { margin-left: 18px; }
-        .desc li { margin-bottom: 6px; }
-        .faq-section { margin-top: 30px; border-top: 1px solid #e7e7e7; padding-top: 20px; }
-        .faq-section h3 { font-size: 16px; margin-bottom: 12px; }
-        .faq-item { border: 1px solid #d5d9d9; border-radius: 8px; margin-bottom: 8px; }
-        .faq-question { width: 100%; text-align: left; padding: 14px; background: #f0f2f2; border: none; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
-        .faq-question:hover { background: #e3e6e6; }
-        .faq-answer { padding: 0 14px; max-height: 0; overflow: hidden; font-size: 14px; line-height: 20px; transition: max-height 0.3s ease, padding 0.3s ease; }
-        .faq-item.active .faq-answer { padding: 14px; max-height: 200px; }
-        .faq-icon { transition: transform 0.3s ease; }
-        .faq-item.active .faq-icon { transform: rotate(180deg); }
-        .reviews { border-top: 1px solid #e7e7e7; padding-top: 30px; margin-top: 30px; }
-        .reviews h2 { font-size: 21px; margin-bottom: 20px; }
-        .review-summary { background: #f7f7f7; padding: 16px; border-radius: 8px; margin-bottom: 24px; }
-        .review-item { border-bottom: 1px solid #e7e7e7; padding: 20px 0; }
-        .review-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
-        .review-avatar { width: 34px; height: 34px; border-radius: 50%; background: #232f3e; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px; }
-        .review-name { font-size: 13px; font-weight: 700; }
-        .review-stars { color: #ffa41c; font-size: 16px; margin: 4px 0; }
-        .review-title { font-weight: 700; font-size: 14px; margin-bottom: 6px; }
-        .review-date { color: #565959; font-size: 14px; margin-bottom: 8px; }
-        .review-text { font-size: 14px; line-height: 20px; color: #0f1111; }
-        .verified { color: #c45500; font-size: 12px; font-weight: 700; margin-top: 6px; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); transition: background 0.3s, color 0.3s; }
+     .header { background: var(--header); padding: 10px 20px; position: sticky; top: 0; z-index: 100; }
+     .header-top { display: flex; align-items: center; gap: 20px; max-width: 1400px; margin: 0 auto; }
+     .header-logo { color: #fff; font-size: 24px; font-weight: bold; text-decoration: none; }
+     .header-logo span { color: var(--blue); }
+     .search-bar { flex: 1; max-width: 600px; display: flex; }
+     .search-input { flex: 1; padding: 10px; border: none; border-radius: 4px 0 0 4px; font-size: 15px; background: #fff; color: #000; }
+     .search-btn { background: #febd69; border: none; padding: 10px 15px; border-radius: 0 4px 4px 0; cursor: pointer; }
+     .header-right { display: flex; gap: 15px; align-items: center; color: #fff; font-size: 13px; }
+     .header-link { color: #fff; text-decoration: none; }
+     .theme-toggle { background: none; border: 1px solid #fff; color: #fff; padding: 8px 12px; border-radius: 4px; cursor: pointer; font-size: 14px; }
+     .nav-bar { background: var(--nav); padding: 8px 0; }
+     .nav-items { max-width: 1400px; margin: 0 auto; display: flex; gap: 5px; font-size: 14px; overflow-x: auto; padding: 0 20px; }
+     .nav-items a { color: #fff; text-decoration: none; padding: 5px 12px; border-radius: 3px; white-space: nowrap; }
+     .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+     .back-link { color: #007185; text-decoration: none; font-size: 14px; margin-bottom: 20px; display: inline-block; }
+     .product-grid { display: grid; grid-template-columns: 1fr; gap: 30px; margin-bottom: 40px; }
+     @media(min-width: 768px) { .product-grid { grid-template-columns: 35% 1fr; } }
+     .product-img { width: 100%; border-radius: 8px; }
+     .product-title { font-size: 24px; font-weight: 400; line-height: 32px; margin-bottom: 8px; }
+     .brand { color: #007185; font-size: 14px; margin-bottom: 8px; }
+     .rating { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+     .stars { color: #ffa41c; font-size: 18px; }
+     .rating-count { color: #007185; font-size: 14px; }
+     .price-section { border-top: 1px solid #e7e7e7; padding-top: 14px; margin: 14px 0; }
+     .currency { font-size: 13px; vertical-align: top; }
+     .price { font-size: 28px; font-weight: 400; }
+     .buy-box { border: 1px solid #d5d9d9; border-radius: 8px; padding: 18px; }
+     .price-buy { font-size: 28px; margin-bottom: 12px; }
+     .delivery { color: #007600; font-size: 14px; line-height: 20px; margin-bottom: 12px; }
+     .delivery b { color: #007600; }
+     [data-theme="dark"] .delivery b { color: #00b300; }
+     .stock { color: #007600; font-size: 18px; margin-bottom: 12px; }
+     .qty-label { font-size: 14px; margin-bottom: 8px; }
+     .qty-select { width: 100%; padding: 8px; border: 1px solid #d5d9d9; border-radius: 8px; font-size: 14px; margin-bottom: 12px; }
+     .size-section { margin: 16px 0 8px 0; }
+     .size-label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+     .size-select { width: 100%; max-width: 200px; padding: 10px 12px; border: 1px solid #D5D9D9; border-radius: 8px; background: #F0F2F2; font-size: 14px; cursor: pointer; }
+     .color-section { margin: 16px 0 8px 0; }
+     .color-label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+     .color-select { width: 100%; max-width: 200px; padding: 10px 12px; border: 1px solid #D5D9D9; border-radius: 8px; background: #F0F2F2; font-size: 14px; cursor: pointer; }
+     .whatsapp-btn { background: #25D366; border: none; color: #fff; padding: 12px; border-radius: 20px; text-decoration: none; font-size: 14px; font-weight: bold; display: block; text-align: center; }
+     .whatsapp-btn:hover { background: #1da851; }
+     .trust-badges { display: flex; justify-content: space-between; gap: 10px; margin: 16px 0 0 0; padding-top: 16px; border-top: 1px solid #e7e7e7; }
+     .badge { text-align: center; flex: 1; font-size: 12px; color: #565959; }
+     .badge-icon { font-size: 20px; margin-bottom: 4px; }
+     .desc { margin-top: 30px; line-height: 20px; font-size: 14px; border-top: 1px solid #e7e7e7; padding-top: 20px; }
+     .desc h3 { font-size: 16px; margin-bottom: 12px; }
+     .desc ul { margin-left: 18px; }
+     .desc li { margin-bottom: 6px; }
+     .faq-section { margin-top: 30px; border-top: 1px solid #e7e7e7; padding-top: 20px; }
+     .faq-section h3 { font-size: 16px; margin-bottom: 12px; }
+     .faq-item { border: 1px solid #d5d9d9; border-radius: 8px; margin-bottom: 8px; }
+     .faq-question { width: 100%; text-align: left; padding: 14px; background: #f0f2f2; border: none; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+     .faq-answer { padding: 0 14px; max-height: 0; overflow: hidden; font-size: 14px; line-height: 20px; transition: max-height 0.3s ease, padding 0.3s ease; }
+     .faq-item.active .faq-answer { padding: 14px; max-height: 200px; }
+     .faq-icon { transition: transform 0.3s ease; }
+     .faq-item.active .faq-icon { transform: rotate(180deg); }
+     .reviews { border-top: 1px solid #e7e7e7; padding-top: 30px; margin-top: 30px; }
+     .reviews h2 { font-size: 21px; margin-bottom: 20px; }
+     .review-summary { background: #f7f7f7; padding: 16px; border-radius: 8px; margin-bottom: 24px; }
+     .review-item { border-bottom: 1px solid #e7e7e7; padding: 20px 0; }
+     .review-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+     .review-avatar { width: 34px; height: 34px; border-radius: 50%; background: #232f3e; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px; }
+     .review-name { font-size: 13px; font-weight: 700; }
+     .review-stars { color: #ffa41c; font-size: 16px; margin: 4px 0; }
+     .review-title { font-weight: 700; font-size: 14px; margin-bottom: 6px; }
+     .review-date { color: #565959; font-size: 14px; margin-bottom: 8px; }
+     .review-text { font-size: 14px; line-height: 20px; }
+     .verified { color: #c45500; font-size: 12px; font-weight: 700; margin-top: 6px; }
+     .footer { background: var(--nav); color: #fff; padding: 40px 20px; margin-top: 50px; text-align: center; }
+     .footer-links { display: flex; justify-content: center; gap: 30px; margin-bottom: 20px; flex-wrap: wrap; }
+     .footer-links a { color: #ddd; text-decoration: none; font-size: 14px; }
     </style>
 </head>
 <body>
-    <div class="header"><div class="header-logo">VELZORI<span>X</span></div></div>
+    <div class="header">
+        <div class="header-top">
+            <a href="index.html" class="header-logo">VELZORI<span>X</span></a>
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="Search Velzorix Online Market">
+                <button class="search-btn">🔍</button>
+            </div>
+            <div class="header-right">
+                <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+                <a href="https://wa.me/256778003397" class="header-link"><div>Order on</div><div><b>WhatsApp</b></div></a>
+            </div>
+        </div>
+    </div>
+    <div class="nav-bar"><div class="nav-items"><a href="index.html">All Products</a><a>Ladies</a><a>Fashion</a><a>Phones</a><a>Electronics</a><a>Home & Living</a></div></div>
     <div class="container">
         <a href="index.html" class="back-link">← Back to results</a>
         <div class="product-grid">
@@ -79,7 +108,7 @@
             <div>
                 <h1 class="product-title">Pastel Essential Tees - 6 Colors</h1>
                 <div class="brand">Brand: Velzorix Online Market</div>
-                <div class="rating"><span class="stars">★★★★★</span><span class="rating-count">4.6 out of 5 stars</span><span class="rating-count">89 ratings</span></div>
+                <div class="rating"><span class="stars">★★★★☆</span><span class="rating-count">4.6 out of 5 stars</span><span class="rating-count">89 ratings</span></div>
                 <div class="price-section"><span class="currency">UGX</span><span class="price">45,000</span></div>
                 <div class="buy-box">
                     <div class="price-buy"><span class="currency">UGX</span> <span id="totalPrice">45,000</span></div>
@@ -121,65 +150,65 @@
         <div class="desc">
             <h3>About this item</h3>
             <ul>
-                <li>100% premium cotton - soft + breathable for Kampala heat</li>
+                <li>100% premium cotton - soft + breathable</li>
                 <li>6 pastel colors: White, Lavender, Mint, Grey, Black, Cream</li>
-                <li>Unisex relaxed fit - S to XL</li>
-                <li>Pre-shrunk fabric - minimal shrinkage after wash</li>
-                <li>Perfect for layering or solo wear</li>
-                <li>Machine wash cold, tumble dry low</li>
-                <li>Made in Uganda 🇺🇬</li>
+                <li>Relaxed fit - perfect for layering or solo wear</li>
+                <li>Pre-shrunk fabric - won't shrink after wash</li>
+                <li>Tagless for comfort</li>
+                <li>Machine washable</li>
+                <li>Sizes: S, M, L, XL</li>
             </ul>
         </div>
         <div class="faq-section">
             <h3>Frequently Asked Questions</h3>
             <div class="faq-item">
-                <button class="faq-question">What colors are available? <span class="faq-icon">▼</span></button>
-                <div class="faq-answer">We stock 6 colors: White, Lavender, Mint, Grey, Black, and Cream. Select your color above before ordering.</div>
+                <button class="faq-question">Do the colors fade? <span class="faq-icon">▼</span></button>
+                <div class="faq-answer">No. Premium dye process keeps colors bright after 20+ washes. Wash cold, hang dry.</div>
             </div>
             <div class="faq-item">
-                <button class="faq-question">Does it shrink after washing? <span class="faq-icon">▼</span></button>
-                <div class="faq-answer">Minimal shrinkage. We use pre-shrunk cotton. Wash cold and hang dry for best results.</div>
+                <button class="faq-question">Is it see-through? <span class="faq-icon">▼</span></button>
+                <div class="faq-answer">White is slightly translucent. Other colors are 100% opaque. Wear nude underwear with white.</div>
             </div>
             <div class="faq-item">
-                <button class="faq-question">Is it unisex? <span class="faq-icon">▼</span></button>
-                <div class="faq-answer">Yes! Relaxed unisex fit. Ladies usually size down for a fitted look, or stay true to size for oversized.</div>
+                <button class="faq-question">True to size? <span class="faq-icon">▼</span></button>
+                <div class="faq-answer">Yes. Relaxed fit but not oversized. If you want baggy, size up.</div>
             </div>
         </div>
         <div class="reviews">
             <h2>Customer reviews</h2>
             <div class="review-summary">
-                <div class="rating"><span class="stars">★★★★★</span><span style="font-size: 18px;">4.6 out of 5</span></div>
+                <div class="rating"><span class="stars">★★★★☆</span><span style="font-size: 18px;">4.6 out of 5</span></div>
                 <div style="font-size: 14px; color: #565959;">89 global ratings</div>
             </div>
             <div class="review-item">
-                <div class="review-header"><div class="review-avatar">M</div><div class="review-name">Michael O.</div></div>
+                <div class="review-header"><div class="review-avatar">A</div><div class="review-name">Aisha K.</div></div>
                 <div class="review-stars">★★★★★</div>
-                <div class="review-title">Best tees for the price</div>
-                <div class="review-date">Reviewed in Uganda on 28 May 2026</div>
-                <div class="review-text">Material is soft and colors are exactly as shown. Bought all 6. No regrets.</div>
+                <div class="review-title">So soft!</div>
+                <div class="review-date">Reviewed in Uganda on 30 May 2026</div>
+                <div class="review-text">Bought lavender + mint. Material is buttery soft. Colors are exactly like photos. Will buy more.</div>
                 <div class="verified">Verified Purchase</div>
             </div>
             <div class="review-item">
-                <div class="review-header"><div class="review-avatar">S</div><div class="review-name">Sarah N.</div></div>
-                <div class="review-stars">★★★★★</div>
-                <div class="review-title">Love the pastel colors</div>
-                <div class="review-date">Reviewed in Kampala on 22 May 2026</div>
-                <div class="review-text">Mint and Lavender are my faves. Perfect for campus. Wash well too.</div>
+                <div class="review-header"><div class="review-avatar">M</div><div class="review-name">Mike T.</div></div>
+                <div class="review-stars">★★★★☆</div>
+                <div class="review-title">Good basics</div>
+                <div class="review-date">Reviewed in Kampala on 26 May 2026</div>
+                <div class="review-text">Quality cotton. Fits well. White is a bit thin but expected for the price. Black is perfect.</div>
                 <div class="verified">Verified Purchase</div>
             </div>
         </div>
     </div>
-    <footer style="background: #131921; color: #fff; padding: 40px 20px; margin-top: 50px; text-align: center;">
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-bottom: 20px;">
-                <a href="https://wa.me/256778003397?text=Hi%20Velzorix!%20I%20have%20a%20question" style="color: #fff; text-decoration: none; font-size: 16px;">Contact on WhatsApp</a>
-                <a href="shipping-info.html" style="color: #fff; text-decoration: none; font-size: 16px;">Shipping Info</a>
-                <a href="size-guide.html" style="color: #fff; text-decoration: none; font-size: 16px;">Size Guide</a>
-                <a href="returns.html" style="color: #fff; text-decoration: none; font-size: 16px;">Returns</a>
+    <div class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="https://wa.me/256778003397?text=Hi%20Velzorix!%20I%20have%20a%20question">Contact on WhatsApp</a>
+                <a href="shipping-info.html">Shipping Info</a>
+                <a href="size-guide.html">Size Guide</a>
+                <a href="returns.html">Returns</a>
             </div>
-            <div style="font-size: 14px; color: #ddd;">© 2026 Velzorix Online Market. All rights reserved.</div>
+            <p style="font-size: 13px; color: #999;">© 2026 Velzorix Online Market. All rights reserved.</p>
         </div>
-    </footer>
+    </div>
     <script>
         const basePrice = 45000;
         function formatPrice(num) { return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); }
@@ -192,30 +221,3 @@
         function updateWhatsAppLink() {
             const qty = document.getElementById('qty').value;
             const size = document.getElementById('sizeSelect').value;
-            const color = document.getElementById('colorSelect').value;
-            const product = document.querySelector('.product-title').textContent;
-            const total = basePrice * qty;
-            const priceText = `UGX ${formatPrice(total)}`;
-            let msg = `Hi Velzorix! I want to order:\n\nProduct: ${product}\nQuantity: ${qty}\nTotal Price: ${priceText}`;
-            if (color) { msg += `\nColor: ${color}`; }
-            if (size) { msg += `\nSize: ${size}`; }
-            msg += `\n\nPlease confirm availability.`;
-            const url = `https://wa.me/256778003397?text=${encodeURIComponent(msg)}`;
-            document.getElementById('whatsappLink').href = url;
-        }
-        document.getElementById('sizeSelect').addEventListener('change', updateWhatsAppLink);
-        document.getElementById('colorSelect').addEventListener('change', updateWhatsAppLink);
-        document.getElementById('qty').addEventListener('change', updatePrice);
-        updateWhatsAppLink();
-        document.querySelectorAll('.faq-question').forEach(button => {
-            button.addEventListener('click', () => {
-                const faqItem = button.parentElement;
-                faqItem.classList.toggle('active');
-                document.querySelectorAll('.faq-item').forEach(item => {
-                    if (item !== faqItem) item.classList.remove('active');
-                });
-            });
-        });
-    </script>
-</body>
-</html>
