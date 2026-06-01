@@ -96,7 +96,6 @@
                 <a href="https://wa.me/256778003397" class="header-link"><div>Order on</div><div><b>WhatsApp</b></div></a>
             </div>
         </div>
-    </div>
     <div class="nav-bar"><div class="nav-items"><a href="index.html">All Products</a><a>Ladies</a><a>Fashion</a><a>Phones</a><a>Electronics</a><a>Home & Living</a></div></div>
     <div class="container">
         <a href="index.html" class="back-link">← Back to results</a>
@@ -138,10 +137,10 @@
             <ul>
                 <li>LV-inspired varsity jacket with embroidered patches</li>
                 <li>Wool blend body + faux leather sleeves</li>
-                <li>Quilted lining for warmth</li>
-                <li>Snap button closure + ribbed cuffs</li>
+                <li>Quilted lining for warmth - perfect for Kampala nights</li>
+                <li>Snap button closure + ribbed cuffs/collar</li>
                 <li>Oversized streetwear fit</li>
-                <li>Premium embroidery - no print</li>
+                <li>Premium embroidery front + back - no cheap prints</li>
                 <li>Sizes: S, M, L, XL, XXL</li>
             </ul>
         </div>
@@ -149,10 +148,100 @@
             <h3>Frequently Asked Questions</h3>
             <div class="faq-item">
                 <button class="faq-question">Is it real wool? <span class="faq-icon">▼</span></button>
-                <div class="faq-answer">Wool blend body for warmth + durability. Sleeves are premium faux leather.</div>
+                <div class="faq-answer">Wool blend body for warmth + durability. Sleeves are premium faux leather that looks real.</div>
             </div>
             <div class="faq-item">
                 <button class="faq-question">Are patches embroidered? <span class="faq-icon">▼</span></button>
-                <div class="faq-answer">Yes, full embroidery front + back. No cheap heat transfer prints.</div>
+                <div class="faq-answer">Yes, full embroidery front + back. No heat transfer prints that crack after 2 washes.</div>
             </div>
-            <div class
+            <div class="faq-item">
+                <button class="faq-question">How warm is it? <span class="faq-icon">▼</span></button>
+                <div class="faq-answer">Quilted lining keeps you warm in 15-20°C. Perfect for evenings. Not for extreme cold.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">True to size? <span class="faq-icon">▼</span></button>
+                <div class="faq-answer">Oversized fit. If you want fitted, size down. If you want baggy streetwear look, get normal size.</div>
+            </div>
+        </div>
+        <div class="reviews">
+            <h2>Customer reviews</h2>
+            <div class="review-summary">
+                <div class="rating"><span class="stars">★★★★★</span><span style="font-size: 18px;">4.9 out of 5</span></div>
+                <div style="font-size: 14px; color: #565959;">74 global ratings</div>
+            </div>
+            <div class="review-item">
+                <div class="review-header"><div class="review-avatar">K</div><div class="review-name">Kevin L.</div></div>
+                <div class="review-stars">★★★★★</div>
+                <div class="review-title">Best jacket I own</div>
+                <div class="review-date">Reviewed in Uganda on 2 June 2026</div>
+                <div class="review-text">Embroidery is insane. Leather sleeves look premium. Everyone asks where I got it. Worth every shilling.</div>
+                <div class="verified">Verified Purchase</div>
+            </div>
+            <div class="review-item">
+                <div class="review-header"><div class="review-avatar">P</div><div class="review-name">Patricia N.</div></div>
+                <div class="review-stars">★★★★★</div>
+                <div class="review-title">Gift for boyfriend</div>
+                <div class="review-date">Reviewed in Kampala on 29 May 2026</div>
+                <div class="review-text">He loves it! Quality is better than expected. Patches are thick + detailed. Delivery was fast.</div>
+                <div class="verified">Verified Purchase</div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="https://wa.me/256778003397?text=Hi%20Velzorix!%20I%20have%20a%20question">Contact on WhatsApp</a>
+                <a href="shipping-info.html">Shipping Info</a>
+                <a href="size-guide.html">Size Guide</a>
+                <a href="returns.html">Returns</a>
+            </div>
+            <p style="font-size: 13px; color: #999;">© 2026 Velzorix Online Market. All rights reserved.</p>
+        </div>
+    </div>
+    <script>
+        const basePrice = 145000;
+        function formatPrice(num) { return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); }
+        function updatePrice() {
+            const qty = document.getElementById('qty').value;
+            const total = basePrice * qty;
+            document.getElementById('totalPrice').textContent = formatPrice(total);
+            updateWhatsAppLink();
+        }
+        function updateWhatsAppLink() {
+            const qty = document.getElementById('qty').value;
+            const size = document.getElementById('sizeSelect').value;
+            const product = document.querySelector('.product-title').textContent;
+            const total = basePrice * qty;
+            const priceText = `UGX ${formatPrice(total)}`;
+            let msg = `Hi Velzorix! I want to order:\n\nProduct: ${product}\nQuantity: ${qty}\nTotal Price: ${priceText}`;
+            if (size) { msg += `\nSize: ${size}`; }
+            msg += `\n\nPlease confirm availability.`;
+            const url = `https://wa.me/256778003397?text=${encodeURIComponent(msg)}`;
+            document.getElementById('whatsappLink').href = url;
+        }
+        function toggleTheme() {
+            const html = document.documentElement;
+            const current = html.getAttribute('data-theme');
+            const newTheme = current === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('velzorixTheme', newTheme);
+            document.querySelector('.theme-toggle').textContent = newTheme === 'dark' ? '☀️' : '🌙';
+        }
+        const savedTheme = localStorage.getItem('velzorixTheme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        document.querySelector('.theme-toggle').textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+        document.getElementById('sizeSelect').addEventListener('change', updateWhatsAppLink);
+        document.getElementById('qty').addEventListener('change', updatePrice);
+        updateWhatsAppLink();
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                faqItem.classList.toggle('active');
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== faqItem) item.classList.remove('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
