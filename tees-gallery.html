@@ -56,4 +56,95 @@
     <div class="container">
         <a href="index.html" class="back-btn">← Back to products</a>
         
-        <
+        <div class="product-layout">
+            <div>
+                <img src="tees-gallery.jpg" alt="Oversized Graphic Tees" class="product-img">
+            </div>
+            
+            <div>
+                <h1 class="product-title">Oversized Graphic Tees - 6 Colors</h1>
+                
+                <div class="rating">
+                    <span class="stars">★★★★☆</span>
+                    <span class="rating-count">4.5 out of 5 (102 reviews)</span>
+                </div>
+                
+                <div class="price">UGX 45,000</div>
+                
+                <div class="delivery"><b>FREE delivery</b> Tomorrow to Kampala</div>
+                
+                <div class="desc">
+                    Trendy oversized graphic tees with premium prints. 6 color options. Loose fit, heavyweight cotton. Street-ready style for Kampala.
+                </div>
+                
+                <div class="option-group">
+                    <label class="option-label">Size:</label>
+                    <div class="option-buttons" id="sizeOptions">
+                        <button class="option-btn selected" onclick="selectOption(this, 'size')">M</button>
+                        <button class="option-btn" onclick="selectOption(this, 'size')">L</button>
+                        <button class="option-btn" onclick="selectOption(this, 'size')">XL</button>
+                        <button class="option-btn" onclick="selectOption(this, 'size')">XXL</button>
+                    </div>
+                </div>
+                
+                <div class="option-group">
+                    <label class="option-label">Color:</label>
+                    <div class="option-buttons" id="colorOptions">
+                        <button class="option-btn selected" onclick="selectOption(this, 'color')">Black</button>
+                        <button class="option-btn" onclick="selectOption(this, 'color')">White</button>
+                        <button class="option-btn" onclick="selectOption(this, 'color')">Beige</button>
+                        <button class="option-btn" onclick="selectOption(this, 'color')">Grey</button>
+                        <button class="option-btn" onclick="selectOption(this, 'color')">Brown</button>
+                        <button class="option-btn" onclick="selectOption(this, 'color')">Olive</button>
+                    </div>
+                </div>
+                
+                <div class="option-group">
+                    <label class="option-label">Quantity:</label>
+                    <select class="qty-select" id="quantity">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                
+                <button class="whatsapp-btn" onclick="orderWhatsApp()">Order on WhatsApp</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let selectedSize = 'M';
+        let selectedColor = 'Black';
+        
+        const savedTheme = localStorage.getItem('velzorixTheme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        document.querySelector('.theme-toggle').textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+        
+        function toggleTheme() {
+            const html = document.documentElement;
+            const current = html.getAttribute('data-theme');
+            const newTheme = current === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('velzorixTheme', newTheme);
+            document.querySelector('.theme-toggle').textContent = newTheme === 'dark' ? '☀️' : '🌙';
+        }
+        
+        function selectOption(btn, type) {
+            const group = btn.parentElement;
+            group.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+            if (type === 'size') selectedSize = btn.textContent;
+            if (type === 'color') selectedColor = btn.textContent;
+        }
+        
+        function orderWhatsApp() {
+            const qty = document.getElementById('quantity').value;
+            const msg = `Hi! I want to order:%0A%0A*Oversized Graphic Tees*%0ASize: ${selectedSize}%0AColor: ${selectedColor}%0AQuantity: ${qty}%0APrice: UGX 45,000%0A%0APlease confirm availability.`;
+            window.open(`https://wa.me/256778003397?text=${msg}`, '_blank');
+        }
+    </script>
+</body>
+</html>
