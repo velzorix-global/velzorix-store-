@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rose Japanese Shirt - Velzorix Online Market</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #fff; color: #0f1111; }
+        .header { background: #131921; padding: 12px 20px; }
+        .header-logo { color: #fff; font-size: 24px; font-weight: bold; }
+        .header-logo span { color: #00a8e1; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .back-link { color: #007185; text-decoration: none; font-size: 14px; margin-bottom: 20px; display: inline-block; }
+        .back-link:hover { color: #c7511f; text-decoration: underline; }
+        .product-grid { display: grid; grid-template-columns: 1fr; gap: 30px; margin-bottom: 40px; }
+        @media(min-width: 768px) { .product-grid { grid-template-columns: 35% 1fr; } }
+        .product-img { width: 100%; max-width: 350px; border-radius: 8px; margin: 0 auto; display: block; }
+        .product-title { font-size: 24px; font-weight: 400; line-height: 32px; margin-bottom: 8px; }
+        .brand { color: #007185; font-size: 14px; margin-bottom: 8px; }
+        .rating { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+        .stars { color: #ffa41c; font-size: 18px; }
+        .rating-count { color: #007185; font-size: 14px; }
+        .price-section { border-top: 1px solid #e7e7e7; padding-top: 14px; margin: 14px 0; }
+        .currency { font-size: 13px; vertical-align: top; }
+        .price { font-size: 28px; font-weight: 400; }
+        .buy-box { border: 1px solid #d5d9d9; border-radius: 8px; padding: 18px; }
+        .price-buy { font-size: 28px; margin-bottom: 12px; }
+        .delivery { color: #007600; font-size: 14px; line-height: 20px; margin-bottom: 12px; }
+        .delivery b { color: #007600; }
+        .stock { color: #007600; font-size: 18px; margin-bottom: 12px; }
+        .qty-label { font-size: 14px; margin-bottom: 8px; }
+        .qty-select { width: 100%; padding: 8px; border: 1px solid #d5d9d9; border-radius: 8px; font-size: 14px; margin-bottom: 12px; }
+        .size-section { margin: 16px 0 8px 0; }
+        .size-label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; color: #0F1111; }
+        .size-select { width: 100%; max-width: 200px; padding: 10px 12px; border: 1px solid #D5D9D9; border-radius: 8px; background: #F0F2F2; font-size: 14px; cursor: pointer; }
+        .size-select:focus { outline: none; border-color: #007185; box-shadow: 0 0 0 3px #C8F3FA; }
+        .whatsapp-btn { background: #25D366; border: none; color: #fff; padding: 12px; border-radius: 20px; text-decoration: none; font-size: 14px; font-weight: bold; display: block; text-align: center; }
+        .whatsapp-btn:hover { background: #1da851; }
+        .trust-badges { display: flex; justify-content: space-between; gap: 10px; margin: 16px 0 0 0; padding-top: 16px; border-top: 1px solid #e7e7e7; }
+        .badge { text-align: center; flex: 1; font-size: 12px; color: #565959; }
+        .badge-icon { font-size: 20px; margin-bottom: 4px; }
+        .desc { margin-top: 30px; line-height: 20px; font-size: 14px; border-top: 1px solid #e7e7e7; padding-top: 20px; }
+        .desc h3 { font-size: 16px; margin-bottom: 12px; }
+        .desc ul { margin-left: 18px; }
+        .desc li { margin-bottom: 6px; }
+        .faq-section { margin-top: 30px; border-top: 1px solid #e7e7e7; padding-top: 20px; }
+        .faq-section h3 { font-size: 16px; margin-bottom: 12px; }
+        .faq-item { border: 1px solid #d5d9d9; border-radius: 8px; margin-bottom: 8px; }
+        .faq-question { width: 100%; text-align: left; padding: 14px; background: #f0f2f2; border: none; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .faq-question:hover { background: #e3e6e6; }
+        .faq-answer { padding: 0 14px; max-height: 0; overflow: hidden; font-size: 14px; line-height: 20px; transition: max-height 0.3s ease, padding 0.3s ease; }
+        .faq-item.active .faq-answer { padding: 14px; max-height: 200px; }
+        .faq-icon { transition: transform 0.3s ease; }
+        .faq-item.active .faq-icon { transform: rotate(180deg); }
+        .reviews { border-top: 1px solid #e7e7e7; padding-top: 30px; margin-top: 30px; }
+        .reviews h2 { font-size: 21px; margin-bottom: 20px; }
+        .review-summary { background: #f7f7f7; padding: 16px; border-radius: 8px; margin-bottom: 24px; }
+        .review-item { border-bottom: 1px solid #e7e7e7; padding: 20px 0; }
+        .review-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+        .review-avatar { width: 34px; height: 34px; border-radius: 50%; background: #232f3e; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px; }
+        .review-name { font-size: 13px; font-weight: 700; }
+        .review-stars { color: #ffa41c; font-size: 16px; margin: 4px 0; }
+        .review-title { font-weight: 700; font-size: 14px; margin-bottom: 6px; }
+        .review-date { color: #565959; font-size: 14px; margin-bottom: 8px; }
+        .review-text { font-size: 14px; line-height: 20px; color: #0f1111; }
+        .verified { color: #c45500; font-size: 12px; font-weight: 700; margin-top: 6px; }
+    </style>
+</head>
+<body>
+    <div class="header"><div class="header-logo">VELZORI<span>X</span></div></div>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to results</a>
+        <div class="product-grid">
+            <div><img src="shirt2-rose.jpg" alt="Rose Japanese Shirt" class="product-img"></div>
+            <div>
+                <h1 class="product-title">Rose Japanese Shirt - Short Sleeve Button Down</h1>
+                <div class="brand">Brand: Velzorix Online Market</div>
+                <div class="rating"><span class="stars">★★★★☆</span><span class="rating-count">4.5 out of 5 stars</span><span class="rating-count">63 ratings</span></div>
+                <div class="price-section"><span class="currency">UGX</span><span class="price">55,000</span></div>
+                <div class="buy-box">
+                    <div class="price-buy"><span class="currency">UGX</span> <span id="totalPrice">55,000</span></div>
+                    <div class="delivery"><b>FREE delivery</b> Tomorrow to Kampala<br>Or fastest delivery Today</div>
+                    <div class="stock">In Stock</div>
+                    <div class="qty-label">Quantity:</div>
+                    <select class="qty-select" id="qty" onchange="updatePrice()"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+                    <div class="size-section">
+                        <label class="size-label">Size:</label>
+                        <select class="size-select" id="sizeSelect">
+                            <option value="">Select Size</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                            <option value="XXL">XXL</option>
+                        </select>
+                    </div>
+                    <a href="#" id="whatsappLink" class="whatsapp-btn">Order on WhatsApp</a>
+                    <div class="trust-badges">
+                        <div class="badge"><div class="badge-icon">💵</div><div>Pay on Delivery</div></div>
+                        <div class="badge"><div class="badge-icon">🚚</div><div>Fast Delivery</div></div>
+                        <div class="badge"><div class="badge-icon">✓</div><div>Quality Guaranteed</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="desc">
+            <h3>About this item</h3>
+            <ul>
+                <li>Premium black button-down with rose + Japanese text print</li>
+                <li>Lightweight breathable fabric perfect for Uganda weather</li>
+                <li>Relaxed streetwear fit - M, L, XL, XXL</li>
+                <li>Layer over white tee or wear solo</li>
+                <li>High-quality print that won't crack after washing</li>
+                <li>Machine washable cold</li>
+                <li>Ships from Kampala in 1-2 business days</li>
+            </ul>
+        </div>
+        <div class="faq-section">
+            <h3>Frequently Asked Questions</h3>
+            <div class="faq-item">
+                <button class="faq-question">What sizes are available? <span class="faq-icon">▼</span></button>
+                <div class="faq-answer">We stock M, L, XL, and XXL. Check our <a href="size-guide.html" style="color: #007185;">Size Guide</a> for exact measurements. This has a relaxed fit.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Will the print crack after washing? <span class="faq-icon">▼</span></button>
+                <div class="faq-answer">Nope. We use quality screen printing. Wash cold, inside out, and avoid bleach. Hang dry to keep it looking fresh.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">What if it doesn't fit? <span class="faq-icon">▼</span></button>
+                <div class="faq-answer">We offer exchanges within 3 days of delivery if the item is unworn with tags. Just <a href="https://wa.me/256778003397?text=Hi!%20I%20need%20to%20exchange%20my%20order" style="color: #007185;">WhatsApp us</a> and we'll sort it out. Check our <a href="returns.html" style="color: #007185;">Returns</a> page for details.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">When will I receive my order? <span class="faq-icon">▼</span></button>
+                <div class="faq-answer">Kampala orders arrive same day or next day. Upcountry takes 2-4 business days. You'll get WhatsApp updates once it ships. More details on our <a href="shipping-info.html" style="color: #007185;">Shipping Info</a> page.</div>
+            </div>
+        </div>
+        <div class="reviews">
+            <h2>Customer reviews</h2>
+            <div class="review-summary">
+                <div class="rating"><span class="stars">★★★★☆</span><span style="font-size: 18px;">4.5 out of 5</span></div>
+                <div style="font-size: 14px; color: #565959;">63 global ratings</div>
+            </div>
+            <div class="review-item">
+                <div class="review-header"><div class="review-avatar">A</div><div class="review-name">Alex M.</div></div>
+                <div class="review-stars">★★★★★</div>
+                <div class="review-title">Clean design, fits perfect</div>
+                <div class="review-date">Reviewed in Uganda on 30 May 2026</div>
+                <div class="review-text">The rose print is subtle but hard. Material is light so I can wear it in the heat. Got compliments already.</div>
+                <div class="verified">Verified Purchase</div>
+            </div>
+            <div class="review-item">
+                <div class="review-header"><div class="review-avatar">S</div><div class="review-name">Sharon N.</div></div>
+                <div class="review-stars">★★★★☆</div>
+                <div class="review-title">Bought for my bro</div>
+                <div class="review-date">Reviewed in Kampala on 26 May 2026</div>
+                <div class="review-text">He loves it. Says it’s comfortable and the print is unique. Delivery was fast too.</div>
+                <div class="verified">Verified Purchase</div>
+            </div>
+        </div>
+    </div>
+    <footer style="background: #131921; color: #fff; padding: 40px 20px; margin-top: 50px; text-align: center;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-bottom: 20px;">
+                <a href="https://wa.me/256778003397?text=Hi%20Velzorix!%20I%20have%20a%20question" style="color: #fff; text-decoration: none; font-size: 16px;">Contact on WhatsApp</a>
+                <a href="shipping-info.html" style="color: #fff; text-decoration: none; font-size: 16px;">Shipping Info</a>
+                <a href="size-guide.html" style="color: #fff; text-decoration: none; font-size: 16px;">Size Guide</a>
+                <a href="returns.html" style="color: #fff; text-decoration: none; font-size: 16px;">Returns</a>
+            </div>
+            <div style="font-size: 14px; color: #ddd;">© 2026 Velzorix Online Market. All rights reserved.</div>
+        </div>
+    </footer>
+    <script>
+        const basePrice = 55000;
+        function formatPrice(num) { return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); }
+        function updatePrice() {
+            const qty = document.getElementById('qty').value;
+            const total = basePrice * qty;
+            document.getElementById('totalPrice').textContent = formatPrice(total);
+            updateWhatsAppLink();
+        }
+        function updateWhatsAppLink() {
+            const qty = document.getElementById('qty').value;
+            const size = document.getElementById('sizeSelect').value;
+            const product = document.querySelector('.product-title').textContent;
+            const total = basePrice * qty;
+            const priceText = `UGX ${formatPrice(total)}`;
+            let msg = `Hi Velzorix! I want to order:\n\nProduct: ${product}\nQuantity: ${qty}\nTotal Price: ${priceText}`;
+            if (size) { msg += `\nSize: ${size}`; }
+            msg += `\n\nPlease confirm availability.`;
+            const url = `https://wa.me/256778003397?text=${encodeURIComponent(msg)}`;
+            document.getElementById('whatsappLink').href = url;
+        }
+        document.getElementById('sizeSelect').addEventListener('change', updateWhatsAppLink);
+        document.getElementById('qty').addEventListener('change', updatePrice);
+        updateWhatsAppLink();
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                faqItem.classList.toggle('active');
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== faqItem) item.classList.remove('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
