@@ -3,148 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oversized Graphic Tees - Velzorix</title>
+    <title>Oversized Graphic Tees - Velzorix Online Market</title>
     <style>
-        :root { --blue: #00a8e1; --bg: #e3e6e6; --card: #fff; --text: #0f1111; --muted: #565959; --header: #131921; }
-        [data-theme="dark"] { --bg: #0f1111; --card: #1a1a1a; --text: #fff; --muted: #aaa; --header: #000; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); }
-        .header { background: var(--header); padding: 10px 20px; position: sticky; top: 0; z-index: 100; }
-        .header-top { display: flex; align-items: center; gap: 20px; max-width: 1400px; margin: 0 auto; }
-        .header-logo { color: #fff; font-size: 24px; font-weight: bold; text-decoration: none; }
-        .header-logo span { color: var(--blue); }
-        .header-right { display: flex; gap: 15px; align-items: center; color: #fff; font-size: 13px; margin-left: auto; }
-        .theme-toggle { background: none; border: 1px solid #fff; color: #fff; padding: 8px 12px; border-radius: 4px; cursor: pointer; font-size: 14px; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #fff; color: #0f1111; }
+        .header { background: #131921; padding: 12px 20px; }
+        .header-logo { color: #fff; font-size: 24px; font-weight: bold; }
+        .header-logo span { color: #00a8e1; }
         .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-        .back-btn { color: #007185; text-decoration: none; font-size: 14px; margin-bottom: 20px; display: inline-block; }
-        .back-btn:hover { text-decoration: underline; color: #C7511F; }
-        .product-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; background: var(--card); padding: 30px; border-radius: 8px; }
-        .product-img { width: 100%; border-radius: 8px; }
-        .product-title { font-size: 24px; font-weight: 400; margin-bottom: 10px; }
-        .rating { display: flex; align-items: center; gap: 6px; margin-bottom: 15px; }
-        .stars { color: #ffa41c; font-size: 16px; }
+        .back-link { color: #007185; text-decoration: none; font-size: 14px; margin-bottom: 20px; display: inline-block; }
+        .back-link:hover { color: #c7511f; text-decoration: underline; }
+        .product-grid { display: grid; grid-template-columns: 1fr; gap: 30px; margin-bottom: 40px; }
+        @media(min-width: 768px) { .product-grid { grid-template-columns: 35% 1fr; } }
+        .product-img { width: 100%; max-width: 350px; border-radius: 8px; margin: 0 auto; display: block; }
+        .product-title { font-size: 24px; font-weight: 400; line-height: 32px; margin-bottom: 8px; }
+        .brand { color: #007185; font-size: 14px; margin-bottom: 8px; }
+        .rating { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+        .stars { color: #ffa41c; font-size: 18px; }
         .rating-count { color: #007185; font-size: 14px; }
-        .price { font-size: 28px; color: #B12704; margin: 15px 0; }
-        .delivery { color: #007600; font-size: 14px; margin: 15px 0; }
-        .desc { font-size: 15px; line-height: 1.6; margin: 20px 0; color: var(--text); }
-        .option-group { margin: 20px 0; }
-        .option-label { font-weight: bold; margin-bottom: 8px; display: block; font-size: 14px; }
-        .option-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
-        .option-btn { padding: 8px 16px; border: 1px solid #d5d9d9; background: var(--card); color: var(--text); border-radius: 8px; cursor: pointer; font-size: 14px; }
-        .option-btn:hover, .option-btn.selected { border-color: var(--blue); background: #f0f8ff; }
-        [data-theme="dark"] .option-btn.selected { background: #1a3a4a; }
-        .qty-select { padding: 8px; border: 1px solid #d5d9d9; border-radius: 8px; font-size: 14px; background: var(--card); color: var(--text); }
-        .whatsapp-btn { background: #25D366; color: #fff; border: none; padding: 12px 24px; border-radius: 8px; font-size: 16px; cursor: pointer; width: 100%; margin-top: 20px; font-weight: bold; }
+        .price-section { border-top: 1px solid #e7e7e7; padding-top: 14px; margin: 14px 0; }
+        .currency { font-size: 13px; vertical-align: top; }
+        .price { font-size: 28px; font-weight: 400; }
+        .buy-box { border: 1px solid #d5d9d9; border-radius: 8px; padding: 18px; }
+        .price-buy { font-size: 28px; margin-bottom: 12px; }
+        .delivery { color: #007600; font-size: 14px; line-height: 20px; margin-bottom: 12px; }
+        .delivery b { color: #007600; }
+        .stock { color: #007600; font-size: 18px; margin-bottom: 12px; }
+        .qty-label { font-size: 14px; margin-bottom: 8px; }
+        .qty-select { width: 100%; padding: 8px; border: 1px solid #d5d9d9; border-radius: 8px; font-size: 14px; margin-bottom: 12px; }
+        .size-section { margin: 16px 0 8px 0; }
+        .size-label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; color: #0F1111; }
+        .size-select { width: 100%; max-width: 200px; padding: 10px 12px; border: 1px solid #D5D9D9; border-radius: 8px; background: #F0F2F2; font-size: 14px; cursor: pointer; }
+        .size-select:focus { outline: none; border-color: #007185; box-shadow: 0 0 0 3px #C8F3FA; }
+        .color-section { margin: 16px 0 8px 0; }
+        .color-label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; color: #0F1111; }
+        .color-select { width: 100%; max-width: 200px; padding: 10px 12px; border: 1px solid #D5D9D9; border-radius: 8px; background: #F0F2F2; font-size: 14px; cursor: pointer; }
+        .color-select:focus { outline: none; border-color: #007185; box-shadow: 0 0 0 3px #C8F3FA; }
+        .whatsapp-btn { background: #25D366; border: none; color: #fff; padding: 12px; border-radius: 20px; text-decoration: none; font-size: 14px; font-weight: bold; display: block; text-align: center; }
         .whatsapp-btn:hover { background: #1da851; }
-        @media(max-width: 768px) { .product-layout { grid-template-columns: 1fr; } }
+        .trust-badges { display: flex; justify-content: space-between; gap: 10px; margin: 16px 0 0 0; padding-top: 16px; border-top: 1px solid #e7e7e7; }
+        .badge { text-align: center; flex: 1; font-size: 12px; color: #565959; }
+        .badge-icon { font-size: 20px; margin-bottom: 4px; }
+        .desc { margin-top: 30px; line-height: 20px; font-size: 14px; border-top: 1px solid #e7e7e7; padding-top: 20px; }
+        .desc h3 { font-size: 16px; margin-bottom: 12px; }
+        .desc ul { margin-left: 18px; }
+        .desc li { margin-bottom: 6px; }
+        .faq-section { margin-top: 30px; border-top: 1px solid #e7e7e7; padding-top: 20px; }
+        .faq-section h3 { font-size: 16px; margin-bottom: 12px; }
+        .faq-item { border: 1px solid #d5d9d9; border-radius: 8px; margin-bottom: 8px; }
+        .faq-question { width: 100%; text-align: left; padding: 14px; background: #f0f2f2; border: none; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .faq-question:hover { background: #e3e6e6; }
+        .faq-answer { padding: 0 14px; max-height: 0; overflow: hidden; font-size: 14px; line-height: 20px; transition: max-height 0.3s ease, padding 0.3s ease; }
+        .faq-item.active .faq-answer { padding: 14px; max-height: 200px; }
+        .faq-icon { transition: transform 0.3s ease; }
+        .faq-item.active .faq-icon { transform: rotate(180deg); }
+        .reviews { border-top: 1px solid #e7e7e7; padding-top: 30px; margin-top: 30px; }
+        .reviews h2 { font-size: 21px; margin-bottom: 20px; }
+        .review-summary { background: #f7f7f7; padding: 16px; border-radius: 8px; margin-bottom: 24px; }
+        .review-item { border-bottom: 1px solid #e7e7e7; padding: 20px 0; }
+        .review-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+        .review-avatar { width: 34px; height: 34px; border-radius: 50%; background: #232f3e; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px; }
+        .review-name { font-size: 13px; font-weight: 700; }
+        .review-stars { color: #ffa41c; font-size: 16px; margin: 4px 0; }
+        .review-title { font-weight: 700; font-size: 14px; margin-bottom: 6px; }
+        .review-date { color: #565959; font-size: 14px; margin-bottom: 8px; }
+        .review-text { font-size: 14px; line-height: 20px; color: #0f1111; }
+        .verified { color: #c45500; font-size: 12px; font-weight: 700; margin-top: 6px; }
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="header-top">
-            <a href="index.html" class="header-logo">VELZORI<span>X</span></a>
-            <div class="header-right">
-                <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
-                <a href="https://wa.me/256778003397" style="color:#fff;text-decoration:none;">
-                    <div>Order on</div>
-                    <div><b>WhatsApp</b></div>
-                </a>
-            </div>
-        </div>
-    </div>
-
+    <div class="header"><div class="header-logo">VELZORI<span>X</span></div></div>
     <div class="container">
-        <a href="index.html" class="back-btn">← Back to products</a>
-        
-        <div class="product-layout">
-            <div>
-                <img src="tees-gallery.jpg" alt="Oversized Graphic Tees" class="product-img">
-            </div>
-            
+        <a href="index.html" class="back-link">← Back to results</a>
+        <div class="product-grid">
+            <div><img src="tees-gallery.jpg" alt="Oversized Graphic Tees" class="product-img"></div>
             <div>
                 <h1 class="product-title">Oversized Graphic Tees - 6 Colors</h1>
-                
-                <div class="rating">
-                    <span class="stars">★★★★☆</span>
-                    <span class="rating-count">4.5 out of 5 (102 reviews)</span>
-                </div>
-                
-                <div class="price">UGX 45,000</div>
-                
-                <div class="delivery"><b>FREE delivery</b> Tomorrow to Kampala</div>
-                
-                <div class="desc">
-                    Trendy oversized graphic tees with premium prints. 6 color options. Loose fit, heavyweight cotton. Street-ready style for Kampala.
-                </div>
-                
-                <div class="option-group">
-                    <label class="option-label">Size:</label>
-                    <div class="option-buttons" id="sizeOptions">
-                        <button class="option-btn selected" onclick="selectOption(this, 'size')">M</button>
-                        <button class="option-btn" onclick="selectOption(this, 'size')">L</button>
-                        <button class="option-btn" onclick="selectOption(this, 'size')">XL</button>
-                        <button class="option-btn" onclick="selectOption(this, 'size')">XXL</button>
+                <div class="brand">Brand: Velzorix Online Market</div>
+                <div class="rating"><span class="stars">★★★★☆</span><span class="rating-count">4.5 out of 5 stars</span><span class="rating-count">102 ratings</span></div>
+                <div class="price-section"><span class="currency">UGX</span><span class="price">45,000</span></div>
+                <div class="buy-box">
+                    <div class="price-buy"><span class="currency">UGX</span> <span id="totalPrice">45,000</span></div>
+                    <div class="delivery"><b>FREE delivery</b> Tomorrow to Kampala<br>Or fastest delivery Today</div>
+                    <div class="stock">In Stock</div>
+                    <div class="qty-label">Quantity:</div>
+                    <select class="qty-select" id="qty" onchange="updatePrice()"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+                    <div class="size-section">
+                        <label class="size-label">Size:</label>
+                        <select class="size-select" id="sizeSelect">
+                            <option value="">Select Size</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                            <option value="XXL">XXL</option>
+                        </select>
+                    </div>
+                    <div class="color-section">
+                        <label class="color-label">Color:</label>
+                        <select class="color-select" id="colorSelect">
+                            <option value="">Select Color</option>
+                            <option value="Black">Black</option>
+                            <option value="White">White</option>
+                            <option value="Beige">Beige</option>
+                            <option value="Grey">Grey</option>
+                            <option value="Brown">Brown</option>
+                            <option value="Olive">Olive</option>
+                        </select>
+                    </div>
+                    <a href="#" id="whatsappLink" class="whatsapp-btn">Order on WhatsApp</a>
+                    <div class="trust-badges">
+                        <div class="badge"><div class="badge-icon">💵</div><div>Pay on Delivery</div></div>
+                        <div class="badge"><div class="badge-icon">🚚</div><div>Fast Delivery</div></div>
+                        <div class="badge"><div class="badge-icon">✓</div><div>Quality Guaranteed</div></div>
                     </div>
                 </div>
-                
-                <div class="option-group">
-                    <label class="option-label">Color:</label>
-                    <div class="option-buttons" id="colorOptions">
-                        <button class="option-btn selected" onclick="selectOption(this, 'color')">Black</button>
-                        <button class="option-btn" onclick="selectOption(this, 'color')">White</button>
-                        <button class="option-btn" onclick="selectOption(this, 'color')">Beige</button>
-                        <button class="option-btn" onclick="selectOption(this, 'color')">Grey</button>
-                        <button class="option-btn" onclick="selectOption(this, 'color')">Brown</button>
-                        <button class="option-btn" onclick="selectOption(this, 'color')">Olive</button>
-                    </div>
-                </div>
-                
-                <div class="option-group">
-                    <label class="option-label">Quantity:</label>
-                    <select class="qty-select" id="quantity">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                </div>
-                
-                <button class="whatsapp-btn" onclick="orderWhatsApp()">Order on WhatsApp</button>
             </div>
         </div>
-    </div>
-
-    <script>
-        let selectedSize = 'M';
-        let selectedColor = 'Black';
-        
-        const savedTheme = localStorage.getItem('velzorixTheme') || 'light';
-        document.documentElement.setAttribute('data-theme', savedTheme);
-        document.querySelector('.theme-toggle').textContent = savedTheme === 'dark' ? '☀️' : '🌙';
-        
-        function toggleTheme() {
-            const html = document.documentElement;
-            const current = html.getAttribute('data-theme');
-            const newTheme = current === 'dark' ? 'light' : 'dark';
-            html.setAttribute('data-theme', newTheme);
-            localStorage.setItem('velzorixTheme', newTheme);
-            document.querySelector('.theme-toggle').textContent = newTheme === 'dark' ? '☀️' : '🌙';
-        }
-        
-        function selectOption(btn, type) {
-            const group = btn.parentElement;
-            group.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
-            btn.classList.add('selected');
-            if (type === 'size') selectedSize = btn.textContent;
-            if (type === 'color') selectedColor = btn.textContent;
-        }
-        
-        function orderWhatsApp() {
-            const qty = document.getElementById('quantity').value;
-            const msg = `Hi! I want to order:%0A%0A*Oversized Graphic Tees*%0ASize: ${selectedSize}%0AColor: ${selectedColor}%0AQuantity: ${qty}%0APrice: UGX 45,000%0A%0APlease confirm availability.`;
-            window.open(`https://wa.me/256778003397?text=${msg}`, '_blank');
-        }
-    </script>
-</body>
-</html>
+        <div class="desc">
+            <h3>About this item</h3>
+            <ul>
+                <li>Trendy oversized graphic tees with premium prints</li>
+                <li>6 color options - Black, White, Beige, Grey, Brown, Olive</li>
+                <li>Loose fit, heavyweight cotton</li>
+                <li>Street-ready style for Kampala</li>
+                <li>Print doesn't crack or fade</li>
+                <li>Machine washable cold</li>
+                <li>Ships from Kampala in 1-2 business days</li>
+            </ul>
+        </div>
+        <div class="faq-section">
+            <h3>Frequently Asked Questions</h3>
+            <div class="faq-item">
+                <button class="faq-question">What sizes are available? <span class="faq-icon">▼</span></button>
+                <div class="faq-answer">We stock M, L, XL, XXL. This is an oversized fit - size down for a regular fit. Check our <a href="size-guide.html" style="color: #007185;">Size Guide</a> for exact measurements.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Will the graphic print crack? <span class="faq-icon">▼</span></button>
+                <div class="faq-answer">Nope. We use high-quality DTG printing. Wash cold, inside out, and avoid bleach. Tumble dry low or hang dry to keep prints perfect.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">What if it doesn't fit? <span class="faq-icon">▼</span></button>
+                <div class="faq-answer">We offer exchanges within 3 days of delivery if the item is unworn with tags. Just <a href="https://wa.me/256778003397?text=Hi!%20I%20need%20to%20exchange%20my%20order" style="color: #007185;">WhatsApp us</a> and we'll sort it out. Check our <a href="returns.html" style="color: #007185;">Returns</a> page for details.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">When will I receive my order? <span class="faq-icon">▼</span></button>
+                <div class="faq-answer">Kampala orders arrive same day or next day. Upcountry takes 2-4 business days. You'll get WhatsApp updates once it ships. More details on our <a href="shipping-info.html" style="color: #007185;">Shipping Info</a> page.</div>
+            </div>
+        </div>
+        <div class="reviews">
+            <h2>Customer reviews</h2>
+            <div class="review-summary">
+                <div class="rating"><span class="stars">★★★★☆</span><span style="font-size: 18px;">4.5 out of 5</span></div>
+                <div style="font-size: 14px; color: #565959;">102 global ratings</div>
+            </div>
+            <div class="review-item">
+                <div class="review-header"><div class="review-avatar">R</div><div class="review-name">Ronald T.</div></div>
+                <div class="review-stars">★★★★★</div>
+                <div class="review-title">Best oversized tee I've bought</div>
+                <div class="review-date">Reviewed in Uganda on 26 May 2026</div>
+                <div class="review-text">Fit is perfect, not too baggy. Print quality is insane. Got the black and olive. Will order more.</div>
+                <div class="verified">Verified Purchase</div>
+            </div>
+            <div class="review-item">
+                <div class="review-header"><div class="review-avatar">G</div><div class="review-name">Grace N.</div></div>
+                <div class="review-stars">★★★★☆</div>
+                <div class="review-title">Love
