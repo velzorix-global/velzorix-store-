@@ -53,10 +53,10 @@
 .container { max-width: 1400px; margin: 0 auto; padding: 0 20px 20px; }
 .section-title { font-size: 21px; margin: 8px 0 16px; font-weight: 400; }
 .product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 40px; }
-.product-card { background: var(--card); border-radius: 8px; overflow: hidden; text-decoration: none; color: var(--text); transition: transform 0.2s; display: block; }
+.product-card { background: var(--card); border-radius: 8px; overflow: hidden; text-decoration: none; color: var(--text); transition: transform 0.2s; display: block; position: relative; }
 .product-card:hover { transform: translateY(-4px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
 .product-card.hidden { display: none; }
-.product-img-wrap { width: 100%; height: 280px; background: #f7f7f7; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.product-img-wrap { width: 100%; height: 280px; background: #f7f7; display: flex; align-items: center; justify-content: center; overflow: hidden; }
        [data-theme="dark"].product-img-wrap { background: #2a2a2a; }
 .product-img { width: 100%; height: 100%; object-fit: cover; }
 .product-info { padding: 16px; }
@@ -77,31 +77,54 @@
 .footer-links a { color: #ddd; text-decoration: none; font-size: 14px; }
 .footer-links a:hover { text-decoration: underline; }
         @media(max-width: 768px) {
-  .header-top { flex-wrap: wrap; }
-  .search-bar { order: 3; width: 100%; max-width: 100%; }
-  .product-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .product-img-wrap { height: 200px; }
+.header-top { flex-wrap: wrap; }
+.search-bar { order: 3; width: 100%; max-width: 100%; }
+.product-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.product-img-wrap { height: 200px; }
+.cart-modal { width: 100%; }
         }
         @media(min-width: 769px) {
-  .product-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+.product-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
         }
-        /* VELZORIX AI STYLES - ADDED */
-       .ai-results {
+        /* VELZORIX AI STYLES */
+    .ai-results {
           position: absolute; top: 50px; left: 0; right: 0;
           background: var(--card); border-radius: 8px;
           box-shadow: 0 8px 24px rgba(0,0,0,0.2); z-index: 200;
           display: none; max-height: 400px; overflow-y: auto;
         }
-       .ai-result-item {
+    .ai-result-item {
           display: flex; gap: 12px; padding: 12px;
           border-bottom: 1px solid var(--bg); text-decoration: none; color: var(--text);
         }
-       .ai-result-item:hover { background: var(--bg); }
-       .ai-result-img { width: 60px; height: 60px; object-fit: cover; border-radius: 4px; flex-shrink: 0; }
-       .ai-result-name { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
-       .ai-result-price { font-size: 16px; color: var(--blue); font-weight: bold; }
-       .ai-thinking { padding: 16px; text-align: center; color: var(--muted); }
-        /* END VELZORIX AI STYLES */
+    .ai-result-item:hover { background: var(--bg); }
+    .ai-result-img { width: 60px; height: 60px; object-fit: cover; border-radius: 4px; flex-shrink: 0; }
+    .ai-result-name { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
+    .ai-result-price { font-size: 16px; color: var(--blue); font-weight: bold; }
+    .ai-thinking { padding: 16px; text-align: center; color: var(--muted); }
+        /* SMART CART + HAGGLE + FOMO - ADDED */
+    .cart-icon { position: relative; cursor: pointer; }
+    .cart-count { position: absolute; top: -8px; right: -8px; background: #febd69; color: #000; border-radius: 50%; width: 20px; height: 20px; font-size: 12px; font-weight: bold; display: flex; align-items: center; justify-content: center; }
+    .add-cart-btn { background: var(--blue); color: #fff; border: none; padding: 8px; width: 100%; border-radius: 4px; margin-top: 8px; cursor: pointer; font-weight: bold; }
+    .add-cart-btn:hover { opacity: 0.9; }
+    .haggle-btn { background: #ff4444; color: #fff; border: none; padding: 6px 10px; border-radius: 4px; font-size: 12px; cursor: pointer; margin-top: 4px; width: 100%; }
+    .stock-badge { position: absolute; top: 8px; left: 8px; background: #ff4444; color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold; z-index: 1; }
+    .viewing-badge { position: absolute; top: 8px; right: 8px; background: rgba(0,0,0,0.7); color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 11px; z-index: 1; }
+    .cart-modal { position: fixed; top: 0; right: -400px; width: 380px; height: 100%; background: var(--card); box-shadow: -4px 0 12px rgba(0,0,0,0.2); z-index: 300; transition: right 0.3s; padding: 20px; overflow-y: auto; }
+    .cart-modal.open { right: 0; }
+    .cart-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+    .cart-item { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--bg); }
+    .cart-item-img { width: 60px; height: 60px; object-fit: cover; border-radius: 4px; }
+    .cart-item-info { flex: 1; }
+    .cart-item-name { font-size: 14px; margin-bottom: 4px; }
+    .cart-item-price { font-weight: bold; color: var(--blue); }
+    .cart-qty { display: flex; gap: 8px; align-items: center; margin-top: 4px; }
+    .qty-btn { background: var(--bg); border: none; width: 24px; height: 24px; border-radius: 4px; cursor: pointer; }
+    .cart-total { font-size: 20px; font-weight: bold; margin: 20px 0; }
+    .checkout-btn { background: #007600; color: #fff; border: none; padding: 14px; width: 100%; border-radius: 4px; font-size: 16px; font-weight: bold; cursor: pointer; }
+    .haggle-modal { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--card); padding: 24px; border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.3); z-index: 400; display: none; width: 90%; max-width: 400px; }
+    .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 299; display: none; }
+        /* END NEW FEATURES */
     </style>
 </head>
    <script>
@@ -120,6 +143,9 @@
             </div>
             <div class="header-right">
                 <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+                <div class="cart-icon" onclick="toggleCart()">
+                    🛒 <span class="cart-count" id="cartCount">0</span>
+                </div>
                 <a href="https://wa.me/256778003397" class="header-link">
                     <div>Order on</div>
                     <div><b>WhatsApp</b></div>
@@ -149,7 +175,9 @@
 
         <div class="product-grid" id="productGrid">
             <!-- Product 1: Pastel Essential Tees -->
-            <a href="tees-pastel.html" class="product-card" data-category="fashion" data-name="Pastel Essential Tees 6 Colors">
+            <div class="product-card" data-category="fashion" data-name="Pastel Essential Tees 6 Colors" data-price="45000" data-img="tees-pastel.jpg" data-link="tees-pastel.html" data-stock="3">
+                <div class="stock-badge">Only 3 left!</div>
+                <div class="viewing-badge">👀 5 viewing</div>
                 <div class="product-img-wrap">
                     <img src="tees-pastel.jpg" loading="lazy" decoding="async" width="400" height="400" alt="Pastel Essential Tees" class="product-img">
                 </div>
@@ -164,11 +192,14 @@
                         <span class="price">45,000</span>
                     </div>
                     <div class="delivery"><b>FREE delivery</b> Tomorrow to Kampala</div>
+                    <button class="add-cart-btn" onclick="addToCart(event)">Add to Cart</button>
+                    <button class="haggle-btn" onclick="openHaggle(event)">Haggle Price 🤝</button>
                 </div>
-            </a>
+            </div>
 
             <!-- Product 2: Essentials Street Backpack -->
-            <a href="backpacks-essentials.html" class="product-card" data-category="fashion" data-name="Essentials Street Backpack">
+            <div class="product-card" data-category="fashion" data-name="Essentials Street Backpack" data-price="99000" data-img="backpacks-essentials.jpg" data-link="backpacks-essentials.html" data-stock="7">
+                <div class="viewing-badge">👀 2 viewing</div>
                 <div class="product-img-wrap">
                     <img src="backpacks-essentials.jpg" loading="lazy" decoding="async" width="400" height="400" alt="Essentials Street Backpack" class="product-img">
                 </div>
@@ -183,11 +214,14 @@
                         <span class="price">99,000</span>
                     </div>
                     <div class="delivery"><b>FREE delivery</b> Tomorrow to Kampala</div>
+                    <button class="add-cart-btn" onclick="addToCart(event)">Add to Cart</button>
+                    <button class="haggle-btn" onclick="openHaggle(event)">Haggle Price 🤝</button>
                 </div>
-            </a>
+            </div>
 
             <!-- Product 3: Tokyo Rose Street Shirt -->
-            <a href="shirt-rose.html" class="product-card" data-category="fashion" data-name="Tokyo Rose Street Shirt">
+            <div class="product-card" data-category="fashion" data-name="Tokyo Rose Street Shirt" data-price="59000" data-img="shirt-rose.jpg" data-link="shirt-rose.html" data-stock="5">
+                <div class="viewing-badge">👀 8 viewing</div>
                 <div class="product-img-wrap">
                     <img src="shirt-rose.jpg" loading="lazy" decoding="async" width="400" height="400" alt="Tokyo Rose Street Shirt" class="product-img">
                 </div>
@@ -202,11 +236,13 @@
                         <span class="price">59,000</span>
                     </div>
                     <div class="delivery"><b>FREE delivery</b> Tomorrow to Kampala</div>
+                    <button class="add-cart-btn" onclick="addToCart(event)">Add to Cart</button>
+                    <button class="haggle-btn" onclick="openHaggle(event)">Haggle Price 🤝</button>
                 </div>
-            </a>
+            </div>
 
             <!-- Product 4: Oversized Graphic Tees -->
-            <a href="tees-gallery.html" class="product-card" data-category="fashion" data-name="Oversized Graphic Tees 6 Colors">
+            <div class="product-card" data-category="fashion" data-name="Oversized Graphic Tees 6 Colors" data-price="45000" data-img="tees-gallery.jpg" data-link="tees-gallery.html" data-stock="10">
                 <div class="product-img-wrap">
                     <img src="tees-gallery.jpg" loading="lazy" decoding="async" width="400" height="400" alt="Oversized Graphic Tees" class="product-img">
                 </div>
@@ -221,11 +257,15 @@
                         <span class="price">45,000</span>
                     </div>
                     <div class="delivery"><b>FREE delivery</b> Tomorrow to Kampala</div>
+                    <button class="add-cart-btn" onclick="addToCart(event)">Add to Cart</button>
+                    <button class="haggle-btn" onclick="openHaggle(event)">Haggle Price 🤝</button>
                 </div>
-            </a>
+            </div>
 
             <!-- Product 5: LV-Style Patch Varsity Jacket -->
-            <a href="jacket-varsity.html" class="product-card" data-category="fashion" data-name="LV-Style Patch Varsity Jacket">
+            <div class="product-card" data-category="fashion" data-name="LV-Style Patch Varsity Jacket" data-price="145000" data-img="jacket-varsity.jpg" data-link="jacket-varsity.html" data-stock="2">
+                <div class="stock-badge">Only 2 left!</div>
+                <div class="viewing-badge">👀 12 viewing</div>
                 <div class="product-img-wrap">
                     <img src="jacket-varsity.jpg" loading="lazy" decoding="async" width="400" height="400" alt="LV-Style Patch Varsity Jacket" class="product-img">
                 </div>
@@ -240,146 +280,187 @@
                         <span class="price">145,000</span>
                     </div>
                     <div class="delivery"><b>FREE delivery</b> Tomorrow to Kampala</div>
+                    <button class="add-cart-btn" onclick="addToCart(event)">Add to Cart</button>
+                    <button class="haggle-btn" onclick="openHaggle(event)">Haggle Price 🤝</button>
                 </div>
-            </a>
+            </div>
 
             <!-- Product 6 -->
-<a href="hoodie-space.html" class="product-card" data-category="fashion new" data-name="Space Galaxy Hoodie Premium Pullover">
-    <div class="product-img-wrap">
-        <img src="hoodie-space.jpg" loading="lazy" decoding="async" width="400" height="400" alt="Space Galaxy Hoodie" class="product-img">
-    </div>
-    <div class="product-info">
-        <div class="product-name">Space Galaxy Hoodie - Premium Pullover</div>
-        <div class="rating">
-            <span class="stars">★★★★☆</span>
-            <span class="rating-count">89</span>
-        </div>
-        <div class="price-row">
-            <span class="currency">UGX</span>
-            <span class="price">60,000</span>
-        </div>
-        <div class="delivery"><b>FREE delivery</b> Tomorrow to Kampala</div>
-    </div>
-</a>
+            <div class="product-card" data-category="fashion new" data-name="Space Galaxy Hoodie Premium Pullover" data-price="60000" data-img="hoodie-space.jpg" data-link="hoodie-space.html" data-stock="4">
+                <div class="stock-badge">Only 4 left!</div>
+                <div class="product-img-wrap">
+                    <img src="hoodie-space.jpg" loading="lazy" decoding="async" width="400" height="400" alt="Space Galaxy Hoodie" class="product-img">
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Space Galaxy Hoodie - Premium Pullover</div>
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="rating-count">89</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="currency">UGX</span>
+                        <span class="price">60,000</span>
+                    </div>
+                    <div class="delivery"><b>FREE delivery</b> Tomorrow to Kampala</div>
+                    <button class="add-cart-btn" onclick="addToCart(event)">Add to Cart</button>
+                    <button class="haggle-btn" onclick="openHaggle(event)">Haggle Price 🤝</button>
+                </div>
+            </div>
 
-<!-- Product 7 -->
-<a href="tracksuit-style.html" class="product-card" data-category="fashion" data-name="Street Tracksuit 2-Piece Athletic Set">
-    <div class="product-img-wrap">
-        <img src="tracksuit-style.jpg" loading="lazy" decoding="async" width="400" height="400" alt="Street Tracksuit" class="product-img">
-    </div>
-    <div class="product-info">
-        <div class="product-name">Street Tracksuit - 2-Piece Athletic Set</div>
-        <div class="rating">
-            <span class="stars">★★★★★</span>
-            <span class="rating-count">124</span>
-        </div>
-        <div class="price-row">
-            <span class="currency">UGX</span>
-            <span class="price">85,000</span>
-        </div>
-        <div class="delivery"><b>FREE delivery</b> Tomorrow to Kampala</div>
-    </div>
-</a>
+            <!-- Product 7 -->
+            <div class="product-card" data-category="fashion" data-name="Street Tracksuit 2-Piece Athletic Set" data-price="85000" data-img="tracksuit-style.jpg" data-link="tracksuit-style.html" data-stock="6">
+                <div class="product-img-wrap">
+                    <img src="tracksuit-style.jpg" loading="lazy" decoding="async" width="400" height="400" alt="Street Tracksuit" class="product-img">
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Street Tracksuit - 2-Piece Athletic Set</div>
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-count">124</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="currency">UGX</span>
+                        <span class="price">85,000</span>
+                    </div>
+                    <div class="delivery"><b>FREE delivery</b> Tomorrow to Kampala</div>
+                    <button class="add-cart-btn" onclick="addToCart(event)">Add to Cart</button>
+                    <button class="haggle-btn" onclick="openHaggle(event)">Haggle Price 🤝</button>
+                </div>
+            </div>
 
-<!-- Product 8 -->
-<a href="jacket-floral.html" class="product-card" data-category="fashion" data-name="Floral Denim Jacket Embroidered Design">
-    <div class="product-img-wrap">
-        <img src="jacket-floral.jpg" loading="lazy" decoding="async" width="400" height="400" alt="Floral Denim Jacket" class="product-img">
-    </div>
-    <div class="product-info">
-        <div class="product-name">Floral Denim Jacket - Embroidered Design</div>
-        <div class="rating">
-            <span class="stars">★★★★☆</span>
-            <span class="rating-count">67</span>
-        </div>
-        <div class="price-row">
-            <span class="currency">UGX</span>
-            <span class="price">50000</span>
-        </div>
-        <div class="delivery"><b>FREE delivery</b> Tomorrow to Kampala</div>
-    </div>
-</a>
+            <!-- Product 8 -->
+            <div class="product-card" data-category="fashion" data-name="Floral Denim Jacket Embroidered Design" data-price="50000" data-img="jacket-floral.jpg" data-link="jacket-floral.html" data-stock="3">
+                <div class="stock-badge">Only 3 left!</div>
+                <div class="product-img-wrap">
+                    <img src="jacket-floral.jpg" loading="lazy" decoding="async" width="400" height="400" alt="Floral Denim Jacket" class="product-img">
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Floral Denim Jacket - Embroidered Design</div>
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="rating-count">67</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="currency">UGX</span>
+                        <span class="price">50,000</span>
+                    </div>
+                    <div class="delivery"><b>FREE delivery</b> Tomorrow to Kampala</div>
+                    <button class="add-cart-btn" onclick="addToCart(event)">Add to Cart</button>
+                    <button class="haggle-btn" onclick="openHaggle(event)">Haggle Price 🤝</button>
+                </div>
+            </div>
 
-<!-- Product 9 -->
-<a href="jersey-hockey-w.html" class="product-card" data-category="fashion new" data-name="Hockey Jersey White Limited Edition">
-    <div class="product-img-wrap">
-        <img src="jersey-hockey-w.jpg" loading="lazy" decoding="async" width="400" height="400" alt="Hockey Jersey White" class="product-img">
-    </div>
-    <div class="product-info">
-        <div class="product-name">Hockey Jersey White - Limited Edition</div>
-        <div class="rating">
-            <span class="stars">★★★★★</span>
-            <span class="rating-count">203</span>
-        </div>
-        <div class="price-row">
-            <span class="currency">UGX</span>
-            <span class="price">50,000</span>
-        </div>
-        <div class="delivery"><b>FREE delivery</b> Tomorrow to Kampala</div>
-    </div>
-</a>
+            <!-- Product 9 -->
+            <div class="product-card" data-category="fashion new" data-name="Hockey Jersey White Limited Edition" data-price="50000" data-img="jersey-hockey-w.jpg" data-link="jersey-hockey-w.html" data-stock="8">
+                <div class="product-img-wrap">
+                    <img src="jersey-hockey-w.jpg" loading="lazy" decoding="async" width="400" height="400" alt="Hockey Jersey White" class="product-img">
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Hockey Jersey White - Limited Edition</div>
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-count">203</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="currency">UGX</span>
+                        <span class="price">50,000</span>
+                    </div>
+                    <div class="delivery"><b>FREE delivery</b> Tomorrow to Kampala</div>
+                    <button class="add-cart-btn" onclick="addToCart(event)">Add to Cart</button>
+                    <button class="haggle-btn" onclick="openHaggle(event)">Haggle Price 🤝</button>
+                </div>
+            </div>
 
-<!-- Product 10 -->
-<a href="jersey-hockey-o.html" class="product-card" data-category="fashion" data-name="Hockey Jersey Orange Breathable Fabric">
-    <div class="product-img-wrap">
-        <img src="jersey-hockey-o.jpg" loading="lazy" decoding="async" width="400" height="400" alt="Hockey Jersey Orange" class="product-img">
-    </div>
-    <div class="product-info">
-        <div class="product-name">Hockey Jersey Orange - Breathable Fabric</div>
-        <div class="rating">
-            <span class="stars">★★★★☆</span>
-            <span class="rating-count">156</span>
-        </div>
-        <div class="price-row">
-            <span class="currency">UGX</span>
-            <span class="price">50,000</span>
-        </div>
-        <div class="delivery"><b>FREE delivery</b> Tomorrow to Kampala</div>
-    </div>
-</a>
+            <!-- Product 10 -->
+            <div class="product-card" data-category="fashion" data-name="Hockey Jersey Orange Breathable Fabric" data-price="50000" data-img="jersey-hockey-o.jpg" data-link="jersey-hockey-o.html" data-stock="9">
+                <div class="product-img-wrap">
+                    <img src="jersey-hockey-o.jpg" loading="lazy" decoding="async" width="400" height="400" alt="Hockey Jersey Orange" class="product-img">
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Hockey Jersey Orange - Breathable Fabric</div>
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="rating-count">156</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="currency">UGX</span>
+                        <span class="price">50,000</span>
+                    </div>
+                    <div class="delivery"><b>FREE delivery</b> Tomorrow to Kampala</div>
+                    <button class="add-cart-btn" onclick="addToCart(event)">Add to Cart</button>
+                    <button class="haggle-btn" onclick="openHaggle(event)">Haggle Price 🤝</button>
+                </div>
+            </div>
 
-<!-- Product 11 -->
-<a href="hoodie-rhinestone.html" class="product-card" data-category="fashion new" data-name="Rhinestone Hoodie Crystal Logo Design">
-    <div class="product-img-wrap">
-        <img src="hoodie-rhinestone.jpg" loading="lazy" decoding="async" width="400" height="400" alt="Rhinestone Hoodie" class="product-img">
-    </div>
-    <div class="product-info">
-        <div class="product-name">Rhinestone Hoodie - Crystal Logo Design</div>
-        <div class="rating">
-            <span class="stars">★★★★★</span>
-            <span class="rating-count">92</span>
-        </div>
-        <div class="price-row">
-            <span class="currency">UGX</span>
-            <span class="price">60,000</span>
-        </div>
-        <div class="delivery"><b>FREE delivery</b> Tomorrow to Kampala</div>
-    </div>
-</a>
+            <!-- Product 11 -->
+            <div class="product-card" data-category="fashion new" data-name="Rhinestone Hoodie Crystal Logo Design" data-price="60000" data-img="hoodie-rhinestone.jpg" data-link="hoodie-rhinestone.html" data-stock="5">
+                <div class="viewing-badge">👀 6 viewing</div>
+                <div class="product-img-wrap">
+                    <img src="hoodie-rhinestone.jpg" loading="lazy" decoding="async" width="400" height="400" alt="Rhinestone Hoodie" class="product-img">
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Rhinestone Hoodie - Crystal Logo Design</div>
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-count">92</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="currency">UGX</span>
+                        <span class="price">60,000</span>
+                    </div>
+                    <div class="delivery"><b>FREE delivery</b> Tomorrow to Kampala</div>
+                    <button class="add-cart-btn" onclick="addToCart(event)">Add to Cart</button>
+                    <button class="haggle-btn" onclick="openHaggle(event)">Haggle Price 🤝</button>
+                </div>
+            </div>
 
-<!-- Product 12 -->
-<a href="shirt-pattern.html" class="product-card" data-category="fashion" data-name="Pattern Button Shirt Premium Cotton">
-    <div class="product-img-wrap">
-        <img src="shirt-pattern.jpg" loading="lazy" decoding="async" width="400" height="400" alt="Pattern Button Shirt" class="product-img">
-    </div>
-    <div class="product-info">
-        <div class="product-name">Pattern Button Shirt - Premium Cotton</div>
-        <div class="rating">
-            <span class="stars">★★★★☆</span>
-            <span class="rating-count">74</span>
-        </div>
-        <div class="price-row">
-            <span class="currency">UGX</span>
-            <span class="price">25,000</span>
-        </div>
-        <div class="delivery"><b>FREE delivery</b> Tomorrow to Kampala</div>
-    </div>
-</a>
+            <!-- Product 12 -->
+            <div class="product-card" data-category="fashion" data-name="Pattern Button Shirt Premium Cotton" data-price="25000" data-img="shirt-pattern.jpg" data-link="shirt-pattern.html" data-stock="15">
+                <div class="product-img-wrap">
+                    <img src="shirt-pattern.jpg" loading="lazy" decoding="async" width="400" height="400" alt="Pattern Button Shirt" class="product-img">
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Pattern Button Shirt - Premium Cotton</div>
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="rating-count">74</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="currency">UGX</span>
+                        <span class="price">25,000</span>
+                    </div>
+                    <div class="delivery"><b>FREE delivery</b> Tomorrow to Kampala</div>
+                    <button class="add-cart-btn" onclick="addToCart(event)">Add to Cart</button>
+                    <button class="haggle-btn" onclick="openHaggle(event)">Haggle Price 🤝</button>
+                </div>
+            </div>
         </div>
 
         <div class="no-results" id="noResults">
             No products found. Try a different search.
         </div>
+    </div>
+
+    <!-- CART MODAL -->
+    <div class="overlay" id="overlay" onclick="toggleCart()"></div>
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <span style="cursor:pointer; font-size:24px;" onclick="toggleCart()">×</span>
+        </div>
+        <div id="cartItems"></div>
+        <div class="cart-total">Total: UGX <span id="cartTotal">0</span></div>
+        <button class="checkout-btn" onclick="checkoutWhatsApp()">Order via WhatsApp</button>
+    </div>
+
+    <!-- HAGGLE MODAL -->
+    <div class="haggle-modal" id="haggleModal">
+        <h3 style="margin-bottom:12px;">🤝 Haggle with Velzorix AI</h3>
+        <p id="haggleProduct" style="margin-bottom:12px; color:var(--muted);"></p>
+        <input type="number" id="haggleOffer" placeholder="Your offer (UGX)" style="width:100%; padding:10px; margin-bottom:12px; border:1px solid var(--bg); border-radius:4px; background:var(--bg); color:var(--text);">
+        <button onclick="submitHaggle()" style="background:var(--blue); color:#fff; border:none; padding:10px; width:100%; border-radius:4px; font-weight:bold; cursor:pointer;">Make Offer</button>
+        <p id="haggleResponse" style="margin-top:12px; font-weight:bold;"></p>
+        <button onclick="closeHaggle()" style="background:none; border:none; color:var(--muted); margin-top:8px; cursor:pointer; width:100%;">Cancel</button>
     </div>
 
     <div class="footer">
@@ -396,6 +477,8 @@
 
     <script>
         let currentCategory = 'all';
+        let cart = JSON.parse(localStorage.getItem('velzorixCart')) || [];
+        let currentHaggleItem = null;
 
         // Dark Mode Toggle
         function toggleTheme() {
@@ -411,6 +494,7 @@
         const savedTheme = localStorage.getItem('velzorixTheme') || 'light';
         document.documentElement.setAttribute('data-theme', savedTheme);
         document.querySelector('.theme-toggle').textContent = savedTheme === 'dark'? '☀️' : '🌙';
+        updateCartCount();
 
         function filterCategory(category) {
             currentCategory = category;
@@ -476,28 +560,45 @@
 
           setTimeout(() => {
             let matches = [];
+            const words = query.split(' ').filter(w => w.length > 1);
 
+            // PRICE FILTER: "under 100k"
             const priceMatch = query.match(/under\s*(\d+)k?/);
             const maxPrice = priceMatch? parseInt(priceMatch[1]) * 1000 : Infinity;
 
             velzorixProducts.forEach(p => {
               let score = 0;
-              if(p.price <= maxPrice) score++;
-              if(query.includes('jacket') && p.tags.includes('jacket')) score += 2;
-              if(query.includes('hoodie') && p.tags.includes('hoodie')) score += 2;
-              if(query.includes('tee') && p.tags.includes('tee')) score += 2;
-              if(query.includes('shirt') && p.tags.includes('shirt')) score += 2;
-              if(query.includes('cheap') && p.price < 50000) score += 2;
-              if(query.includes('gift') && p.price < 70000) score += 1;
-              if(query.includes('winter') && (p.tags.includes('jacket') || p.tags.includes('hoodie'))) score += 1;
-              if(query.includes('premium') && p.price > 100000) score += 1;
-              if(p.name.toLowerCase().includes(query) || p.tags.includes(query)) score += 3;
+
+              // 1. STRICT PRICE CHECK
+              if(p.price > maxPrice) return;
+
+              // 2. KEYWORD MATCHING - handles "jackets", "hoodie", "tees"
+              words.forEach(word => {
+                if(p.tags.includes(word)) score += 5;
+                if(p.name.toLowerCase().includes(word)) score += 3;
+              });
+
+              // 3. SMART SHORTCUTS
+              if(query === 'jacket' || query === 'jackets') {
+                if(p.tags.includes('jacket')) score += 10;
+              }
+              if(query === 'hoodie' || query === 'hoodies') {
+                if(p.tags.includes('hoodie')) score += 10;
+              }
+              if(query === 'tee' || query === 'tees' || query === 'shirt' || query === 'shirts') {
+                if(p.tags.includes('tee') || p.tags.includes('shirt')) score += 10;
+              }
+              if(query.includes('cheap') && p.price < 50000) score += 3;
+              if(query.includes('gift') && p.price < 70000) score += 2;
+              if(query.includes('winter') && (p.tags.includes('jacket') || p.tags.includes('hoodie'))) score += 3;
+              if(query.includes('premium') && p.price > 100000) score += 2;
 
               if(score > 0) matches.push({...p, score});
             });
 
-            matches.sort((a,b) => b.score - a.score);
-            matches = matches.slice(0,4);
+            // Sort by score, then price low to high
+            matches.sort((a,b) => b.score - a.score || a.price - b.price);
+            matches = matches.slice(0,6);
 
             if(matches.length) {
               resultsDiv.innerHTML = matches.map(p => `
@@ -516,17 +617,189 @@
             } else {
               resultsDiv.innerHTML = `
                 <div class="ai-thinking">
-                  No exact match for "${query}" 😕<br>
-                  Try: "hoodies under 60K" or "varsity jacket"<br><br>
+                  No match for "${query}" 😕<br>
+                  Try: "jacket", "hoodies under 60K", "cheap tees"<br><br>
                   <a href="https://wa.me/256778003397?text=I need help finding products" style="color:var(--blue); font-weight:bold;">Chat with us on WhatsApp</a>
                 </div>`;
             }
-          }, 600);
+          }, 400);
+        }
+
+        // SMART CART FUNCTIONS - ADDED
+        function updateCartCount() {
+            const count = cart.reduce((sum, item) => sum + item.qty, 0);
+            document.getElementById('cartCount').textContent = count;
+        }
+
+        function addToCart(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const card = e.target.closest('.product-card');
+            const name = card.dataset.name;
+            const price = parseInt(card.dataset.price);
+            const img = card.dataset.img;
+            const link = card.dataset.link;
+
+            const existing = cart.find(item => item.name === name);
+            if (existing) {
+                existing.qty++;
+            } else {
+                cart.push({ name, price, img, link, qty: 1 });
+            }
+            localStorage.setItem('velzorixCart', JSON.stringify(cart));
+            updateCartCount();
+
+            // Visual feedback
+            e.target.textContent = 'Added ✓';
+            setTimeout(() => { e.target.textContent = 'Add to Cart'; }, 1000);
+        }
+
+        function toggleCart() {
+            const modal = document.getElementById('cartModal');
+            const overlay = document.getElementById('overlay');
+            const isOpen = modal.classList.contains('open');
+
+            if (!isOpen) renderCart();
+
+            modal.classList.toggle('open');
+            overlay.style.display = isOpen? 'none' : 'block';
+        }
+
+        function renderCart() {
+            const cartItems = document.getElementById('cartItems');
+            const cartTotal = document.getElementById('cartTotal');
+
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p style="text-align:center; color:var(--muted); padding:20px;">Your cart is empty</p>';
+                cartTotal.textContent = '0';
+                return;
+            }
+
+            let total = 0;
+            cartItems.innerHTML = cart.map(item => {
+                total += item.price * item.qty;
+                return `
+                    <div class="cart-item">
+                        <img src="${item.img}" class="cart-item-img" alt="${item.name}">
+                        <div class="cart-item-info">
+                            <div class="cart-item-name">${item.name}</div>
+                            <div class="cart-item-price">UGX ${item.price.toLocaleString()}</div>
+                            <div class="cart-qty">
+                                <button class="qty-btn" onclick="updateQty('${item.name}', -1)">-</button>
+                                <span>${item.qty}</span>
+                                <button class="qty-btn" onclick="updateQty('${item.name}', 1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            cartTotal.textContent = total.toLocaleString();
+        }
+
+        function updateQty(name, change) {
+            const item = cart.find(i => i.name === name);
+            if (!item) return;
+
+            item.qty += change;
+            if (item.qty <= 0) {
+                cart = cart.filter(i => i.name!== name);
+            }
+
+            localStorage.setItem('velzorixCart', JSON.stringify(cart));
+            updateCartCount();
+            renderCart();
+        }
+
+        function checkoutWhatsApp() {
+            if (cart.length === 0) return;
+
+            let msg = `Hi Velzorix! I want to order:\n\n`;
+            let total = 0;
+
+            cart.forEach(item => {
+                msg += `${item.qty}x ${item.name} - UGX ${(item.price * item.qty).toLocaleString()}\n`;
+                total += item.price * item.qty;
+            });
+
+            msg += `\nTotal: UGX ${total.toLocaleString()}\n\nPlease confirm delivery details.`;
+
+            window.open(`https://wa.me/256778003397?text=${encodeURIComponent(msg)}`, '_blank');
+
+            // Clear cart after order
+            cart = [];
+            localStorage.setItem('velzorixCart', JSON.stringify(cart));
+            updateCartCount();
+            toggleCart();
+        }
+
+        // HAGGLE AI FUNCTIONS - ADDED
+        function openHaggle(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const card = e.target.closest('.product-card');
+            currentHaggleItem = {
+                name: card.dataset.name,
+                price: parseInt(card.dataset.price)
+            };
+
+            document.getElementById('haggleProduct').textContent = `${currentHaggleItem.name} - UGX ${currentHaggleItem.price.toLocaleString()}`;
+            document.getElementById('haggleOffer').value = '';
+            document.getElementById('haggleResponse').textContent = '';
+            document.getElementById('haggleModal').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function closeHaggle() {
+            document.getElementById('haggleModal').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+            currentHaggleItem = null;
+        }
+
+        function submitHaggle() {
+            const offer = parseInt(document.getElementById('haggleOffer').value);
+            const responseEl = document.getElementById('haggleResponse');
+
+            if (!offer || offer <= 0) {
+                responseEl.textContent = 'Enter a valid offer banange 😅';
+                responseEl.style.color = '#ff4444';
+                return;
+            }
+
+            const originalPrice = currentHaggleItem.price;
+            const minAcceptable = originalPrice * 0.85; // Won't go below 15% off
+
+            if (offer >= originalPrice) {
+                responseEl.textContent = `Deal! We'll take UGX ${offer.toLocaleString()} 💰`;
+                responseEl.style.color = '#007600';
+                setTimeout(() => {
+                    window.open(`https://wa.me/256778003397?text=I accept UGX ${offer.toLocaleString()} for ${currentHaggleItem.name}`, '_blank');
+                    closeHaggle();
+                }, 1500);
+            } else if (offer >= minAcceptable) {
+                const counterOffer = Math.round((offer + originalPrice) / 2);
+                responseEl.textContent = `Hmm 🤔 Best I can do is UGX ${counterOffer.toLocaleString()} + FREE delivery. Deal?`;
+                responseEl.style.color = '#ffa41c';
+                setTimeout(() => {
+                    window.open(`https://wa.me/256778003397?text=I can do UGX ${counterOffer.toLocaleString()} for ${currentHaggleItem.name} with FREE delivery`, '_blank');
+                    closeHaggle();
+                }, 2000);
+            } else {
+                const counterOffer = Math.round(originalPrice * 0.9);
+                responseEl.textContent = `Ayy 😅 That's too low. Lowest is UGX ${counterOffer.toLocaleString()}. Take it?`;
+                responseEl.style.color = '#ff4444';
+            }
         }
 
         // Enter key support
         document.getElementById('aiSearchInput').addEventListener('keypress', function(e) {
           if (e.key === 'Enter') askVelzorixAI();
+        });
+
+        // Live search as you type
+        document.getElementById('aiSearchInput').addEventListener('input', function(e) {
+          if(e.target.value.length > 1) askVelzorixAI();
+          else document.getElementById('aiResults').style.display = 'none';
         });
 
         // Hide results when clicking outside
@@ -535,7 +808,7 @@
             document.getElementById('aiResults').style.display = 'none';
           }
         });
-        // END VELZORIX AI BRAIN
+        // END VELZORIX AI BRAIN + CART + HAGGLE
     </script>
 </body>
 </html>
