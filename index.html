@@ -7,7 +7,7 @@
       <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.JPG" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.JPG">
- 
+
   <meta name="theme-color" content="#00a8e1"><style>
         :root {
             --blue: #00a8e1;
@@ -30,61 +30,78 @@
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); transition: background 0.3s, color 0.3s; }
- .header { background: var(--header); padding: 10px 20px; position: sticky; top: 0; z-index: 100; }
- .header-top { display: flex; align-items: center; gap: 20px; max-width: 1400px; margin: 0 auto; }
- .header-logo { color: #fff; font-size: 24px; font-weight: bold; text-decoration: none; }
- .header-logo span { color: var(--blue); }
- .search-bar { flex: 1; max-width: 600px; display: flex; }
- .search-input { flex: 1; padding: 10px; border: none; border-radius: 4px 0 0 4px; font-size: 15px; background: #fff; color: #000; }
- .search-btn { background: #febd69; border: none; padding: 10px 15px; border-radius: 0 4px 4px 0; cursor: pointer; }
- .header-right { display: flex; gap: 15px; align-items: center; color: #fff; font-size: 13px; }
- .header-link { color: #fff; text-decoration: none; }
- .header-link:hover { text-decoration: underline; }
- .theme-toggle { background: none; border: 1px solid #fff; color: #fff; padding: 8px 12px; border-radius: 4px; cursor: pointer; font-size: 14px; }
- .theme-toggle:hover { background: rgba(255,255,255,0.1); }
- .nav-bar { background: var(--nav); padding: 8px 0; }
- .nav-items { max-width: 1400px; margin: 0 auto; display: flex; gap: 5px; font-size: 14px; overflow-x: auto; scrollbar-width: none; padding: 0 20px; }
- .nav-items::-webkit-scrollbar { display: none; }
- .nav-items a { color: #fff; text-decoration: none; padding: 5px 12px; border-radius: 3px; cursor: pointer; white-space: nowrap; flex-shrink: 0; }
- .nav-items a:hover,.nav-items a.active { outline: 1px solid #fff; }
- .hero { background: linear-gradient(to bottom, var(--hero-start), var(--bg)); padding: 15px 20px 0; text-align: center; }
- .hero h1 { font-size: 28px; margin-bottom: 8px; }
- .hero p { font-size: 16px; color: var(--muted); }
- .container { max-width: 1400px; margin: 0 auto; padding: 0 20px 20px; }
- .section-title { font-size: 21px; margin: 8px 0 16px; font-weight: 400; }
- .product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 40px; }
- .product-card { background: var(--card); border-radius: 8px; overflow: hidden; text-decoration: none; color: var(--text); transition: transform 0.2s; display: block; }
- .product-card:hover { transform: translateY(-4px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
- .product-card.hidden { display: none; }
- .product-img-wrap { width: 100%; height: 280px; background: #f7f7f7; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.header { background: var(--header); padding: 10px 20px; position: sticky; top: 0; z-index: 100; }
+.header-top { display: flex; align-items: center; gap: 20px; max-width: 1400px; margin: 0 auto; }
+.header-logo { color: #fff; font-size: 24px; font-weight: bold; text-decoration: none; }
+.header-logo span { color: var(--blue); }
+.search-bar { flex: 1; max-width: 600px; display: flex; position: relative; }
+.search-input { flex: 1; padding: 10px; border: none; border-radius: 4px 0 0 4px; font-size: 15px; background: #fff; color: #000; }
+.search-btn { background: #febd69; border: none; padding: 10px 15px; border-radius: 0 4px 4px 0; cursor: pointer; }
+.header-right { display: flex; gap: 15px; align-items: center; color: #fff; font-size: 13px; }
+.header-link { color: #fff; text-decoration: none; }
+.header-link:hover { text-decoration: underline; }
+.theme-toggle { background: none; border: 1px solid #fff; color: #fff; padding: 8px 12px; border-radius: 4px; cursor: pointer; font-size: 14px; }
+.theme-toggle:hover { background: rgba(255,255,255,0.1); }
+.nav-bar { background: var(--nav); padding: 8px 0; }
+.nav-items { max-width: 1400px; margin: 0 auto; display: flex; gap: 5px; font-size: 14px; overflow-x: auto; scrollbar-width: none; padding: 0 20px; }
+.nav-items::-webkit-scrollbar { display: none; }
+.nav-items a { color: #fff; text-decoration: none; padding: 5px 12px; border-radius: 3px; cursor: pointer; white-space: nowrap; flex-shrink: 0; }
+.nav-items a:hover,.nav-items a.active { outline: 1px solid #fff; }
+.hero { background: linear-gradient(to bottom, var(--hero-start), var(--bg)); padding: 15px 20px 0; text-align: center; }
+.hero h1 { font-size: 28px; margin-bottom: 8px; }
+.hero p { font-size: 16px; color: var(--muted); }
+.container { max-width: 1400px; margin: 0 auto; padding: 0 20px 20px; }
+.section-title { font-size: 21px; margin: 8px 0 16px; font-weight: 400; }
+.product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 40px; }
+.product-card { background: var(--card); border-radius: 8px; overflow: hidden; text-decoration: none; color: var(--text); transition: transform 0.2s; display: block; }
+.product-card:hover { transform: translateY(-4px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+.product-card.hidden { display: none; }
+.product-img-wrap { width: 100%; height: 280px; background: #f7f7f7; display: flex; align-items: center; justify-content: center; overflow: hidden; }
        [data-theme="dark"].product-img-wrap { background: #2a2a2a; }
- .product-img { width: 100%; height: 100%; object-fit: cover; }
- .product-info { padding: 16px; }
- .product-name { font-size: 16px; line-height: 20px; margin-bottom: 8px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
- .rating { display: flex; align-items: center; gap: 6px; margin-bottom: 8px; }
- .stars { color: #ffa41c; font-size: 14px; }
- .rating-count { color: #007185; font-size: 13px; }
- .price-row { display: flex; align-items: baseline; gap: 4px; margin-bottom: 8px; }
- .currency { font-size: 13px; }
- .price { font-size: 24px; font-weight: 400; }
- .delivery { color: var(--muted); font-size: 12px; line-height: 16px; }
- .delivery b { color: #007600; }
+.product-img { width: 100%; height: 100%; object-fit: cover; }
+.product-info { padding: 16px; }
+.product-name { font-size: 16px; line-height: 20px; margin-bottom: 8px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.rating { display: flex; align-items: center; gap: 6px; margin-bottom: 8px; }
+.stars { color: #ffa41c; font-size: 14px; }
+.rating-count { color: #007185; font-size: 13px; }
+.price-row { display: flex; align-items: baseline; gap: 4px; margin-bottom: 8px; }
+.currency { font-size: 13px; }
+.price { font-size: 24px; font-weight: 400; }
+.delivery { color: var(--muted); font-size: 12px; line-height: 16px; }
+.delivery b { color: #007600; }
        [data-theme="dark"].delivery b { color: #00b300; }
- .no-results { text-align: center; padding: 60px 20px; font-size: 18px; color: var(--muted); display: none; }
- .footer { background: var(--nav); color: #fff; padding: 40px 20px; margin-top: 60px; }
- .footer-content { max-width: 1400px; margin: 0 auto; text-align: center; }
- .footer-links { display: flex; justify-content: center; gap: 30px; margin-bottom: 20px; flex-wrap: wrap; }
- .footer-links a { color: #ddd; text-decoration: none; font-size: 14px; }
- .footer-links a:hover { text-decoration: underline; }
+.no-results { text-align: center; padding: 60px 20px; font-size: 18px; color: var(--muted); display: none; }
+.footer { background: var(--nav); color: #fff; padding: 40px 20px; margin-top: 60px; }
+.footer-content { max-width: 1400px; margin: 0 auto; text-align: center; }
+.footer-links { display: flex; justify-content: center; gap: 30px; margin-bottom: 20px; flex-wrap: wrap; }
+.footer-links a { color: #ddd; text-decoration: none; font-size: 14px; }
+.footer-links a:hover { text-decoration: underline; }
         @media(max-width: 768px) {
-   .header-top { flex-wrap: wrap; }
-   .search-bar { order: 3; width: 100%; max-width: 100%; }
-   .product-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-   .product-img-wrap { height: 200px; }
+  .header-top { flex-wrap: wrap; }
+  .search-bar { order: 3; width: 100%; max-width: 100%; }
+  .product-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .product-img-wrap { height: 200px; }
         }
         @media(min-width: 769px) {
-   .product-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+  .product-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
         }
+        /* VELZORIX AI STYLES - ADDED */
+       .ai-results {
+          position: absolute; top: 50px; left: 0; right: 0;
+          background: var(--card); border-radius: 8px;
+          box-shadow: 0 8px 24px rgba(0,0,0,0.2); z-index: 200;
+          display: none; max-height: 400px; overflow-y: auto;
+        }
+       .ai-result-item {
+          display: flex; gap: 12px; padding: 12px;
+          border-bottom: 1px solid var(--bg); text-decoration: none; color: var(--text);
+        }
+       .ai-result-item:hover { background: var(--bg); }
+       .ai-result-img { width: 60px; height: 60px; object-fit: cover; border-radius: 4px; flex-shrink: 0; }
+       .ai-result-name { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
+       .ai-result-price { font-size: 16px; color: var(--blue); font-weight: bold; }
+       .ai-thinking { padding: 16px; text-align: center; color: var(--muted); }
+        /* END VELZORIX AI STYLES */
     </style>
 </head>
    <script>
@@ -97,8 +114,9 @@
         <div class="header-top">
             <a href="index.html" class="header-logo">VELZORI<span>X</span></a>
             <div class="search-bar">
-                <input type="text" class="search-input" id="searchInput" placeholder="Search Velzorix Online Market" onkeyup="searchProducts()">
-                <button class="search-btn" onclick="searchProducts()">🔍</button>
+                <input type="text" class="search-input" id="aiSearchInput" placeholder="Ask Velzorix AI: 'jackets under 100K' or 'gift for sister'" autocomplete="off">
+                <button class="search-btn" onclick="askVelzorixAI()">🤖</button>
+                <div id="aiResults" class="ai-results"></div>
             </div>
             <div class="header-right">
                 <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
@@ -394,34 +412,9 @@
         document.documentElement.setAttribute('data-theme', savedTheme);
         document.querySelector('.theme-toggle').textContent = savedTheme === 'dark'? '☀️' : '🌙';
 
-        function searchProducts() {
-            const input = document.getElementById('searchInput').value.toLowerCase();
-            const cards = document.querySelectorAll('.product-card');
-            const sectionTitle = document.getElementById('sectionTitle');
-            let visibleCount = 0;
-
-            cards.forEach(card => {
-                const name = card.getAttribute('data-name').toLowerCase();
-                const category = card.getAttribute('data-category');
-
-                const matchesSearch = name.includes(input);
-                const matchesCategory = currentCategory === 'all' || category.includes(currentCategory);
-
-                if (matchesSearch && matchesCategory) {
-                    card.classList.remove('hidden');
-                    visibleCount++;
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
-
-            document.getElementById('noResults').style.display = visibleCount === 0? 'block' : 'none';
-            sectionTitle.textContent = input? `Search results for "${input}"` : 'Featured Products';
-        }
-
         function filterCategory(category) {
             currentCategory = category;
-            document.getElementById('searchInput').value = '';
+            document.getElementById('aiSearchInput').value = '';
 
             // Update active nav
             document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
@@ -453,12 +446,96 @@
             });
 
             document.getElementById('noResults').style.display = visibleCount === 0? 'block' : 'none';
+            document.getElementById('aiResults').style.display = 'none';
         }
 
-        // Allow Enter key in search
-        document.getElementById('searchInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') searchProducts();
+        // VELZORIX AI BRAIN - ADDED
+        const velzorixProducts = [
+          {name: "Pastel Essential Tees - 6 Colors", price: 45000, cat: "fashion", img: "tees-pastel.jpg", link: "tees-pastel.html", tags: "tee shirt top summer cheap"},
+          {name: "Essentials Street Backpack", price: 99000, cat: "fashion", img: "backpacks-essentials.jpg", link: "backpacks-essentials.html", tags: "bag backpack school"},
+          {name: "Tokyo Rose Street Shirt", price: 59000, cat: "fashion", img: "shirt-rose.jpg", link: "shirt-rose.html", tags: "shirt tokyo rose"},
+          {name: "Oversized Graphic Tees - 6 Colors", price: 45000, cat: "fashion", img: "tees-gallery.jpg", link: "tees-gallery.html", tags: "tee graphic oversized cheap"},
+          {name: "LV-Style Patch Varsity Jacket", price: 145000, cat: "fashion", img: "jacket-varsity.jpg", link: "jacket-varsity.html", tags: "jacket varsity winter premium"},
+          {name: "Space Galaxy Hoodie - Premium Pullover", price: 60000, cat: "fashion new", img: "hoodie-space.jpg", link: "hoodie-space.html", tags: "hoodie galaxy winter"},
+          {name: "Street Tracksuit - 2-Piece Athletic Set", price: 85000, cat: "fashion", img: "tracksuit-style.jpg", link: "tracksuit-style.html", tags: "tracksuit sport gym"},
+          {name: "Floral Denim Jacket - Embroidered Design", price: 50000, cat: "fashion", img: "jacket-floral.jpg", link: "jacket-floral.html", tags: "jacket denim floral"},
+          {name: "Hockey Jersey White - Limited Edition", price: 50000, cat: "fashion new", img: "jersey-hockey-w.jpg", link: "jersey-hockey-w.html", tags: "jersey hockey sport"},
+          {name: "Hockey Jersey Orange - Breathable Fabric", price: 50000, cat: "fashion", img: "jersey-hockey-o.jpg", link: "jersey-hockey-o.html", tags: "jersey hockey sport"},
+          {name: "Rhinestone Hoodie - Crystal Logo Design", price: 60000, cat: "fashion new", img: "hoodie-rhinestone.jpg", link: "hoodie-rhinestone.html", tags: "hoodie rhinestone bling winter"},
+          {name: "Pattern Button Shirt - Premium Cotton", price: 25000, cat: "fashion", img: "shirt-pattern.jpg", link: "shirt-pattern.html", tags: "shirt button cotton cheap gift"}
+        ];
+
+        function askVelzorixAI() {
+          const query = document.getElementById('aiSearchInput').value.toLowerCase().trim();
+          const resultsDiv = document.getElementById('aiResults');
+
+          if(query.length < 2) return;
+
+          resultsDiv.innerHTML = '<div class="ai-thinking">🤖 Velzorix AI is thinking...</div>';
+          resultsDiv.style.display = 'block';
+
+          setTimeout(() => {
+            let matches = [];
+
+            const priceMatch = query.match(/under\s*(\d+)k?/);
+            const maxPrice = priceMatch? parseInt(priceMatch[1]) * 1000 : Infinity;
+
+            velzorixProducts.forEach(p => {
+              let score = 0;
+              if(p.price <= maxPrice) score++;
+              if(query.includes('jacket') && p.tags.includes('jacket')) score += 2;
+              if(query.includes('hoodie') && p.tags.includes('hoodie')) score += 2;
+              if(query.includes('tee') && p.tags.includes('tee')) score += 2;
+              if(query.includes('shirt') && p.tags.includes('shirt')) score += 2;
+              if(query.includes('cheap') && p.price < 50000) score += 2;
+              if(query.includes('gift') && p.price < 70000) score += 1;
+              if(query.includes('winter') && (p.tags.includes('jacket') || p.tags.includes('hoodie'))) score += 1;
+              if(query.includes('premium') && p.price > 100000) score += 1;
+              if(p.name.toLowerCase().includes(query) || p.tags.includes(query)) score += 3;
+
+              if(score > 0) matches.push({...p, score});
+            });
+
+            matches.sort((a,b) => b.score - a.score);
+            matches = matches.slice(0,4);
+
+            if(matches.length) {
+              resultsDiv.innerHTML = matches.map(p => `
+                <a href="${p.link}" class="ai-result-item">
+                  <img src="${p.img}" class="ai-result-img" alt="${p.name}">
+                  <div>
+                    <div class="ai-result-name">${p.name}</div>
+                    <div class="ai-result-price">UGX ${p.price.toLocaleString()}</div>
+                  </div>
+                </a>
+              `).join('') + `
+              <a href="https://wa.me/256778003397?text=Hi, I need help finding: ${encodeURIComponent(query)}"
+                 class="ai-result-item" style="background:var(--blue); color:#fff; justify-content:center; font-weight:bold;">
+                 💬 Chat with human on WhatsApp
+              </a>`;
+            } else {
+              resultsDiv.innerHTML = `
+                <div class="ai-thinking">
+                  No exact match for "${query}" 😕<br>
+                  Try: "hoodies under 60K" or "varsity jacket"<br><br>
+                  <a href="https://wa.me/256778003397?text=I need help finding products" style="color:var(--blue); font-weight:bold;">Chat with us on WhatsApp</a>
+                </div>`;
+            }
+          }, 600);
+        }
+
+        // Enter key support
+        document.getElementById('aiSearchInput').addEventListener('keypress', function(e) {
+          if (e.key === 'Enter') askVelzorixAI();
         });
+
+        // Hide results when clicking outside
+        document.addEventListener('click', function(e) {
+          if (!e.target.closest('.search-bar')) {
+            document.getElementById('aiResults').style.display = 'none';
+          }
+        });
+        // END VELZORIX AI BRAIN
     </script>
 </body>
 </html>
